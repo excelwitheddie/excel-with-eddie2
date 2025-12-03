@@ -1,8 +1,17 @@
 title: "Excel with Eddie"
 email: "hello@excelwitheddie.com"
 description: "Personalized Microsoft Excel tutoring — formulas, PivotTables, dashboards, automation."
-baseurl: "" # for GitHub Pages leave empty
-url: "https://yourusername.github.io/yourrepo" # update after deploy
+
+# Site URL (MUST match your custom domain)
+url: "https://excelwitheddie.com"
+
+# GitHub Pages setting — always leave empty for root site
+baseurl: ""
+
 theme: minima
+
 plugins:
   - jekyll-seo-tag
+
+# Allows future-dated blog posts to appear
+future: true
