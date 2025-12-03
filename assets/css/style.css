@@ -1,14 +1,82 @@
-:root{--green:#1D6F42;--accent:#F2C94C;--dark:#0f1720;--muted:#6b7280;--bg:#ffffff;}
-body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--dark); margin:0; background:var(--bg);}
-.header{display:flex;align-items:center;gap:18px;padding:28px 12%;border-bottom:1px solid #eee;}
-.brand img{height:56px;}
-.nav{margin-left:auto;display:flex;gap:18px;align-items:center;}
-a.cta{background:var(--green);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600;}
-.hero{padding:60px 12%;display:flex;gap:40px;align-items:center;}
-.hero .copy{flex:1;}
-.hero h1{font-size:44px;margin:0 0 18px;line-height:1.05;}
-.hero p{color:var(--muted);font-size:18px;margin:0 0 20px;}
-.features{display:flex;gap:18px;padding:30px 12%;}
-.card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(15,23,32,0.04);flex:1;}
-.footer{padding:28px 12%;border-top:1px solid #f0f0f0;color:var(--muted);display:flex;justify-content:space-between;align-items:center;}
-@media (max-width:800px){.hero{flex-direction:column;padding:36px 6%;}.header,.features{padding:18px 6%}}
+/* Excel with Eddie – Brand Styles */
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #083c5a;
+}
+
+/* HEADER */
+header.site-header {
+  background: #16a085;
+  padding: 20px;
+  text-align: center;
+}
+
+header.site-header a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(135deg, #16a085, #27c498);
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.hero .cta-btn {
+  background: #083c5a;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* SECTIONS */
+.section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2.4rem;
+  border-left: 6px solid #16a085;
+  padding-left: 12px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+/* FOOTER */
+footer {
+  background: #083c5a;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  margin-top: 40px;
+}
