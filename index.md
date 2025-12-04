@@ -3,11 +3,15 @@ layout: default
 title: Excel with Eddie – Expert Excel Tutoring
 ---
 
-<div class="hero">
+<section class="hero">
+  <img src="{{ site.logo | relative_url }}" alt="Excel with Eddie logo" class="hero-logo">
+
   <h1>Master Excel Faster</h1>
-  <p>1-on-1 Excel tutoring for beginners, professionals, and students.</p>
+  <p>Your personal Excel tutor — learn formulas, pivot tables, dashboards, and data skills.</p>
+
   <a class="cta-btn" href="/book">Book a Session</a>
-</div>
+</section>
+
 
 <div class="section">
   <h2>Why Learn Excel With Eddie?</h2>
