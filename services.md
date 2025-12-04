@@ -1,21 +1,25 @@
 ---
 layout: default
 title: Services
-description: Excel tutoring services for beginners, intermediates, and advanced users.
 ---
-<section style="padding:40px 12%;">
-  <h1>Excel Tutoring Services</h1>
-  <p>Master Microsoft Excel with clear, patient teaching and real-world examples. Every lesson is tailored to your goals, skill level, and workflow.</p>
 
-  <h2>Beginner Excel</h2>
-  <p>Workbook navigation, formatting, basic formulas, charts.</p>
+<h1>Excel Tutoring Services</h1>
 
-  <h2>Intermediate Excel</h2>
-  <p>XLOOKUP, VLOOKUP, PivotTables, multi-sheet formulas, data cleanup tools.</p>
+<p>I offer hands-on Excel training for all skill levels. Sessions are tailored to your goals.</p>
 
-  <h2>Advanced Excel</h2>
-  <p>Dashboards, macros, VBA fundamentals, automation, data modeling.</p>
+<div class="card">
+  <h2>Beginner Excel Training</h2>
+  <p>Learn formulas, formatting, charts, navigation, and confidence building.</p>
+</div>
 
-  <h2>Corporate Training</h2>
-  <p>Custom team workshops, reporting dashboards, and workflow optimization.</p>
-</section>
+<div class="card">
+  <h2>Intermediate Excel Skills</h2>
+  <p>Pivot tables, VLOOKUP, data cleanup, and productivity shortcuts.</p>
+</div>
+
+<div class="card">
+  <h2>Advanced Excel Coaching</h2>
+  <p>Automation, dashboards, advanced formulas, and workflow optimization.</p>
+</div>
+
+<a href="/book" class="cta-btn">Book a Session</a>
