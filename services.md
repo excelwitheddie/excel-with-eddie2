@@ -3,66 +3,52 @@ layout: default
 title: Services
 ---
 
-<section class="services-hero">
-  <h1>Excel Tutoring Services</h1>
-  <p>Learn the Excel skills you need to succeed — beginner to advanced, fully personalized.</p>
+<!-- Services Hero -->
+<section class="services-hero"> … </section>
+
+<!-- Services Cards -->
+<section class="services-grid"> … </section>
+
+<!-- Pricing Table -->
+<section class="pricing-section"> … </section>
+
+<!-- Testimonials -->
+<section class="testimonials"> … </section>
+
+<!-- ⭐ ADD STEP 4 HERE ⭐ -->
+<section class="comparison">
+  <h2>Compare Skill Levels</h2>
+
+  <table class="compare-table">
+    <tr>
+      <th>Feature</th>
+      <th>Beginner</th>
+      <th>Intermediate</th>
+      <th>Advanced</th>
+    </tr>
+    <tr>
+      <td>Formulas</td>
+      <td>Basic (SUM, AVERAGE)</td>
+      <td>LOOKUP, IF, COUNTIF</td>
+      <td>Array formulas, nested logic</td>
+    </tr>
+    <tr>
+      <td>Data Tools</td>
+      <td>Formatting, sorting</td>
+      <td>PivotTables, cleaning</td>
+      <td>PowerQuery, automation</td>
+    </tr>
+    <tr>
+      <td>Dashboards</td>
+      <td>No</td>
+      <td>Basic charts</td>
+      <td>Interactive dashboards</td>
+    </tr>
+    <tr>
+      <td>Automation</td>
+      <td>No</td>
+      <td>Shortcuts</td>
+      <td>Macros / workflows</td>
+    </tr>
+  </table>
 </section>
-
-<section class="services-grid">
-
-  <!-- Card 1 -->
-  <div class="service-card">
-    <div class="service-icon">📘</div>
-    <h2>Beginner Excel Training</h2>
-    <p>Perfect for those new to Excel. Learn navigation, formulas, formatting, charts, tables, and how to build confidence using Excel daily.</p>
-    <a href="/book" class="service-btn">Book a Session</a>
-  </div>
-
-  <!-- Card 2 -->
-  <div class="service-card">
-    <div class="service-icon">📊</div>
-    <h2>Intermediate Excel Skills</h2>
-    <p>Master essential tools such as PivotTables, VLOOKUP/XLOOKUP, conditional formatt
-
-    <section class="pricing-section">
-  <h2>Pricing</h2>
-  <p>Simple, transparent pricing. Pay only for the time you need.</p>
-
-  <div class="pricing-grid">
-
-    <div class="pricing-card">
-      <h3>Single Session</h3>
-      <p class="price">$49 / 1 hour</p>
-      <ul>
-        <li>Personalized Excel tutoring</li>
-        <li>Beginner to advanced</li>
-        <li>Live screen-sharing</li>
-      </ul>
-      <a href="/book" class="price-btn">Book Now</a>
-    </div>
-
-    <div class="pricing-card featured">
-      <h3>5-Session Package</h3>
-      <p class="price">$199 / 5 hours</p>
-      <ul>
-        <li>Save $46 vs single sessions</li>
-        <li>Custom learning plan</li>
-        <li>Recorded lessons (optional)</li>
-      </ul>
-      <a href="/book" class="price-btn">Most Popular</a>
-    </div>
-
-    <div class="pricing-card">
-      <h3>10-Session Intensive</h3>
-      <p class="price">$349 / 10 hours</p>
-      <ul>
-        <li>Save $141 total</li>
-        <li>Career-focused training</li>
-        <li>Advanced projects & dashboards</li>
-      </ul>
-      <a href="/book" class="price-btn">Book Now</a>
-    </div>
-
-  </div>
-</section>
-
