@@ -194,4 +194,80 @@ header.site-header a {
   color: #00c27a;
   text-decoration: none;
 }
+/* Services Page Hero */
+.services-hero {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+.services-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #083c5a;
+}
+
+.services-hero p {
+  font-size: 1.2rem;
+  color: #083c5a;
+}
+
+/* Services Grid */
+.services-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Service Card */
+.service-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px 25px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.service-card h2 {
+  font-size: 1.6rem;
+  color: #083c5a;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  color: #083c5a;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Service Button */
+.service-btn {
+  background: #083c5a;
+  color: white;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.service-btn:hover {
+  background: #00a870;
+}
 
