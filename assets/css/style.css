@@ -164,10 +164,16 @@ header.site-header a {
 }
 
 /* FOOTER */
-footer {
+.site-footer {
   background: #083c5a;
   color: white;
-  padding: 30px;
   text-align: center;
+  padding: 30px;
   margin-top: 40px;
 }
+
+.site-footer a {
+  color: #00c27a;
+  text-decoration: none;
+}
+
