@@ -15,5 +15,8 @@ logo: /assets/images/logo.png
 plugins:
   - jekyll-seo-tag
 
+  include:
+  - assets/js
+
 # Allows future-dated blog posts to appear
 future: true
