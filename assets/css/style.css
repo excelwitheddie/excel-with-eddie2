@@ -16,11 +16,11 @@
   padding: 15px 0;
 }
 
-/* HEADER LOGO SIZE */
 .header-logo {
-  height: 90px;       /* increase logo size */
+  height: 70px;       /* adjust the size */
   width: auto;
-  padding: 10px 0;    /* reduce top-bottom spacing */
+  padding: 0;         /* remove extra white space */
+  margin: 0;
 }
 
 /* Reduce header height padding */
