@@ -270,4 +270,11 @@ header.site-header a {
 .service-btn:hover {
   background: #00a870;
 }
+.service-icon-img {
+  height: 70px;
+  width: 70px;
+  margin: 0 auto 20px auto;
+  display: block;
+  filter: none !important;
+}
 
