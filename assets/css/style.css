@@ -277,4 +277,8 @@ header.site-header a {
   display: block;
   filter: none !important;
 }
+img[src$=".svg"] {
+  stroke: #083c5a !important;
+  fill: transparent !important;
+}
 
