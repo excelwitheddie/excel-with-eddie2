@@ -3,23 +3,23 @@ layout: default
 title: Services
 ---
 
-<h1>Excel Tutoring Services</h1>
+<section class="services-hero">
+  <h1>Excel Tutoring Services</h1>
+  <p>Learn the Excel skills you need to succeed — beginner to advanced, fully personalized.</p>
+</section>
 
-<p>I offer hands-on Excel training for all skill levels. Sessions are tailored to your goals.</p>
+<section class="services-grid">
 
-<div class="card">
-  <h2>Beginner Excel Training</h2>
-  <p>Learn formulas, formatting, charts, navigation, and confidence building.</p>
-</div>
+  <!-- Card 1 -->
+  <div class="service-card">
+    <div class="service-icon">📘</div>
+    <h2>Beginner Excel Training</h2>
+    <p>Perfect for those new to Excel. Learn navigation, formulas, formatting, charts, tables, and how to build confidence using Excel daily.</p>
+    <a href="/book" class="service-btn">Book a Session</a>
+  </div>
 
-<div class="card">
-  <h2>Intermediate Excel Skills</h2>
-  <p>Pivot tables, VLOOKUP, data cleanup, and productivity shortcuts.</p>
-</div>
-
-<div class="card">
-  <h2>Advanced Excel Coaching</h2>
-  <p>Automation, dashboards, advanced formulas, and workflow optimization.</p>
-</div>
-
-<a href="/book" class="cta-btn">Book a Session</a>
+  <!-- Card 2 -->
+  <div class="service-card">
+    <div class="service-icon">📊</div>
+    <h2>Intermediate Excel Skills</h2>
+    <p>Master essential tools such as PivotTables, VLOOKUP/XLOOKUP, conditional formatt
