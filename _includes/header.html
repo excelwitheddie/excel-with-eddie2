@@ -1,24 +1,31 @@
-<header style="background:#ffffff;border-bottom:1px solid #e2e8f0;">
-  <div style="max-width:1100px;margin:0 auto;padding:10px 20px;
-              display:flex;align-items:center;justify-content:space-between;">
-    
-    <!-- Logo left -->
-    <a href="{{ "/" | relative_url }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
-      <img src="{{ site.logo | relative_url }}" 
-     alt="Excel with Eddie logo"
-     style="height:95px;display:block;">
-
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ "/" | relative_url }}" class="logo-link">
+      <img src="{{ site.logo | relative_url }}" alt="Excel with Eddie logo" class="site-logo">
     </a>
 
-    <!-- Nav right -->
-    <nav>
-  <a href="/" class="nav-link" style="margin-right:20px;">Home</a>
-  <a href="/about" class="nav-link" style="margin-right:20px;">About</a>
-  <a href="/services" class="nav-link" style="margin-right:20px;">Services</a>
-  <a href="/book" class="nav-link" style="margin-right:20px;">Book</a>
-  <a href="/blog" class="nav-link">Blog</a>
-</nav>
+    <nav class="main-nav">
+      <a href="/" class="nav-item">Home</a>
+      <a href="/about" class="nav-item">About</a>
+      <a href="/services" class="nav-item">Services</a>
+      <a href="/book" class="nav-item">Book</a>
+      <a href="/blog" class="nav-item">Blog</a>
+    </nav>
 
-
+    <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
   </div>
+
+  <nav id="mobileMenu" class="mobile-nav">
+    <a href="/" class="mobile-item">Home</a>
+    <a href="/about" class="mobile-item">About</a>
+    <a href="/services" class="mobile-item">Services</a>
+    <a href="/book" class="mobile-item">Book</a>
+    <a href="/blog" class="mobile-item">Blog</a>
+  </nav>
 </header>
+
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
