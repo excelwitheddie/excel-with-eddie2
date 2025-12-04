@@ -57,11 +57,12 @@ header.site-header a {
 
 /* HERO SECTION */
 .hero {
-  background: linear-gradient(135deg, #16a085, #27c498);
+  background: #009a63;
   padding: 80px 20px;
   text-align: center;
-  color: #fff;
+  color: white;
 }
+
 
 .hero h1 {
   font-size: 3rem;
