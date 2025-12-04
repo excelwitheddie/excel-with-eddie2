@@ -1,36 +1,83 @@
 /* Excel with Eddie – Brand Styles */
-/* Header Fix */
+/* Sticky Header */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  padding: 10px 0;
 }
 
-.nav-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Header Inner */
+.header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 15px 0;
 }
 
 .site-logo {
-  height: 55px;
-  display: block;
+  height: 95px;
 }
 
-.main-nav .nav-link {
-  margin-left: 25px;
-  text-decoration: none;
+/* Desktop Nav */
+.main-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-item {
   color: #083c5a;
   font-weight: 600;
   font-size: 1.1rem;
+  text-decoration: none;
 }
 
-.main-nav .nav-link:hover {
-  color: #16a085;
+.nav-item:hover {
+  color: #00a870;
 }
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobile Nav */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+.mobile-item {
+  padding: 12px 0;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #083c5a;
+}
+
+.mobile-item:hover {
+  color: #00a870;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+}
+
 
 
 body {
