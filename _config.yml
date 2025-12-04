@@ -2,12 +2,13 @@ title: "Excel with Eddie"
 email: "hello@excelwitheddie.com"
 description: "Personalized Microsoft Excel tutoring — formulas, PivotTables, dashboards, automation."
 
-# Site URL (MUST match your custom domain)
+# Site URL (must match your custom domain)
 url: "https://excelwitheddie.com"
 
-# GitHub Pages setting — always leave empty for root site
+# GitHub Pages setting — leave empty for root site
 baseurl: ""
 
+# You are using custom layouts, so theme must be null
 theme: null
 
 logo: /assets/images/logo.png
@@ -15,8 +16,12 @@ logo: /assets/images/logo.png
 plugins:
   - jekyll-seo-tag
 
-  include:
+# Allow Jekyll to serve JS files from this folder
+include:
   - assets/js
+  - assets/css
+  - assets/images
+  - assets/icons
 
 # Allows future-dated blog posts to appear
 future: true
