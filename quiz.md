@@ -122,3 +122,4 @@ function showQuestion() {
 function submitAnswer(choice) {
   const q =
 <script src="/assets/js/quiz.js"></script>
+
