@@ -8,6 +8,8 @@ url: "https://excelwitheddie.com"
 # GitHub Pages setting — always leave empty for root site
 baseurl: ""
 
+logo: /assets/img/logo.png
+
 theme: null
 
 plugins:
