@@ -4,7 +4,8 @@ title: Excel with Eddie – Expert Excel Tutoring
 ---
 
 <section class="hero">
-  <img src="{{ site.logo | relative_url }}" alt="Excel with Eddie logo" class="hero-logo">
+  <img class="hero-logo" src="/assets/images/logo.png" alt="Excel With Eddie Logo">
+
 
   <h1>Master Excel Faster</h1>
   <p>Your personal Excel tutor — learn formulas, pivot tables, dashboards, and data skills.</p>
