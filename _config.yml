@@ -8,7 +8,7 @@ url: "https://excelwitheddie.com"
 # GitHub Pages setting — always leave empty for root site
 baseurl: ""
 
-theme: minima
+theme: null
 
 plugins:
   - jekyll-seo-tag
