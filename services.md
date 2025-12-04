@@ -18,7 +18,7 @@ title: Services
 
   <!-- Beginner -->
   <div class="service-card">
-    <img src="{{ '/assets/icons/beginner.svg' | absolute_url }}" alt="Beginner icon" style="height:70px;margin-bottom:20px;">
+    <img src="{{ '/assets/icons/beginner.svg' | absolute_url }}" class="service-icon-img">
     <h2>Beginner Excel Training</h2>
     <p>Start from the basics. Learn formulas, formatting, charts, navigation, tables, and build confidence using Excel for everyday tasks.</p>
     <a href="/book" class="service-btn">Book a Session</a>
@@ -26,7 +26,7 @@ title: Services
 
   <!-- Intermediate -->
   <div class="service-card">
-    <img src="{{ '/assets/icons/intermediate.svg' | absolute_url }}" alt="Intermediate icon" style="height:70px;margin-bottom:20px;">
+    <img src="{{ '/assets/icons/intermediate.svg' | absolute_url }}" class="service-icon-img">
     <h2>Intermediate Excel Skills</h2>
     <p>Go beyond the basics. Master PivotTables, XLOOKUP, data cleanup, conditional formatting, shortcut workflows, and real-world scenarios.</p>
     <a href="/book" class="service-btn">Book a Session</a>
@@ -34,7 +34,7 @@ title: Services
 
   <!-- Advanced -->
   <div class="service-card">
-    <img src="{{ '/assets/icons/advanced.svg' | absolute_url }}" alt="Advanced icon" style="height:70px;margin-bottom:20px;">
+    <img src="{{ '/assets/icons/advanced.svg' | absolute_url }}" class="service-icon-img">
     <h2>Advanced Excel Coaching</h2>
     <p>Deep-dive into advanced formulas, dashboard creation, automation, macros, data modeling, and professional data analysis techniques.</p>
     <a href="/book" class="service-btn">Book a Session</a>
