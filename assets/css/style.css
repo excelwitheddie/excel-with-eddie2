@@ -102,33 +102,43 @@ header.site-header a {
   font-size: 1.6rem;
 }
 
-/* HERO SECTION */
+/* Hero Section */
 .hero {
-  background: #009a63;
-  padding: 80px 20px;
+  background: white;
   text-align: center;
-  color: white;
+  padding: 80px 20px;
 }
 
+.hero-logo {
+  height: 120px;
+  margin-bottom: 20px;
+}
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
+  color: #083c5a;
   margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #083c5a;
+  margin-bottom: 25px;
 }
 
-.hero .cta-btn {
+.cta-btn {
   background: #083c5a;
   color: white;
-  padding: 14px 26px;
-  border-radius: 6px;
+  padding: 14px 32px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 1.2rem;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background: #00a870;
 }
 
 /* SECTIONS */
