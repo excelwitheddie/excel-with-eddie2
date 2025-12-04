@@ -1,13 +1,19 @@
-<header class="site-header">
-  <div class="container header-content">
-    <a href="{{ "/" | relative_url }}" class="logo-link">
-      <img src="{{ site.logo | relative_url }}" alt="Excel with Eddie logo" class="site-logo">
+<header style="background:#ffffff;border-bottom:1px solid #e2e8f0;">
+  <div style="max-width:1100px;margin:0 auto;padding:10px 20px;
+              display:flex;align-items:center;justify-content:space-between;">
+    
+    <!-- Logo left -->
+    <a href="{{ "/" | relative_url }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+      <img src="{{ site.logo | relative_url }}" alt="Excel with Eddie logo"
+           style="height:56px;display:block;">
     </a>
 
-    <nav class="main-nav">
-      <a href="/" class="nav-link">Home</a>
-      <a href="/book" class="nav-link">Book</a>
-      <a href="/blog" class="nav-link">Blog</a>
+    <!-- Nav right -->
+    <nav>
+      <a href="/" style="margin-right:20px;text-decoration:none;color:#083c5a;font-weight:600;font-size:1.05rem;">Home</a>
+      <a href="/book" style="margin-right:20px;text-decoration:none;color:#083c5a;font-weight:600;font-size:1.05rem;">Book</a>
+      <a href="/blog" style="text-decoration:none;color:#083c5a;font-weight:600;font-size:1.05rem;">Blog</a>
     </nav>
+
   </div>
 </header>
