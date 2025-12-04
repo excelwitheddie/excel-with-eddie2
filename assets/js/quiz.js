@@ -1,3 +1,6 @@
+---
+layout: null
+---
 const questions = [
   { q: "1. What does the SUM function do?", answers: ["Adds numbers", "Finds max value", "Counts blanks"], correct: 0, explanation: "SUM totals all numbers in a range." },
   { q: "2. What does a PivotTable do?", answers: ["Formats text", "Summarizes data", "Creates charts automatically"], correct: 1, explanation: "PivotTables summarize and analyze data quickly." },
