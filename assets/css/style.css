@@ -118,10 +118,14 @@ header.site-header a {
   padding: 80px 20px;
 }
 
+/* HERO LOGO SIZE */
 .hero-logo {
-  height: 120px;
-  margin-bottom: 20px;
+  display: block;
+  margin: 0 auto 20px auto;
+  height: 160px;      /* adjust as desired */
+  width: auto;
 }
+
 
 .hero h1 {
   font-size: 3rem;
