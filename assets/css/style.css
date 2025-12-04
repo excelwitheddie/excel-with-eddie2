@@ -18,7 +18,7 @@
 
 /* HEADER LOGO SIZE */
 .header-logo {
-  height: 70px;       /* increase logo size */
+  height: 90px;       /* increase logo size */
   width: auto;
   padding: 10px 0;    /* reduce top-bottom spacing */
 }
@@ -122,7 +122,7 @@ header.site-header a {
 .hero-logo {
   display: block;
   margin: 0 auto 20px auto;
-  height: 160px;      /* adjust as desired */
+  height: 200px;      /* adjust as desired */
   width: auto;
 }
 
