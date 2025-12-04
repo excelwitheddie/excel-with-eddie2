@@ -6,80 +6,97 @@ title: Services
 <!-- ========================= -->
 <!-- HERO SECTION -->
 <!-- ========================= -->
-<section class="services-hero" style="text-align:center;">
+<section class="services-hero" style="text-align:center; max-width:850px; margin:0 auto;">
   <h1>Excel Tutoring Services</h1>
-  <p>Learn Excel with personalized instruction for beginners, professionals, and advanced users. Every session is tailored to your goals.</p>
+  <p style="font-size:1.15rem; color:#0a3c5a; margin-top:10px;">
+    Personalized Excel training for beginners, professionals, students, and advanced users.
+    Every session is tailored to your goals.
+  </p>
 </section>
+
 
 <!-- ========================= -->
 <!-- SERVICE CARDS -->
 <!-- ========================= -->
-<section class="services-grid" style="text-align:center;">
+<section class="services-grid" style="text-align:center; margin-top:40px;">
 
   <!-- Beginner -->
   <div class="service-card">
-    <img src="{{ '/assets/icons/beginner.svg' | absolute_url }}" class="service-icon-img">
+    <img src="{{ '/assets/icons/beginner.svg' | relative_url }}" alt="Beginner icon" style="height:70px;margin-bottom:20px;">
     <h2>Beginner Excel Training</h2>
-    <p>Start from the basics. Learn formulas, formatting, charts, navigation, tables, and build confidence using Excel for everyday tasks.</p>
+    <p>
+      Learn the fundamentals of Excel.  
+      Gain confidence with formulas, formatting, charts, tables, and everyday tasks.
+    </p>
     <a href="/book" class="service-btn">Book a Session</a>
   </div>
 
   <!-- Intermediate -->
   <div class="service-card">
-    <img src="{{ '/assets/icons/intermediate.svg' | absolute_url }}" class="service-icon-img">
+    <img src="{{ '/assets/icons/intermediate.svg' | relative_url }}" alt="Intermediate icon" style="height:70px;margin-bottom:20px;">
     <h2>Intermediate Excel Skills</h2>
-    <p>Go beyond the basics. Master PivotTables, XLOOKUP, data cleanup, conditional formatting, shortcut workflows, and real-world scenarios.</p>
+    <p>
+      Take your Excel skills to the next level.  
+      Master PivotTables, XLOOKUP, data cleanup, workflows, and automation basics.
+    </p>
     <a href="/book" class="service-btn">Book a Session</a>
   </div>
 
   <!-- Advanced -->
   <div class="service-card">
-    <img src="{{ '/assets/icons/advanced.svg' | absolute_url }}" class="service-icon-img">
+    <img src="{{ '/assets/icons/advanced.svg' | relative_url }}" alt="Advanced icon" style="height:70px;margin-bottom:20px;">
     <h2>Advanced Excel Coaching</h2>
-    <p>Deep-dive into advanced formulas, dashboard creation, automation, macros, data modeling, and professional data analysis techniques.</p>
+    <p>
+      Deep-dive into dashboards, advanced formulas, macros, automations,  
+      and data modeling for professional-level Excel mastery.
+    </p>
     <a href="/book" class="service-btn">Book a Session</a>
   </div>
 
 </section>
 
+
 <!-- ========================= -->
-<!-- PRICING TABLE -->
+<!-- PRICING -->
 <!-- ========================= -->
-<section class="pricing-section" style="text-align:center;">
+<section class="pricing-section" style="text-align:center; margin-top:60px;">
   <h2>Pricing</h2>
-  <p>Simple, transparent pricing with no commitments.</p>
+  <p>Clear, simple pricing — no commitments or hidden fees.</p>
 
   <div class="pricing-grid">
 
+    <!-- Single Session -->
     <div class="pricing-card">
       <h3>Single Session</h3>
-      <p class="price">$49 / 1 hour</p>
+      <p class="price">$60 / 1 hour</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Personalized Excel tutoring</li>
-        <li>Beginner to advanced</li>
-        <li>Live screen-sharing</li>
+        <li>Personalized 1-on-1 training</li>
+        <li>Beginner to advanced lessons</li>
+        <li>Hands-on, practical learning</li>
       </ul>
       <a href="/book" class="price-btn">Book Now</a>
     </div>
 
+    <!-- 3-Session Package -->
     <div class="pricing-card featured">
-      <h3>5-Session Package</h3>
-      <p class="price">$199 / 5 hours</p>
+      <h3>3-Session Package</h3>
+      <p class="price">$150 / 3 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Save $46 total</li>
-        <li>Custom learning plan</li>
-        <li>Recorded lessons (optional)</li>
+        <li>Save $30 total</li>
+        <li>Structured skill-building</li>
+        <li>Recap notes provided</li>
       </ul>
       <a href="/book" class="price-btn">Most Popular</a>
     </div>
 
+    <!-- 10-Session Bundle -->
     <div class="pricing-card">
-      <h3>10-Session Intensive</h3>
-      <p class="price">$349 / 10 hours</p>
+      <h3>10-Session Bundle</h3>
+      <p class="price">$450 / 10 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Save $141 total</li>
-        <li>Career-focused training</li>
-        <li>Advanced dashboards & automations</li>
+        <li>Save $150 total</li>
+        <li>Deep Excel mastery</li>
+        <li>Dashboards, automation & advanced workflows</li>
       </ul>
       <a href="/book" class="price-btn">Book Now</a>
     </div>
@@ -87,26 +104,30 @@ title: Services
   </div>
 </section>
 
+
 <!-- ========================= -->
 <!-- TESTIMONIALS -->
 <!-- ========================= -->
-<section class="testimonials" style="text-align:center;">
+<section class="testimonials" style="text-align:center; margin-top:60px;">
   <h2>What Students Are Saying</h2>
 
   <div class="testimonial-grid">
 
     <div class="testimonial">
-      <p>“Eddie helped me go from overwhelmed to confident. I finally understand formulas and PivotTables.”</p>
+      <p>“Eddie helped me go from overwhelmed to confident.  
+      I finally understand formulas and PivotTables.”</p>
       <h4>— Sarah M.</h4>
     </div>
 
     <div class="testimonial">
-      <p>“Clear explanations, patient guidance, and real-world examples. The best Excel help I’ve ever had.”</p>
+      <p>“Clear explanations, patient guidance, and practical examples.  
+      The best Excel help I’ve ever had.”</p>
       <h4>— Jacob R.</h4>
     </div>
 
     <div class="testimonial">
-      <p>“I built a full dashboard for work after just a few sessions. Highly recommended!”</p>
+      <p>“I built a full dashboard for work after just a few sessions.  
+      Highly recommended!”</p>
       <h4>— Victoria L.</h4>
     </div>
 
