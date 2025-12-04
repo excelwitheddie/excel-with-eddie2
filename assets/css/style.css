@@ -16,9 +16,18 @@
   padding: 15px 0;
 }
 
-.site-logo {
-  height: 95px;
+/* HEADER LOGO SIZE */
+.header-logo {
+  height: 70px;       /* increase logo size */
+  width: auto;
+  padding: 10px 0;    /* reduce top-bottom spacing */
 }
+
+/* Reduce header height padding */
+header {
+  padding: 10px 20px !important;
+}
+
 
 /* Desktop Nav */
 .main-nav {
