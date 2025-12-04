@@ -1,11 +1,13 @@
 <header class="site-header">
-  <a href="/">
-    <img src="/assets/img/excelwitheddie2.png" alt="Excel with Eddie" style="height:60px;">
-  </a>
+  <div class="container header-content">
+    <a href="{{ "/" | relative_url }}" class="logo-link">
+      <img src="{{ site.logo | relative_url }}" alt="Excel with Eddie logo" class="site-logo">
+    </a>
 
-  <nav class="main-nav">
-    <a href="/">Home</a>
-    <a href="/book">Book</a>
-    <a href="/blog">Blog</a>
-  </nav>
+    <nav class="main-nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/book" class="nav-link">Book</a>
+      <a href="/blog" class="nav-link">Blog</a>
+    </nav>
+  </div>
 </header>
