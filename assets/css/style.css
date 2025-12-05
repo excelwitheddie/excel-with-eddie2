@@ -1,24 +1,24 @@
 /* =========================================================
-   Excel with Eddie – Optimized Global Styles
+   Excel with Eddie – Production-Optimized Global Styles
    ========================================================= */
 
 /* ---------- Brand Variables ---------- */
 :root {
-  --brand-blue: #083c5a;
-  --brand-green: #00a870;
-  --brand-lightgreen: #16a085;
-  --brand-bg: #f5f7fa;
-  --text-color: #083c5a;
+  --blue: #083c5a;
+  --green: #16a085;
+  --green-hover: #00a870;
+  --footer-blue: #083c5a;
+  --bg: #f5f7fa;
   --white: #ffffff;
 }
 
-/* ---------- Global Reset ---------- */
+/* ---------- Base Reset ---------- */
 body {
-  font-family: "Inter", Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: var(--brand-bg);
-  color: var(--text-color);
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--blue);
 }
 
 img {
@@ -27,55 +27,64 @@ img {
 }
 
 /* =========================================================
-   HEADER (Sticky)
+   HEADER
    ========================================================= */
+
 .site-header {
-  height: 120px;
-  overflow: visible;
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--green);
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
 }
 
 .header-inner {
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+/* Medium-sized logo */
 .header-logo {
-  height: 180px;  /* cleaner size */
+  height: 120px;
   width: auto;
   margin: 0;
-  padding: 0;
 }
 
-/* Navigation */
+/* Desktop Navigation */
 .main-nav {
   display: flex;
   gap: 30px;
 }
 
 .nav-item {
-  color: var(--brand-blue);
+  color: var(--white);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .nav-item:hover {
-  color: var(--brand-green);
+  color: var(--blue);
 }
 
-/* Mobile Navigation */
+/* Mobile nav button */
 .mobile-menu-btn {
   display: none;
   font-size: 2rem;
+  color: var(--white);
   cursor: pointer;
 }
 
+/* Mobile Navigation Panel */
 .mobile-nav {
   display: none;
   flex-direction: column;
-  background: var(--white);
+  background: var(--green);
   padding: 20px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .mobile-nav.open {
@@ -84,13 +93,13 @@ img {
 
 .mobile-item {
   padding: 12px 0;
+  color: var(--white);
   font-size: 1.2rem;
   text-decoration: none;
-  color: var(--brand-blue);
 }
 
 .mobile-item:hover {
-  color: var(--brand-green);
+  color: var(--blue);
 }
 
 /* Responsive Header */
@@ -102,9 +111,13 @@ img {
     display: block;
   }
 }
-main, section, .page-content {
+
+/* Ensure body content stays above header background area */
+main,
+section,
+.page-content {
   position: relative;
-  z-index: 5;
+  z-index: 1;
 }
 
 /* =========================================================
@@ -117,17 +130,14 @@ main, section, .page-content {
 }
 
 .hero-logo {
-  display: block;
-  margin: 0 auto 20px auto;
   height: 200px;
-  width: auto;
+  margin: 0 auto 20px;
 }
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 10px;
-  color: var(--brand-blue);
 }
 
 .hero p {
@@ -136,22 +146,24 @@ main, section, .page-content {
 }
 
 .cta-btn {
-  background: var(--brand-blue);
+  background: var(--blue);
   color: var(--white);
   padding: 14px 32px;
   border-radius: 8px;
   text-decoration: none;
   font-size: 1.2rem;
   display: inline-block;
+  transition: background 0.2s ease;
 }
 
 .cta-btn:hover {
-  background: var(--brand-green);
+  background: var(--green-hover);
 }
 
 /* =========================================================
-   GENERAL SECTION STYLES
+   GENERAL CONTENT
    ========================================================= */
+
 .section {
   padding: 50px 20px;
   max-width: 900px;
@@ -160,7 +172,7 @@ main, section, .page-content {
 
 .section h2 {
   font-size: 2.4rem;
-  border-left: 6px solid var(--brand-lightgreen);
+  border-left: 6px solid var(--green);
   padding-left: 12px;
   margin-bottom: 20px;
 }
@@ -176,24 +188,21 @@ main, section, .page-content {
 /* =========================================================
    BLOG
    ========================================================= */
+
 .post-title {
   font-size: 2.2rem;
   margin-bottom: 15px;
 }
 
 .post-content {
-  line-height: 1.7;
   font-size: 1.15rem;
-}
-
-.post-content h2 {
-  margin-top: 30px;
-  margin-bottom: 10px;
+  line-height: 1.7;
 }
 
 /* =========================================================
    SERVICES PAGE
    ========================================================= */
+
 .services-hero {
   text-align: center;
   padding: 60px 20px 20px;
@@ -208,7 +217,6 @@ main, section, .page-content {
   font-size: 1.2rem;
 }
 
-/* Grid */
 .services-grid {
   max-width: 1200px;
   margin: 40px auto;
@@ -218,7 +226,6 @@ main, section, .page-content {
   gap: 30px;
 }
 
-/* Cards */
 .service-card {
   background: var(--white);
   border-radius: 14px;
@@ -240,127 +247,55 @@ main, section, .page-content {
 
 .service-card p {
   font-size: 1.05rem;
-  line-height: 1.5;
   margin-bottom: 20px;
 }
 
 .service-btn {
-  background: var(--brand-blue);
+  background: var(--blue);
   color: var(--white);
   padding: 12px 22px;
   border-radius: 8px;
-  font-weight: 600;
   text-decoration: none;
-  display: inline-block;
+  font-weight: 600;
+  transition: background 0.2s ease;
 }
 
 .service-btn:hover {
-  background: var(--brand-green);
+  background: var(--green-hover);
 }
 
 .service-icon-img {
   height: 70px;
   width: 70px;
   margin: 0 auto 20px;
-  display: block;
 }
 
-/* SVG Tinting */
+/* Tint for SVG icons */
 img[src$=".svg"] {
-  stroke: var(--brand-blue) !important;
-  fill: transparent !important;
+  stroke: var(--blue);
+  fill: transparent;
 }
 
 /* =========================================================
    FOOTER
    ========================================================= */
+
 .site-footer {
-  background: var(--brand-blue);
+  background: var(--footer-blue);
   color: var(--white);
   text-align: center;
   padding: 30px;
   margin-top: 40px;
   position: relative;
-  z-index: 2000 !important; /* ensures footer links are clickable */
+  z-index: 2000; /* ensures footer is clickable */
 }
 
 .site-footer a {
-  color: var(--brand-green);
+  color: var(--green-hover);
   text-decoration: none;
 }
 
 .footer-email {
   cursor: pointer;
-  pointer-events: auto !important;
-}
-/* FIX: Header overlapping footer clicks */
-.site-header {
-  height: 120px; /* adjust if needed */
-  overflow: visible;
-  z-index: 10 !important; /* header under other content */
-}
-
-.header-inner {
-  position: relative;
-  z-index: 20;
-}
-
-main, section, .page-content, body > * {
-  position: relative;
-  z-index: 50;
-}
-
-.site-footer {
-  position: relative;
-  z-index: 1000 !important;
-}
-/* FIX FOOTER EMAIL CLICKABILITY WITHOUT BREAKING HEADER */
-.site-footer {
-  position: relative;
-  z-index: 5;
-}
-
-.page-content, main, section {
-  position: relative;
-  z-index: 4;
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 3 !important;  /* header stays on top during scroll, but NOT above footer */
-}
-
-/* RESTORE HEADER LAYOUT */
-.site-header {
-  height: auto !important;     /* Undo forced height */
-  overflow: visible !important;
-  z-index: 1000 !important;
-}
-
-.header-inner {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  padding: 15px 20px !important;
-  position: relative;
-  z-index: 200;  /* enough to show nav */
-}
-
-.main-nav {
-  display: flex !important;
-  gap: 30px;
-}
-
-.mobile-menu-btn {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .main-nav {
-    display: none !important;
-  }
-  .mobile-menu-btn {
-    display: block !important;
-  }
+  pointer-events: auto;
 }
