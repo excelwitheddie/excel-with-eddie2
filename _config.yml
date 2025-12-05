@@ -1,27 +1,40 @@
 title: "Excel with Eddie"
 email: "eddie@excelwitheddie.com"
-description: "Personalized Microsoft Excel tutoring — formulas, PivotTables, dashboards, automation."
 
-# Site URL (must match your custom domain)
+description: >
+  One-on-one Microsoft Excel tutoring for beginners to advanced users. 
+  Learn formulas, PivotTables, dashboards, automation, and real-world data skills.
+  Sessions start at $70 — packages available ($175 for 3, $550 for 10).
+
+# Primary site URL
 url: "https://excelwitheddie.com"
+baseurl: ""  # root domain
 
-# GitHub Pages setting — leave empty for root site
-baseurl: ""
-
-# You are using custom layouts, so theme must be null
+# No theme because you're using custom layouts
 theme: null
 
-logo: /assets/images/logo.png
+logo: "/assets/images/logo.png"
 
+# Plugins
 plugins:
   - jekyll-seo-tag
 
-# Allow Jekyll to serve JS files from this folder
+# Ensure GitHub Pages serves these asset folders
 include:
   - assets/js
   - assets/css
   - assets/images
   - assets/icons
 
-# Allows future-dated blog posts to appear
+# Show posts dated in the future
 future: true
+
+# SEO tag config overrides (optional but helpful)
+author:
+  name: "Excel with Eddie"
+  email: "eddie@excelwitheddie.com"
+
+# Social profiles (optional — add if desired)
+# social:
+#   twitter: "yourhandle"
+#   linkedin: "yourprofile"
