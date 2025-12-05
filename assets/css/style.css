@@ -30,11 +30,8 @@ img {
    HEADER (Sticky)
    ========================================================= */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000 !important; /* lowered to prevent blocking footer */
-  background: var(--white);
-  border-bottom: 1px solid #e2e8f0;
+  height: 120px;
+  overflow: visible;
 }
 
 .header-inner {
