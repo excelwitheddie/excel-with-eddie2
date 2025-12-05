@@ -51,6 +51,16 @@ img {
   width: auto;
   margin: 0;
 }
+/* Header Logo Border */
+.header-logo {
+  height: 180px; /* keep your current size */
+  width: auto;
+  padding: 6px; /* slight padding so the border doesn’t touch the logo */
+  background: white; /* optional: keeps border clean even if logo is transparent */
+  border: 3px solid #083c5a; /* brand blue */
+  border-radius: 12px; /* rounded corners — can adjust or remove */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* optional subtle shadow */
+}
 
 /* Desktop Navigation */
 .main-nav {
