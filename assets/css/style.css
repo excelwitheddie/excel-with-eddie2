@@ -330,3 +330,34 @@ img[src$=".svg"] {
   background: #ffffff;
   color: #083c5a;
 }
+/* Floating Book Now Button */
+.floating-book-btn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #083c5a;                 /* brand dark blue */
+  color: #ffffff;
+  padding: 14px 22px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 9999;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.floating-book-btn:hover {
+  background: #00a870;                 /* brand green */
+  transform: scale(1.05);
+}
+
+/* Mobile sizing */
+@media (max-width: 600px) {
+  .floating-book-btn {
+    padding: 12px 18px;
+    font-size: 1rem;
+    bottom: 18px;
+    right: 18px;
+  }
+}
