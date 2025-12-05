@@ -53,7 +53,7 @@ img {
 }
 /* Header Logo Border */
 .header-logo {
-  height: 180px; /* keep your current size */
+  height: 150px; /* keep your current size */
   width: auto;
   padding: 6px; /* slight padding so the border doesn’t touch the logo */
   background: white; /* optional: keeps border clean even if logo is transparent */
