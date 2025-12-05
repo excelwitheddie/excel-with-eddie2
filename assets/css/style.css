@@ -1,63 +1,84 @@
-/* Excel with Eddie – Brand Styles */
-/* Sticky Header */
+/* =========================================================
+   Excel with Eddie – Optimized Global Styles
+   ========================================================= */
+
+/* ---------- Brand Variables ---------- */
+:root {
+  --brand-blue: #083c5a;
+  --brand-green: #00a870;
+  --brand-lightgreen: #16a085;
+  --brand-bg: #f5f7fa;
+  --text-color: #083c5a;
+  --white: #ffffff;
+}
+
+/* ---------- Global Reset ---------- */
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--brand-bg);
+  color: var(--text-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================================================
+   HEADER (Sticky)
+   ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 9999;
-  background: #ffffff;
+  z-index: 1000 !important; /* lowered to prevent blocking footer */
+  background: var(--white);
   border-bottom: 1px solid #e2e8f0;
 }
 
-/* Header Inner */
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 0;
+  padding: 10px 20px;
 }
 
 .header-logo {
-  height: 200px;       /* adjust the size */
+  height: 180px;  /* cleaner size */
   width: auto;
-  padding: 0;         /* remove extra white space */
   margin: 0;
+  padding: 0;
 }
 
-/* Reduce header height padding */
-header {
-  padding: 10px 20px !important;
-}
-
-
-/* Desktop Nav */
+/* Navigation */
 .main-nav {
   display: flex;
   gap: 30px;
 }
 
 .nav-item {
-  color: #083c5a;
+  color: var(--brand-blue);
   font-weight: 600;
   font-size: 1.1rem;
   text-decoration: none;
 }
 
 .nav-item:hover {
-  color: #083c5a;
+  color: var(--brand-green);
 }
 
-/* Mobile Menu Button */
+/* Mobile Navigation */
 .mobile-menu-btn {
   display: none;
   font-size: 2rem;
   cursor: pointer;
 }
 
-/* Mobile Nav */
 .mobile-nav {
   display: none;
   flex-direction: column;
-  background: white;
+  background: var(--white);
   padding: 20px;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -70,14 +91,14 @@ header {
   padding: 12px 0;
   font-size: 1.2rem;
   text-decoration: none;
-  color: #083c5a;
+  color: var(--brand-blue);
 }
 
 .mobile-item:hover {
-  color: #00a870;
+  color: var(--brand-green);
 }
 
-/* Responsive */
+/* Responsive Header */
 @media (max-width: 768px) {
   .main-nav {
     display: none;
@@ -87,62 +108,37 @@ header {
   }
 }
 
-
-
-body {
-  font-family: "Inter", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f5f7fa;
-  color: #083c5a;
-}
-
-/* HEADER */
-header.site-header {
-  background: #16a085;
-  padding: 20px;
-  text-align: center;
-}
-
-header.site-header a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.6rem;
-}
-
-/* Hero Section */
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
 .hero {
-  background: white;
+  background: var(--white);
   text-align: center;
   padding: 80px 20px;
 }
 
-/* HERO LOGO SIZE */
 .hero-logo {
   display: block;
   margin: 0 auto 20px auto;
-  height: 200px;      /* adjust as desired */
+  height: 200px;
   width: auto;
 }
-
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
-  color: #083c5a;
   margin-bottom: 10px;
+  color: var(--brand-blue);
 }
 
 .hero p {
   font-size: 1.3rem;
-  color: #083c5a;
   margin-bottom: 25px;
 }
 
 .cta-btn {
-  background: #083c5a;
-  color: white;
+  background: var(--brand-blue);
+  color: var(--white);
   padding: 14px 32px;
   border-radius: 8px;
   text-decoration: none;
@@ -151,10 +147,12 @@ header.site-header a {
 }
 
 .cta-btn:hover {
-  background: #00a870;
+  background: var(--brand-green);
 }
 
-/* SECTIONS */
+/* =========================================================
+   GENERAL SECTION STYLES
+   ========================================================= */
 .section {
   padding: 50px 20px;
   max-width: 900px;
@@ -163,51 +161,40 @@ header.site-header a {
 
 .section h2 {
   font-size: 2.4rem;
-  border-left: 6px solid #16a085;
+  border-left: 6px solid var(--brand-lightgreen);
   padding-left: 12px;
   margin-bottom: 20px;
 }
 
 .card {
-  background: white;
+  background: var(--white);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.1);
   margin: 20px 0;
 }
-/* Blog Post Layout */
+
+/* =========================================================
+   BLOG
+   ========================================================= */
 .post-title {
   font-size: 2.2rem;
   margin-bottom: 15px;
-  color: #083c5a;
 }
 
 .post-content {
   line-height: 1.7;
   font-size: 1.15rem;
-  color: #083c5a;
 }
 
 .post-content h2 {
   margin-top: 30px;
   margin-bottom: 10px;
-  color: #083c5a;
 }
 
-/* FOOTER */
-.site-footer {
-  background: #083c5a;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 40px;
-}
-
-.site-footer a {
-  color: #00c27a;
-  text-decoration: none;
-}
-/* Services Page Hero */
+/* =========================================================
+   SERVICES PAGE
+   ========================================================= */
 .services-hero {
   text-align: center;
   padding: 60px 20px 20px;
@@ -216,28 +203,25 @@ header.site-header a {
 .services-hero h1 {
   font-size: 2.8rem;
   margin-bottom: 10px;
-  color: #083c5a;
 }
 
 .services-hero p {
   font-size: 1.2rem;
-  color: #083c5a;
 }
 
-/* Services Grid */
+/* Grid */
 .services-grid {
   max-width: 1200px;
   margin: 40px auto;
   padding: 0 20px;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
-/* Service Card */
+/* Cards */
 .service-card {
-  background: #ffffff;
+  background: var(--white);
   border-radius: 14px;
   padding: 30px 25px;
   text-align: center;
@@ -250,48 +234,63 @@ header.site-header a {
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.service-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
 .service-card h2 {
   font-size: 1.6rem;
-  color: #083c5a;
   margin-bottom: 12px;
 }
 
 .service-card p {
-  color: #083c5a;
   font-size: 1.05rem;
   line-height: 1.5;
   margin-bottom: 20px;
 }
 
-/* Service Button */
 .service-btn {
-  background: #083c5a;
-  color: white;
-  text-decoration: none;
+  background: var(--brand-blue);
+  color: var(--white);
   padding: 12px 22px;
   border-radius: 8px;
-  font-size: 1.05rem;
   font-weight: 600;
+  text-decoration: none;
   display: inline-block;
 }
 
 .service-btn:hover {
-  background: #00a870;
+  background: var(--brand-green);
 }
+
 .service-icon-img {
   height: 70px;
   width: 70px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
   display: block;
-  filter: none !important;
 }
+
+/* SVG Tinting */
 img[src$=".svg"] {
-  stroke: #083c5a !important;
+  stroke: var(--brand-blue) !important;
   fill: transparent !important;
 }
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--brand-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2000 !important; /* ensures footer links are clickable */
+}
+
+.site-footer a {
+  color: var(--brand-green);
+  text-decoration: none;
+}
+
+.footer-email {
+  cursor: pointer;
+  pointer-events: auto !important;
+}
