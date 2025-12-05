@@ -337,9 +337,10 @@ img[src$=".svg"] {
 }
 
 .footer-contact-btn:hover {
-  background: #ffffff;
-  color: #083c5a;
+  background: #009a63;  /* darker green when hovered */
+  color: #ffffff;       /* stays white */
 }
+
 /* Floating Book Now Button */
 .floating-book-btn {
   position: fixed;
