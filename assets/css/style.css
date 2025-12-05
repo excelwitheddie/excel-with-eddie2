@@ -314,6 +314,23 @@ main, section, .page-content, body > * {
   position: relative;
   z-index: 1000 !important;
 }
+/* FIX FOOTER EMAIL CLICKABILITY WITHOUT BREAKING HEADER */
+.site-footer {
+  position: relative;
+  z-index: 5;
+}
+
+.page-content, main, section {
+  position: relative;
+  z-index: 4;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 3 !important;  /* header stays on top during scroll, but NOT above footer */
+}
+
 /* RESTORE HEADER LAYOUT */
 .site-header {
   height: auto !important;     /* Undo forced height */
