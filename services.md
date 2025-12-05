@@ -14,7 +14,6 @@ title: Services
   </p>
 </section>
 
-
 <!-- ========================= -->
 <!-- SERVICE CARDS -->
 <!-- ========================= -->
@@ -55,7 +54,6 @@ title: Services
 
 </section>
 
-
 <!-- ========================= -->
 <!-- PRICING -->
 <!-- ========================= -->
@@ -68,7 +66,7 @@ title: Services
     <!-- Single Session -->
     <div class="pricing-card">
       <h3>Single Session</h3>
-      <p class="price">$60 / 1 hour</p>
+      <p class="price">$70 / 1 hour</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Personalized 1-on-1 training</li>
         <li>Beginner to advanced lessons</li>
@@ -80,9 +78,9 @@ title: Services
     <!-- 3-Session Package -->
     <div class="pricing-card featured">
       <h3>3-Session Package</h3>
-      <p class="price">$150 / 3 hours</p>
+      <p class="price">$175 / 3 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Save $30 total</li>
+        <li>Save $35 total</li>
         <li>Structured skill-building</li>
         <li>Recap notes provided</li>
       </ul>
@@ -92,7 +90,7 @@ title: Services
     <!-- 10-Session Bundle -->
     <div class="pricing-card">
       <h3>10-Session Bundle</h3>
-      <p class="price">$450 / 10 hours</p>
+      <p class="price">$550 / 10 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Save $150 total</li>
         <li>Deep Excel mastery</li>
@@ -103,7 +101,6 @@ title: Services
 
   </div>
 </section>
-
 
 <!-- ========================= -->
 <!-- TESTIMONIALS -->
