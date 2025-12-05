@@ -35,10 +35,8 @@ img {
 }
 
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .header-logo {
@@ -103,6 +101,10 @@ img {
   .mobile-menu-btn {
     display: block;
   }
+}
+main, section, .page-content {
+  position: relative;
+  z-index: 5;
 }
 
 /* =========================================================
@@ -290,4 +292,25 @@ img[src$=".svg"] {
 .footer-email {
   cursor: pointer;
   pointer-events: auto !important;
+}
+/* FIX: Header overlapping footer clicks */
+.site-header {
+  height: 120px; /* adjust if needed */
+  overflow: visible;
+  z-index: 10 !important; /* header under other content */
+}
+
+.header-inner {
+  position: relative;
+  z-index: 20;
+}
+
+main, section, .page-content, body > * {
+  position: relative;
+  z-index: 50;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1000 !important;
 }
