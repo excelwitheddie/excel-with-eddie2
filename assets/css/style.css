@@ -299,3 +299,18 @@ img[src$=".svg"] {
   cursor: pointer;
   pointer-events: auto;
 }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  width: 100%;
+}
