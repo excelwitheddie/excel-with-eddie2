@@ -314,3 +314,19 @@ img[src$=".svg"] {
   margin-top: 15px;
   width: 100%;
 }
+.footer-contact-btn {
+  display: inline-block;
+  background: #00c27a;    /* bright green accent */
+  color: #083c5a;         /* dark blue text */
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.footer-contact-btn:hover {
+  background: #ffffff;
+  color: #083c5a;
+}
