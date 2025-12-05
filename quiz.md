@@ -70,3 +70,4 @@ title: Excel Knowledge Quiz
 
 <!-- Load the external quiz JS file -->
 <script src="/assets/js/quiz.js"></script>
+
