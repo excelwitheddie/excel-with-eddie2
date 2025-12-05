@@ -314,3 +314,36 @@ main, section, .page-content, body > * {
   position: relative;
   z-index: 1000 !important;
 }
+/* RESTORE HEADER LAYOUT */
+.site-header {
+  height: auto !important;     /* Undo forced height */
+  overflow: visible !important;
+  z-index: 1000 !important;
+}
+
+.header-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 15px 20px !important;
+  position: relative;
+  z-index: 200;  /* enough to show nav */
+}
+
+.main-nav {
+  display: flex !important;
+  gap: 30px;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: block !important;
+  }
+}
