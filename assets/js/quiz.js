@@ -80,3 +80,13 @@ const questions = [
 
 // Shuffle questions
 questions.sort(() => Math.random() - 0.5);
+
+function startQuiz() {
+  document.getElementById("startBtn").style.display = "none";
+  document.getElementById("progressWrapper").style.display = "block";
+  document.getElementById("questionCounter").style.display = "block";
+
+  showQuestion();
+  updateProgress();
+}
+
