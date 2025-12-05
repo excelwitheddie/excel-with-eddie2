@@ -327,7 +327,7 @@ img[src$=".svg"] {
 .footer-contact-btn {
   display: inline-block;
   background: #00c27a;    /* bright green accent */
-  color: #ffffff;         /* white text */
+  color: #ffffff !important;         /* white text */
   padding: 10px 22px;
   border-radius: 8px;
   font-size: 1.1rem;
