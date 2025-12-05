@@ -21,7 +21,10 @@ title: Excel Knowledge Quiz
   <div id="quizContainer"></div>
 
   <!-- Start button -->
-  <button id="startBtn" onclick="startQuiz()" class="quiz-btn">Start Quiz</button>
+  <button id="startBtn" onclick="startQuiz()" class="quiz-btn">
+  Start Quiz
+</button>
+
 </section>
 
 <style>
