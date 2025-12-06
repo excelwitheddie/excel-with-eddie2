@@ -1,162 +1,126 @@
 /* =========================================================
-   Excel with Eddie - Quiz Script (Advanced Version + Analytics)
+   Excel with Eddie - Quiz Script (Rewritten, Guaranteed Working)
    ========================================================= */
 
-// =====================
-// QUESTION BANK
-// =====================
+// ------------------------
+// Question Bank
+// ------------------------
 const questions = [
-  { 
-    q: "1. What is the result of the formula: =IF(A1>10, \"High\", \"Low\") when A1 = 12?",
+  { q: "What is the result of =IF(A1>10, \"High\", \"Low\") when A1=12?",
     answers: ["High", "Low", "Error"],
     correct: 0,
-    explanation: "Since 12 > 10, the IF function returns 'High'."
-  },
+    explanation: "12 > 10, so the result is 'High'." },
 
-  { 
-    q: "2. Which formula returns the value in B2 if A2 = \"Yes\"?",
-    answers: [
-      "=IF(A2=\"Yes\", B2)",
-      "=IF(A2=B2, \"Yes\")",
-      "=IF(B2=\"Yes\", A2)"
-    ],
+  { q: "Which formula returns the value in B2 if A2 = \"Yes\"?",
+    answers: ["=IF(A2=\"Yes\",B2)", "=IF(A2=B2,\"Yes\")", "=IF(B2=\"Yes\",A2)"],
     correct: 0,
-    explanation: "The IF test is (A2=\"Yes\"), and the returned value is B2."
-  },
+    explanation: "IF(A2=\"Yes\") → return B2." },
 
-  { 
-    q: "3. What does =XLOOKUP(\"John\", A2:A10, B2:B10) return?",
-    answers: [
-      "The value in column B where A = John",
-      "The row number where John appears",
-      "Always returns an error unless sorted"
-    ],
+  { q: "What does =XLOOKUP(\"John\",A2:A10,B2:B10) return?",
+    answers: ["Matching value in column B", "Row number", "Error unless sorted"],
     correct: 0,
-    explanation: "XLOOKUP returns the corresponding value from the return array."
-  },
+    explanation: "XLOOKUP returns the corresponding value." },
 
-  { 
-    q: "4. Which formula checks if C5 is between 10 and 20?",
-    answers: [
-      "=IF(C5>10<20, TRUE, FALSE)",
-      "=AND(C5>=10, C5<=20)",
-      "=IF(C5>=10 AND C5<=20)"
-    ],
+  { q: "Which checks whether C5 is between 10 and 20?",
+    answers: ["=IF(C5>10<20)", "=AND(C5>=10,C5<=20)", "=IF(C5>=10 AND C5<=20)"],
     correct: 1,
-    explanation: "AND evaluates multiple logical conditions to ensure both are TRUE."
-  },
+    explanation: "AND checks multiple conditions." },
 
-  { 
-    q: "5. What is the output of: =SUM(A1:A3) if A1=5, A2=\"3\", A3=2?",
+  { q: "If A1=5, A2=\"3\", A3=2 → =SUM(A1:A3) returns:",
     answers: ["10", "5", "Error"],
     correct: 0,
-    explanation: "Excel converts the text '3' to a number automatically."
-  },
+    explanation: "Excel converts '3' to a number." },
 
-  { 
-    q: "6. What does =IFERROR(VLOOKUP(D1, A2:B10, 2, FALSE), \"Not Found\") return if D1 is not in the list?",
+  { q: "=IFERROR(VLOOKUP(D1,A2:B10,2,FALSE),\"Not Found\") returns what if D1 is missing?",
     answers: ["#N/A", "Not Found", "0"],
     correct: 1,
-    explanation: "IFERROR replaces lookup errors with the custom message 'Not Found'."
-  },
+    explanation: "IFERROR replaces error with text." },
 
-  { 
-    q: "7. What is the correct formula to return TRUE only if A1 > B1 AND C1 = \"Complete\"?",
-    answers: [
-      "=IF(A1>B1 AND C1=\"Complete\", TRUE, FALSE)",
-      "=AND(A1>B1, C1=\"Complete\")",
-      "=OR(A1>B1, C1=\"Complete\")"
-    ],
+  { q: "Return TRUE only if A1>B1 AND C1=\"Complete\"?",
+    answers: ["=IF(A1>B1 AND C1=\"Complete\")", "=AND(A1>B1,C1=\"Complete\")", "=OR(A1>B1,C1=\"Complete\")"],
     correct: 1,
-    explanation: "AND requires BOTH conditions to be TRUE."
-  },
+    explanation: "AND requires both conditions to be true." },
 
-  { 
-    q: "8. Given: A1=5, what does this formula return? =IF(AND(A1>2, A1<10), A1*2, A1*5)",
+  { q: "A1=5 → =IF(AND(A1>2,A1<10),A1*2,A1*5) returns:",
     answers: ["10", "25", "Error"],
     correct: 0,
-    explanation: "Since 5 is between 2 and 10, Excel uses A1*2 = 10."
-  },
+    explanation: "5 is between 2 and 10 → 5*2 = 10." },
 
-  { 
-    q: "9. What does =INDEX(B2:B10, MATCH(\"Item3\", A2:A10, 0)) return?",
-    answers: [
-      "The value in column B for Item3",
-      "The row number of Item3",
-      "The text 'Item3'"
-    ],
+  { q: "=INDEX(B2:B10, MATCH(\"Item3\",A2:A10,0)) returns:",
+    answers: ["Value from column B", "Row number", "Item text"],
     correct: 0,
-    explanation: "MATCH finds the row; INDEX returns the matching value."
-  },
+    explanation: "MATCH finds row; INDEX returns the value." },
 
-  { 
-    q: "10. What is the result of =IF(A1=\"Yes\", IF(B1>5, \"Approved\", \"Review\"), \"Rejected\") when A1=\"Yes\" and B1=3?",
+  { q: "A1=\"Yes\", B1=3 → =IF(A1=\"Yes\",IF(B1>5,\"Approved\",\"Review\"),\"Rejected\") returns:",
     answers: ["Approved", "Review", "Rejected"],
     correct: 1,
-    explanation: "Nested IF: A1 = Yes → evaluate B1; 3 > 5? No → 'Review'."
-  },
+    explanation: "Nested IF returns 'Review'." }
 ];
 
 questions.sort(() => Math.random() - 0.5);
 
+// ------------------------
+// Variables
+// ------------------------
 let currentIndex = 0;
 let score = 0;
 
-/* =========================================================
-   QUIZ CORE FUNCTIONS
-   ========================================================= */
-
+// ------------------------
+// Start Quiz
+// ------------------------
 function startQuiz() {
-  document.getElementById("startBtn").style.display = "none";
+  const startBtn = document.getElementById("startBtn");
+  startBtn.style.display = "none";
+
   document.getElementById("progressWrapper").style.display = "block";
   document.getElementById("questionCounter").style.display = "block";
 
-  // ⭐ Google Analytics: Track quiz start
-  gtag('event', 'quiz_started', {
-    event_category: 'Quiz',
-    event_label: 'Excel Knowledge Quiz'
-  });
+  if (typeof gtag === "function") {
+    gtag('event', 'quiz_started');
+  }
 
   showQuestion();
   updateProgress();
 }
 
+// ------------------------
+// Display Progress
+// ------------------------
 function updateProgress() {
-  const percent = ((currentIndex) / questions.length) * 100;
+  const percent = (currentIndex / questions.length) * 100;
   document.getElementById("progressBar").style.width = percent + "%";
   document.getElementById("questionCounter").textContent =
     `Question ${currentIndex + 1} of ${questions.length}`;
 }
 
+// ------------------------
+// Display Question
+// ------------------------
 function showQuestion() {
-  const container = document.getElementById("quizContainer");
   const q = questions[currentIndex];
+  const container = document.getElementById("quizContainer");
 
   container.innerHTML = `
     <h2>${q.q}</h2>
-    ${q.answers
-      .map((ans, i) => `<button class="answer-btn" onclick="submitAnswer(${i})">${ans}</button>`)
-      .join("")}
+    ${q.answers.map((ans,i)=>`
+      <button class="answer-btn" onclick="submitAnswer(${i})">${ans}</button>
+    `).join("")}
     <p id="explanation" class="explanation"></p>
   `;
 
   updateProgress();
 }
 
+// ------------------------
+// Handle Answer
+// ------------------------
 function submitAnswer(choice) {
   const q = questions[currentIndex];
   const explanation = document.getElementById("explanation");
 
-  // ⭐ Google Analytics: Track question answered
-  gtag('event', 'quiz_answered', {
-    event_category: 'Quiz',
-    question: q.q,
-    selected_answer: q.answers[choice],
-    correct_answer: q.answers[q.correct],
-    is_correct: choice === q.correct
-  });
+  const correct = (choice === q.correct);
 
-  if (choice === q.correct) {
+  if (correct) {
     score++;
     explanation.style.color = "#009a63";
     explanation.textContent = "Correct! " + q.explanation;
@@ -165,39 +129,45 @@ function submitAnswer(choice) {
     explanation.textContent = "Incorrect. " + q.explanation;
   }
 
+  if (typeof gtag === "function") {
+    gtag('event', 'quiz_answered', {
+      question: q.q,
+      selected: q.answers[choice],
+      correct: q.answers[q.correct],
+      is_correct: correct
+    });
+  }
+
   setTimeout(() => {
     currentIndex++;
-    if (currentIndex < questions.length) {
-      showQuestion();
-    } else {
-      showResults();
-    }
-  }, 1300);
+    if (currentIndex < questions.length) showQuestion();
+    else showResults();
+  }, 1200);
 }
 
+// ------------------------
+// Results Screen
+// ------------------------
 function showResults() {
-  const container = document.getElementById("quizContainer");
   const level = calculateLevel(score);
+  const container = document.getElementById("quizContainer");
 
   document.getElementById("progressWrapper").style.display = "none";
   document.getElementById("questionCounter").style.display = "none";
 
-  // ⭐ Google Analytics: Track quiz completion
-  gtag('event', 'quiz_completed', {
-    event_category: 'Quiz',
-    score: score,
-    total_questions: questions.length,
-    level: level
-  });
+  if (typeof gtag === "function") {
+    gtag('event', 'quiz_completed', {
+      score: score,
+      level: level
+    });
+  }
 
   container.innerHTML = `
     <div class="result-screen">
       <h2>Your Score: ${score} / ${questions.length}</h2>
       <h3>${level}</h3>
 
-      <p style="font-size:1.1rem; margin-top:10px;">
-        Want help improving your Excel skills? Book a session anytime.
-      </p>
+      <p style="margin-top:10px;">Want help improving your Excel skills? Book a session anytime.</p>
 
       <a href="/book" class="quiz-btn">Book a Tutoring Session</a>
 
@@ -207,8 +177,18 @@ function showResults() {
   `;
 }
 
+// ------------------------
+// Level Calculation
+// ------------------------
 function calculateLevel(score) {
   if (score <= 3) return "📘 Excel Level: Beginner";
   if (score <= 7) return "📗 Excel Level: Intermediate";
   return "📕 Excel Level: Advanced";
 }
+
+// ------------------------
+// Force global scope for GitHub Pages
+// ------------------------
+window.startQuiz = startQuiz;
+window.submitAnswer = submitAnswer;
+window.showQuestion = showQuestion;
