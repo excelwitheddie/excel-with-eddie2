@@ -359,21 +359,22 @@ img[src$=".svg"] {
 }
 /* Footer Social Icons */
 .footer-social {
-  margin: 15px 0;
+  margin: 20px 0;
   display: flex;
-  gap: 18px;
+  gap: 20px;
   justify-content: center;
+  align-items: center;
 }
 
 .social-icon {
-  height: 28px;
-  width: 28px;
-  transition: 0.25s ease;
+  height: 30px;
+  width: 30px;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .social-icon:hover {
+  transform: scale(1.15);
   filter: drop-shadow(0 0 6px #00c27a);
-  transform: scale(1.1);
 }
 
 /* Floating Book Now Button */
