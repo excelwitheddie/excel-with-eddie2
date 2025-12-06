@@ -357,6 +357,24 @@ img[src$=".svg"] {
   background: #009a63;  /* darker green when hovered */
   color: #ffffff;       /* stays white */
 }
+/* Footer Social Icons */
+.footer-social {
+  margin: 15px 0;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.social-icon {
+  height: 28px;
+  width: 28px;
+  transition: 0.25s ease;
+}
+
+.social-icon:hover {
+  filter: drop-shadow(0 0 6px #00c27a);
+  transform: scale(1.1);
+}
 
 /* Floating Book Now Button */
 .floating-book-btn {
