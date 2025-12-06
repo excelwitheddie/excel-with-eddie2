@@ -1,7 +1,10 @@
 /* =========================================================
-   Excel with Eddie - Quiz Script (Advanced Version)
+   Excel with Eddie - Quiz Script (Advanced Version + Analytics)
    ========================================================= */
 
+// =====================
+// QUESTION BANK
+// =====================
 const questions = [
   { 
     q: "1. What is the result of the formula: =IF(A1>10, \"High\", \"Low\") when A1 = 12?",
@@ -108,6 +111,12 @@ function startQuiz() {
   document.getElementById("progressWrapper").style.display = "block";
   document.getElementById("questionCounter").style.display = "block";
 
+  // ⭐ Google Analytics: Track quiz start
+  gtag('event', 'quiz_started', {
+    event_category: 'Quiz',
+    event_label: 'Excel Knowledge Quiz'
+  });
+
   showQuestion();
   updateProgress();
 }
@@ -138,6 +147,15 @@ function submitAnswer(choice) {
   const q = questions[currentIndex];
   const explanation = document.getElementById("explanation");
 
+  // ⭐ Google Analytics: Track question answered
+  gtag('event', 'quiz_answered', {
+    event_category: 'Quiz',
+    question: q.q,
+    selected_answer: q.answers[choice],
+    correct_answer: q.answers[q.correct],
+    is_correct: choice === q.correct
+  });
+
   if (choice === q.correct) {
     score++;
     explanation.style.color = "#009a63";
@@ -163,6 +181,14 @@ function showResults() {
 
   document.getElementById("progressWrapper").style.display = "none";
   document.getElementById("questionCounter").style.display = "none";
+
+  // ⭐ Google Analytics: Track quiz completion
+  gtag('event', 'quiz_completed', {
+    event_category: 'Quiz',
+    score: score,
+    total_questions: questions.length,
+    level: level
+  });
 
   container.innerHTML = `
     <div class="result-screen">
