@@ -27,74 +27,81 @@ img {
 }
 
 /* =========================================================
-   HEADER
+   CLEAN HEADER — Excel with Eddie
+   Compact, centered, consistent, mobile-friendly
    ========================================================= */
 
+/* Entire Header Bar */
 .site-header {
+  background: #16a085;        /* Brand green */
   position: sticky;
   top: 0;
-  z-index: 500;
-  background: var(--green);
-  padding: 10px 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  z-index: 1000;
+  padding: 6px 0;             /* LOWER HEIGHT */
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+/* Header Inner Layout */
 .header-inner {
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;            /* horizontal padding only */
 }
 
-/* Medium-sized logo */
+/* =============================
+   LOGO
+   ============================= */
 .header-logo {
-  height: 120px;
+  height: 75px;               /* ↓ Compact size */
   width: auto;
-  margin: 0;
-}
-/* Header Logo Border */
-.header-logo {
-  height: 150px; /* keep your current size */
-  width: auto;
-  padding: 6px; /* slight padding so the border doesn’t touch the logo */
-  background: white; /* optional: keeps border clean even if logo is transparent */
-  border: 3px solid #083c5a; /* brand blue */
-  border-radius: 12px; /* rounded corners — can adjust or remove */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* optional subtle shadow */
+  display: block;
+  border: 3px solid #083c5a;  /* blue border requested */
+  border-radius: 12px;
+  padding: 4px;               /* subtle breathing room */
+  background: white;          /* clean contrast */
 }
 
-/* Desktop Navigation */
+/* =============================
+   DESKTOP NAVIGATION
+   ============================= */
 .main-nav {
   display: flex;
-  gap: 30px;
+  gap: 32px;
 }
 
 .nav-item {
-  color: var(--white);
+  color: #ffffff;
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-item:hover {
-  color: var(--blue);
+  color: #083c5a;             /* blue hover */
 }
 
-/* Mobile nav button */
+/* =============================
+   MOBILE NAV BUTTON
+   ============================= */
 .mobile-menu-btn {
   display: none;
   font-size: 2rem;
-  color: var(--white);
   cursor: pointer;
+  color: white;
 }
 
-/* Mobile Navigation Panel */
+/* =============================
+   MOBILE NAV MENU
+   ============================= */
 .mobile-nav {
   display: none;
   flex-direction: column;
-  background: var(--green);
-  padding: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: #16a085;
+  padding: 15px 20px;
 }
 
 .mobile-nav.open {
@@ -102,23 +109,33 @@ img {
 }
 
 .mobile-item {
-  padding: 12px 0;
-  color: var(--white);
-  font-size: 1.2rem;
+  padding: 10px 0;
+  font-size: 1.3rem;
+  color: white;
   text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.mobile-item:last-child {
+  border-bottom: none;
 }
 
 .mobile-item:hover {
-  color: var(--blue);
+  color: #083c5a;
 }
 
-/* Responsive Header */
+/* =============================
+   RESPONSIVE BREAKPOINT
+   ============================= */
 @media (max-width: 768px) {
   .main-nav {
     display: none;
   }
   .mobile-menu-btn {
     display: block;
+  }
+  .header-logo {
+    height: 65px;     /* slightly smaller on phones */
   }
 }
 
