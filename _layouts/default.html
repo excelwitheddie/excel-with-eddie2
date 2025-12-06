@@ -3,19 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>{{ page.title }} | Excel with Eddie</title>
 
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <!-- Open Graph Meta Tags -->
-<meta property="og:title" content="{{ page.title }} | Excel with Eddie">
-<meta property="og:description" content="Personalized Excel tutoring — learn formulas, PivotTables, dashboards, automations, and more.">
-<meta property="og:url" content="https://excelwitheddie.com{{ page.url }}">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://excelwitheddie.com/assets/images/logo.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+  <!-- SEO Description -->
+  <meta name="description" content="Personalized Excel tutoring — formulas, PivotTables, dashboards, automation, and data skills.">
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:title" content="{{ page.title }} | Excel with Eddie">
+  <meta property="og:description" content="Personalized Excel tutoring — learn formulas, PivotTables, dashboards, automations, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://excelwitheddie.com{{ page.url }}">
+  <meta property="og:image" content="https://excelwitheddie.com/assets/images/logo.png">
+
+  <!-- Fix FB warning -->
+  <meta property="fb:app_id" content="0">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title }} | Excel with Eddie">
+  <meta name="twitter:description" content="Personalized Excel tutoring to help you master spreadsheets and unlock new skills.">
+  <meta name="twitter:image" content="https://excelwitheddie.com/assets/images/logo.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Jekyll SEO Tag -->
   {% seo %}
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VLV7WNH6Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-7VLV7WNH6Z');
+  </script>
 </head>
+
 
 <body>
 
