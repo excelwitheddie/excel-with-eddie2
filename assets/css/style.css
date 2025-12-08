@@ -151,14 +151,20 @@ section,
    HERO SECTION
    ========================================================= */
 .hero {
-  background: var(--white);
+  background: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 40px 20px;        /* reduced from 80px */
+  margin-top: 10px;          /* small top space */
+  margin-bottom: 20px;       /* reduce bottom white space */
 }
 
+/* HERO LOGO */
 .hero-logo {
-  height: 275px;
-  margin: 0 auto 20px;
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 600px;              /* match headline width */
+  max-width: 90%;            /* stays responsive */
+  height: auto;              /* keep proportions */
 }
 
 .hero h1 {
