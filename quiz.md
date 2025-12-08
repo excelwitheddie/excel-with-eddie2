@@ -7,15 +7,22 @@ title: Excel Knowledge Quiz
   <h1>Excel Knowledge Quiz</h1>
 
   <p style="font-size:1.15rem; color:#0a3c5a;">
-    Test your Excel skills with this 10-question quiz.  
-    Your final score and skill level will appear at the end!
+    Choose your difficulty and test your Excel skills.  
+    Your final score, level, and a performance chart will appear at the end!
   </p>
 
   <p style="font-size:1rem; color:#083c5a; margin-top:15px;">
-    Want personalized Excel coaching?  
-    1-on-1 tutoring available — <strong>$70</strong> per session,  
+    1-on-1 Excel tutoring available — <strong>$70</strong> per session,  
     <strong>$175</strong> for 3 sessions, or <strong>$550</strong> for 10 sessions.
   </p>
+
+  <!-- Difficulty selection -->
+  <div style="margin-top:25px;">
+    <p style="font-weight:600; color:#083c5a;">Select your level to begin:</p>
+    <button class="quiz-btn" onclick="startQuiz('beginner')">Beginner</button>
+    <button class="quiz-btn" onclick="startQuiz('intermediate')" style="margin-left:10px;">Intermediate</button>
+    <button class="quiz-btn" onclick="startQuiz('advanced')" style="margin-left:10px;">Advanced</button>
+  </div>
 
   <!-- Progress bar -->
   <div id="progressWrapper" style="display:none; margin:25px auto; width:80%; max-width:500px; background:#eee; border-radius:8px;">
@@ -28,10 +35,8 @@ title: Excel Knowledge Quiz
   <!-- Quiz display area -->
   <div id="quizContainer" style="margin-top:20px;"></div>
 
-  <!-- Start button -->
-  <button id="startBtn" onclick="startQuiz()" class="quiz-btn">
-    Start Quiz
-  </button>
+  <!-- Chart container -->
+  <div id="quizChart" style="margin:30px auto; max-width:500px;"></div>
 </section>
 
 <style>
@@ -78,6 +83,9 @@ title: Excel Knowledge Quiz
   padding: 20px;
 }
 </style>
+
+<!-- Google Charts loader -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <!-- Load external script -->
 <script src="/assets/js/quiz.js"></script>
