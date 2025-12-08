@@ -2,8 +2,6 @@
 layout: default
 title: Excel Knowledge Quiz
 ---
-const GOOGLE_SHEETS_WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbxwtUQPY5ZcpwfRUMEj33kSLEV-Fkq0FBcGIYMhl5UmvcHC6cmBES__FVBrtvs053TC/exec";
 
 <section style="max-width:900px; margin:0 auto; text-align:center; padding-top:20px;">
   <h1>Excel Knowledge Quiz</h1>
