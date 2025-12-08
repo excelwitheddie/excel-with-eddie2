@@ -321,7 +321,16 @@ img[src$=".svg"] {
   color: var(--green-hover);
   text-decoration: none;
 }
+.footer-link {
+  color: #00c27a;
+  text-decoration: none;
+  font-weight: 600;
+}
 
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
 .footer-email {
   cursor: pointer;
   pointer-events: auto;
