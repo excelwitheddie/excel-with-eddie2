@@ -407,6 +407,12 @@ img[src$=".svg"] {
   background: #00a870;                 /* brand green */
   transform: scale(1.05);
 }
+.footer-disclaimer {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 10px;
+  color: #ffffff;
+}
 
 /* Mobile sizing */
 @media (max-width: 600px) {
