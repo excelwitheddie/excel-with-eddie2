@@ -3,10 +3,12 @@ layout: default
 title: Excel Knowledge Quiz
 ---
 
-<section style="max-width:900px; margin:0 auto; text-align:center;">
+<section style="max-width:900px; margin:0 auto; text-align:center; padding-top:20px;">
   <h1>Excel Knowledge Quiz</h1>
+
   <p style="font-size:1.15rem; color:#0a3c5a;">
-    Test your Excel skills with this 10-question quiz. Your final score and skill level will appear at the end!
+    Test your Excel skills with this 10-question quiz.  
+    Your final score and skill level will appear at the end!
   </p>
 
   <p style="font-size:1rem; color:#083c5a; margin-top:15px;">
@@ -16,7 +18,7 @@ title: Excel Knowledge Quiz
   </p>
 
   <!-- Progress bar -->
-  <div id="progressWrapper" style="display:none; margin:20px auto; width:80%; max-width:500px; background:#eee; border-radius:8px;">
+  <div id="progressWrapper" style="display:none; margin:25px auto; width:80%; max-width:500px; background:#eee; border-radius:8px;">
     <div id="progressBar" style="height:12px; width:0%; background:#009a63; border-radius:8px; transition:width 0.3s;"></div>
   </div>
 
@@ -24,13 +26,12 @@ title: Excel Knowledge Quiz
   <p id="questionCounter" style="font-size:1rem; color:#083c5a; margin-top:10px; display:none;"></p>
 
   <!-- Quiz container -->
-  <div id="quizContainer"></div>
+  <div id="quizContainer" style="margin-top:20px;"></div>
 
   <!-- Start button -->
   <button id="startBtn" onclick="startQuiz()" class="quiz-btn">
     Start Quiz
   </button>
-
 </section>
 
 <style>
@@ -42,6 +43,7 @@ title: Excel Knowledge Quiz
   border-radius: 6px;
   cursor: pointer;
   margin-top: 20px;
+  font-size: 1.1rem;
 }
 .quiz-btn:hover {
   background: #009a63;
@@ -67,15 +69,15 @@ title: Excel Knowledge Quiz
 }
 
 .explanation {
-  margin-top: 10px;
-  font-size: 0.95rem;
+  margin-top: 12px;
+  font-size: 1rem;
 }
 
 .result-screen {
-  margin-top: 30px;
+  margin-top: 40px;
   padding: 20px;
 }
 </style>
 
-<!-- Load the external quiz JS file -->
+<!-- Load external quiz script -->
 <script src="/assets/js/quiz.js"></script>
