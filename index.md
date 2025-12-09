@@ -13,7 +13,6 @@ description: "Get personalized 1-on-1 Excel tutoring for beginners, students, an
   <a class="cta-btn" href="/book">Book a Session</a>
 </section>
 
-
 <div class="section">
   <h2>Why Learn Excel With Eddie?</h2>
 
@@ -33,7 +32,6 @@ description: "Get personalized 1-on-1 Excel tutoring for beginners, students, an
   </div>
 </div>
 
-
 <div class="section">
   <h2>Who I Help</h2>
   <ul>
@@ -43,10 +41,9 @@ description: "Get personalized 1-on-1 Excel tutoring for beginners, students, an
   </ul>
 </div>
 
-
 <div class="section" style="text-align:center;">
   <h2>Ready to Get Started?</h2>
-  <p>Book a tutoring session anytime — flexible scheduling and clear, simple pricing:</p>
+  <p>Book a tutoring session anytime — flexible scheduling and simple pricing:</p>
 
   <ul style="list-style:none; padding:0; margin:20px 0; font-size:1.15rem;">
     <li><strong>$70</strong> — Single 1-hour session</li>
