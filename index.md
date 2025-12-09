@@ -1,9 +1,7 @@
 ---
----
 layout: default
 title: "Excel Tutoring Online | 1-on-1 Microsoft Excel Training"
 description: "Get personalized 1-on-1 Excel tutoring for beginners, students, and professionals. Learn formulas, PivotTables, dashboards, data cleanup, and real-world Excel skills faster with expert coaching from Excel with Eddie."
----
 ---
 
 <section class="hero">
