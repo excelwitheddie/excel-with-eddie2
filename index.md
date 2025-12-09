@@ -1,6 +1,8 @@
 ---
+---
 layout: default
-title: Excel with Eddie – Expert Excel Tutoring
+title: "Excel Tutoring Online | 1-on-1 Microsoft Excel Training"
+---
 ---
 
 <section class="hero">
