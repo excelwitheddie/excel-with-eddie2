@@ -4,34 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Page Title -->
   <title>{{ page.title }} | Excel with Eddie</title>
 
-  <!-- SEO Description -->
-  <meta name="description" content="Personalized Excel tutoring — formulas, PivotTables, dashboards, automation, and data skills.">
+  <!-- Primary Meta Description -->
+  <meta name="description" content="{{ page.description | default: 'Personalized 1-on-1 Excel tutoring for beginners, students, and professionals. Learn formulas, PivotTables, dashboards, automation, and real-world Excel skills with Excel with Eddie.' }}">
 
-  <!-- Open Graph (Facebook, LinkedIn) -->
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://excelwitheddie.com{{ page.url }}">
+
+  <!-- ========================= -->
+  <!-- FAVICONS -->
+  <!-- ========================= -->
+  <link rel="icon" href="/assets/images/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+  <meta name="theme-color" content="#16A085">
+
+  <!-- ========================= -->
+  <!-- OPEN GRAPH (Facebook / LinkedIn) -->
+  <!-- ========================= -->
+  <meta property="og:site_name" content="Excel with Eddie">
   <meta property="og:title" content="{{ page.title }} | Excel with Eddie">
-  <meta property="og:description" content="Personalized Excel tutoring — learn formulas, PivotTables, dashboards, automations, and more.">
+  <meta property="og:description" content="{{ page.description | default: 'Learn Excel faster with personalized 1-on-1 tutoring. Formulas, PivotTables, dashboards, and automation made simple.' }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://excelwitheddie.com{{ page.url }}">
   <meta property="og:image" content="https://excelwitheddie.com/assets/images/logo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-  <!-- Fix FB warning -->
+  <!-- Facebook App ID (placeholder is fine for now) -->
   <meta property="fb:app_id" content="0">
 
-  <!-- Twitter Card -->
+  <!-- ========================= -->
+  <!-- TWITTER CARD -->
+  <!-- ========================= -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title }} | Excel with Eddie">
-  <meta name="twitter:description" content="Personalized Excel tutoring to help you master spreadsheets and unlock new skills.">
+  <meta name="twitter:description" content="{{ page.description | default: 'Personalized Excel tutoring to help you master spreadsheets and level up your skills.' }}">
   <meta name="twitter:image" content="https://excelwitheddie.com/assets/images/logo.png">
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- Jekyll SEO Tag -->
+  <!-- Jekyll SEO Tag (LAST so it doesn’t override your tags) -->
   {% seo %}
 
-  <!-- Google Analytics -->
+  <!-- ========================= -->
+  <!-- GOOGLE ANALYTICS -->
+  <!-- ========================= -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VLV7WNH6Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -40,7 +64,6 @@
     gtag('config', 'G-7VLV7WNH6Z');
   </script>
 </head>
-
 
 <body>
 
@@ -56,7 +79,8 @@
   <a 
     href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE"
     class="floating-book-btn"
-    target="_blank">
+    target="_blank"
+    rel="noopener">
     Book Now
   </a>
 
