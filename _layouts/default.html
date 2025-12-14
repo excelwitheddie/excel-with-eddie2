@@ -12,21 +12,23 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://excelwitheddie.com{{ page.url }}">
-  <!-- Structured Data: Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Excel with Eddie",
-  "url": "https://excelwitheddie.com",
-  "logo": "https://excelwitheddie.com/assets/images/logo.png",
-  "sameAs": [
-    "https://facebook.com/excelwitheddie",
-    "https://linkedin.com/company/excelwitheddie"
-  ]
-}
-</script>
 
+  <!-- ========================= -->
+  <!-- STRUCTURED DATA (ORG + LOGO) -->
+  <!-- ========================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Excel with Eddie",
+    "url": "https://excelwitheddie.com",
+    "logo": "https://excelwitheddie.com/assets/images/logo.png",
+    "sameAs": [
+      "https://facebook.com/excelwitheddie",
+      "https://linkedin.com/company/excelwitheddie"
+    ]
+  }
+  </script>
 
   <!-- ========================= -->
   <!-- FAVICONS -->
@@ -40,32 +42,29 @@
   <meta name="theme-color" content="#16A085">
 
   <!-- ========================= -->
-  <!-- OPEN GRAPH (Facebook / LinkedIn) -->
+  <!-- OPEN GRAPH -->
   <!-- ========================= -->
   <meta property="og:site_name" content="Excel with Eddie">
   <meta property="og:title" content="{{ page.title }} | Excel with Eddie">
-  <meta property="og:description" content="{{ page.description | default: 'Learn Excel faster with personalized 1-on-1 tutoring. Formulas, PivotTables, dashboards, and automation made simple.' }}">
+  <meta property="og:description" content="{{ page.description | default: 'Learn Excel faster with personalized 1-on-1 tutoring.' }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://excelwitheddie.com{{ page.url }}">
   <meta property="og:image" content="https://excelwitheddie.com/assets/images/logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Facebook App ID (placeholder is fine for now) -->
-  <meta property="fb:app_id" content="0">
-
   <!-- ========================= -->
   <!-- TWITTER CARD -->
   <!-- ========================= -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title }} | Excel with Eddie">
-  <meta name="twitter:description" content="{{ page.description | default: 'Personalized Excel tutoring to help you master spreadsheets and level up your skills.' }}">
+  <meta name="twitter:description" content="{{ page.description | default: 'Personalized Excel tutoring to help you master spreadsheets.' }}">
   <meta name="twitter:image" content="https://excelwitheddie.com/assets/images/logo.png">
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
-  <!-- Jekyll SEO Tag (LAST so it doesn’t override your tags) -->
+  <!-- Jekyll SEO Tag -->
   {% seo %}
 
   <!-- ========================= -->
@@ -79,17 +78,6 @@
     gtag('config', 'G-7VLV7WNH6Z');
   </script>
 </head>
-<!-- ExcelBot -->
-<script>
-  window.chatbaseConfig = {
-    chatbotId: "fkoCrz6CxwPiJEIGA1u3B",
-  }
-</script>
-<script
-  src="https://www.chatbase.co/embed.min.js"
-  id="chatbase-script"
-  defer>
-</script>
 
 <body>
 
@@ -102,13 +90,27 @@
   {% include footer.html %}
 
   <!-- Floating Book Now Button -->
-  <a 
+  <a
     href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE"
     class="floating-book-btn"
     target="_blank"
     rel="noopener">
     Book Now
   </a>
+
+  <!-- ========================= -->
+  <!-- ExcelBot (Chatbase) -->
+  <!-- ========================= -->
+  <script>
+    window.chatbaseConfig = {
+      chatbotId: "fkoCrz6CxwPiJEIGA1u3B"
+    };
+  </script>
+  <script
+    src="https://www.chatbase.co/embed.min.js"
+    id="chatbase-script"
+    defer>
+  </script>
 
 </body>
 </html>
