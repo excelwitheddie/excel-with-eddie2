@@ -50,7 +50,25 @@ img {
   padding: 0 20px;            /* horizontal padding ONLY */
   height: 90px;               /* ⬅ hard lock height */
 }
+/* =========================================================
+   ABOUT SECTION — CENTERED CONTENT
+   ========================================================= */
 
+.about-section {
+  text-align: center;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.about-section li {
+  text-align: left;          /* keeps checkmarks readable */
+  max-width: 700px;
+  margin: 0 auto 10px;
+}
 /* =============================
    LOGO — NO GAP, NO BORDER
    ============================= */
