@@ -53,6 +53,26 @@ img {
 /* =========================================================
    ABOUT SECTION — CENTERED CONTENT
    ========================================================= */
+/* =========================================================
+   ABOUT HERO
+   ========================================================= */
+.about-hero {
+  max-width: 800px;
+  margin: 40px auto 20px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.about-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  font-size: 1.15rem;
+  color: #0a3c5a;
+  line-height: 1.6;
+}
 
 .about-section {
   text-align: center;
