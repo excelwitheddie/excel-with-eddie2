@@ -28,17 +28,15 @@ img {
 }
 
 /* =========================================================
-   CLEAN HEADER — Excel with Eddie
-   Compact, centered, consistent, mobile-friendly
+   CLEAN HEADER — Excel with Eddie (FIXED)
    ========================================================= */
 
-/* Entire Header Bar */
 .site-header {
-  background: #16a085;
+  background: var(--green);
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 0;                     /* 🔥 no vertical padding */
+  padding: 0; /* no vertical padding */
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
@@ -47,29 +45,24 @@ img {
   max-width: 1300px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-end;          /* logo hugs bottom */
+  align-items: flex-end;      /* everything sits on bottom */
   justify-content: space-between;
-  padding: 8px 20px 0 20px;       /* ⬅ top spacing only */
+  padding: 0 20px;            /* horizontal padding ONLY */
+  height: 90px;               /* ⬅ hard lock height */
 }
 
 /* =============================
-   LOGO (clean, no background)
+   LOGO — NO GAP, NO BORDER
    ============================= */
 .header-logo {
-  height: 90px;        /* 🔼 Bigger logo (adjust 80–100px if desired) */
+  height: 90px;               /* EXACT match to header height */
   width: auto;
   display: block;
-.header-logo {
-  margin-bottom: 0;
-  align-self: flex-end;   /* guarantees bottom alignment */
-}
-
-  /* Remove box styling */
-  border: none;
-  border-radius: 0;
+  margin: 0;                  /* no spacing */
   padding: 0;
+  border: none;
   background: transparent;
-  box-shadow: none;
+  align-self: flex-end;       /* absolute bottom alignment */
 }
 
 /* =============================
@@ -136,14 +129,20 @@ img {
    RESPONSIVE BREAKPOINT
    ============================= */
 @media (max-width: 768px) {
+  .header-inner {
+    height: 65px;
+  }
+
+  .header-logo {
+    height: 65px;
+  }
+
   .main-nav {
     display: none;
   }
+
   .mobile-menu-btn {
     display: block;
-  }
-  .header-logo {
-    height: 65px;     /* slightly smaller on phones */
   }
 }
 
