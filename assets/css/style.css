@@ -53,16 +53,19 @@ img {
 }
 
 /* =============================
-   LOGO
+   LOGO (clean, no background)
    ============================= */
 .header-logo {
-  height: 75px;               /* ↓ Compact size */
+  height: 90px;        /* 🔼 Bigger logo (adjust 80–100px if desired) */
   width: auto;
   display: block;
-  border: 3px solid #083c5a;  /* blue border requested */
-  border-radius: 12px;
-  padding: 4px;               /* subtle breathing room */
-  background: white;          /* clean contrast */
+
+  /* Remove box styling */
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 /* =============================
