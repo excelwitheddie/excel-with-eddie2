@@ -17,27 +17,32 @@ title: About
 <!-- ========================= -->
 <!-- ABOUT CONTENT -->
 <!-- ========================= -->
-<section class="about-section" style="text-align:center; max-width:850px; margin:40px auto;">
+<section class="about-split">
 
-  <h2>Why Learn With Eddie?</h2>
-
-  <div class="about-card" style="
-    background:white;
-    padding:25px 30px;
-    border-radius:14px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.08);
-    margin:25px auto;
-    max-width:700px;">
-    
-    <ul style="list-style:none; padding:0; margin:0; font-size:1.1rem; line-height:1.7;">
-      <li>✓ 20+ years of real, day-to-day Excel experience</li>
-      <li>✓ MBA + Lean Six Sigma Black Belt foundation</li>
-      <li>✓ Calm, patient, beginner-friendly teaching style</li>
-      <li>✓ Clear explanations — no jargon, no overwhelm</li>
-      <li>✓ Practical skills you can use immediately at work or school</li>
-    </ul>
+  <!-- LEFT: Eddie Character -->
+  <div class="about-image">
+    <img 
+      src="/assets/images/eddie-cutout.png" 
+      alt="Excel with Eddie character"
+    >
   </div>
 
+  <!-- RIGHT: Content -->
+  <div class="about-content">
+    <h2>Why Learn With Eddie?</h2>
+
+    <div class="about-card">
+      <ul>
+        <li>✓ 20+ years of real, day-to-day Excel experience</li>
+        <li>✓ MBA + Lean Six Sigma Black Belt foundation</li>
+        <li>✓ Calm, patient, beginner-friendly teaching style</li>
+        <li>✓ Clear explanations — no jargon, no overwhelm</li>
+        <li>✓ Practical skills you can use immediately at work or school</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
 
   <h2>My Approach</h2>
 
