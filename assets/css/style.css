@@ -34,11 +34,11 @@ img {
 
 /* Entire Header Bar */
 .site-header {
-  background: #16a085;        /* Brand green */
+  background: #16a085;
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 6px 0;             /* LOWER HEIGHT */
+  padding: 0;                     /* 🔥 no vertical padding */
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
@@ -47,9 +47,9 @@ img {
   max-width: 1300px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-end;          /* logo hugs bottom */
   justify-content: space-between;
-  padding: 0 20px;            /* horizontal padding only */
+  padding: 8px 20px 0 20px;       /* ⬅ top spacing only */
 }
 
 /* =============================
@@ -59,6 +59,10 @@ img {
   height: 90px;        /* 🔼 Bigger logo (adjust 80–100px if desired) */
   width: auto;
   display: block;
+.header-logo {
+  margin-bottom: 0;
+  align-self: flex-end;   /* guarantees bottom alignment */
+}
 
   /* Remove box styling */
   border: none;
