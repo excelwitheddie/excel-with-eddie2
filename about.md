@@ -17,7 +17,7 @@ title: About
 <!-- ========================= -->
 <!-- ABOUT CONTENT -->
 <!-- ========================= -->
-<section class="about-split">
+<section class="section about-section">
 
   <!-- LEFT: Eddie Character -->
   <div class="about-image">
