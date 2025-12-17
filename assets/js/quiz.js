@@ -201,3 +201,13 @@ window.startQuiz = startQuiz;
 window.submitAnswer = submitAnswer;
 window.nextQuestion = nextQuestion;
 window.endQuiz = endQuiz;
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".quiz-start-buttons button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const difficulty = btn.dataset.difficulty;
+      startQuiz(difficulty);
+    });
+  });
+});
+
