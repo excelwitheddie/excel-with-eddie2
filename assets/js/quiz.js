@@ -1,5 +1,6 @@
 /* =========================================================
-   Excel with Eddie – Quiz Script (Difficulty + Sheets + Charts)
+   Excel with Eddie – Quiz Script
+   Difficulty + Google Sheets + Google Charts
    ========================================================= */
 
 const GOOGLE_SHEETS_WEB_APP_URL =
@@ -7,8 +8,9 @@ const GOOGLE_SHEETS_WEB_APP_URL =
 
 /* ---------------------------------------------------------
    QUESTION BANK
+   (KEEP YOUR EXISTING QUESTION BANK EXACTLY AS IS)
 --------------------------------------------------------- */
-const questionBank = { /* 🔹 UNCHANGED – keep yours exactly */ };
+const questionBank = { /* unchanged */ };
 
 /* ---------------------------------------------------------
    QUIZ STATE
@@ -26,7 +28,7 @@ function capitalize(str) {
 }
 
 function getRandomQuestions(source, count) {
-  return [...source].sort(() => 0.5 - Math.random()).slice(0, count);
+  return [...source].sort(() => Math.random() - 0.5).slice(0, count);
 }
 
 /* ---------------------------------------------------------
@@ -39,9 +41,13 @@ function startQuiz(difficulty = "beginner") {
 
   currentSet = getRandomQuestions(questionBank[difficulty], 10);
 
-  document.getElementById("startBtn")?.style.display = "none";
-  document.getElementById("progressWrapper")?.style.display = "block";
-  document.getElementById("questionCounter")?.style.display = "block";
+  // Hide difficulty selector
+  const difficultyBlock = document.getElementById("difficultySelect");
+  if (difficultyBlock) difficultyBlock.style.display = "none";
+
+  // Show progress UI
+  document.getElementById("progressWrapper").style.display = "block";
+  document.getElementById("questionCounter").style.display = "block";
 
   showQuestion();
 }
@@ -66,7 +72,10 @@ function showQuestion() {
   container.innerHTML = `
     <h2>${q.q}</h2>
     ${q.answers
-      .map((a, i) => `<button class="answer-btn" onclick="submitAnswer(${i})">${a}</button>`)
+      .map(
+        (ans, i) =>
+          `<button class="answer-btn" onclick="submitAnswer(${i})">${ans}</button>`
+      )
       .join("")}
     <p id="explanation" class="explanation"></p>
   `;
@@ -75,32 +84,41 @@ function showQuestion() {
 }
 
 /* ---------------------------------------------------------
-   ANSWER HANDLING
+   SUBMIT ANSWER
 --------------------------------------------------------- */
 function submitAnswer(choice) {
   const q = currentSet[currentIndex];
   const explanation = document.getElementById("explanation");
 
-  const correct = choice === q.correct;
-  if (correct) score++;
+  const isCorrect = choice === q.correct;
+  if (isCorrect) score++;
 
   explanation.textContent =
-    (correct ? "Correct! " : "Incorrect. ") + q.explanation;
-  explanation.style.color = correct ? "#009a63" : "#b00020";
+    (isCorrect ? "Correct! " : "Incorrect. ") + q.explanation;
+  explanation.style.color = isCorrect ? "#009a63" : "#b00020";
 
-  document.querySelectorAll(".answer-btn").forEach(b => b.disabled = true);
+  // Disable answers
+  document.querySelectorAll(".answer-btn").forEach(btn => {
+    btn.disabled = true;
+    btn.style.cursor = "default";
+  });
 
   showNavigationButtons();
 }
 
 /* ---------------------------------------------------------
-   NAVIGATION
+   NAVIGATION CONTROLS
 --------------------------------------------------------- */
 function showNavigationButtons() {
-  document.getElementById("quizContainer").insertAdjacentHTML(
+  const container = document.getElementById("quizContainer");
+
+  // Prevent duplicate button rendering
+  if (document.getElementById("quizNav")) return;
+
+  container.insertAdjacentHTML(
     "beforeend",
     `
-    <div style="margin-top:20px;">
+    <div id="quizNav" style="margin-top:20px;">
       <button class="quiz-btn" onclick="nextQuestion()">Next Question</button>
       <button class="quiz-btn" style="background:#b00020;margin-left:10px;" onclick="quitQuiz()">Quit Quiz</button>
     </div>
@@ -127,12 +145,16 @@ function showResults() {
   document.getElementById("progressWrapper").style.display = "none";
   document.getElementById("questionCounter").style.display = "none";
 
-  document.getElementById("quizContainer").innerHTML = `
+  const container = document.getElementById("quizContainer");
+
+  container.innerHTML = `
     <div class="result-screen">
       <h2>Your Score: ${score} / ${total}</h2>
       <h3>${level}</h3>
       <p>Difficulty: <strong>${capitalize(currentDifficulty)}</strong></p>
-      <div id="quizChart" style="height:300px;margin-top:20px;"></div>
+
+      <div id="quizChart" style="height:300px;margin-top:30px;"></div>
+
       <a href="/book" class="quiz-btn">Book a Tutoring Session</a>
       <br><br>
       <button class="quiz-btn" onclick="location.reload()">Retake Quiz</button>
@@ -144,7 +166,8 @@ function showResults() {
     totalQuestions: total,
     level,
     difficulty: currentDifficulty,
-    page: window.location.pathname
+    page: window.location.pathname,
+    timestamp: new Date().toISOString()
   });
 
   drawResultsChart(score, total);
@@ -158,23 +181,29 @@ function calculateLevel(score, total) {
 }
 
 /* ---------------------------------------------------------
-   GOOGLE SHEETS
+   GOOGLE SHEETS LOGGING
 --------------------------------------------------------- */
 function sendResultsToGoogleSheets(payload) {
+  if (!GOOGLE_SHEETS_WEB_APP_URL) return;
+
   fetch(GOOGLE_SHEETS_WEB_APP_URL, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
-  });
+  }).catch(err => console.error("Sheets error:", err));
 }
 
 /* ---------------------------------------------------------
-   GOOGLE CHARTS (LOAD ONCE)
+   GOOGLE CHARTS (SAFE LOAD)
 --------------------------------------------------------- */
-google.charts.load("current", { packages: ["corechart"] });
-
 function drawResultsChart(correct, total) {
+  if (!window.google || !google.charts) {
+    setTimeout(() => drawResultsChart(correct, total), 300);
+    return;
+  }
+
+  google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(() => {
     const data = google.visualization.arrayToDataTable([
       ["Result", "Count"],
@@ -194,7 +223,7 @@ function drawResultsChart(correct, total) {
 }
 
 /* ---------------------------------------------------------
-   GLOBAL EXPORTS
+   GLOBAL EXPORTS (INLINE HTML NEEDS THESE)
 --------------------------------------------------------- */
 window.startQuiz = startQuiz;
 window.submitAnswer = submitAnswer;
