@@ -12,6 +12,30 @@
   --bg: #f5f7fa;
   --white: #ffffff;
 }
+.quiz-start-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.quiz-btn {
+  padding: 12px 28px;
+  background: #083c5a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.quiz-btn:hover {
+  background: #00a870;
+  transform: translateY(-2px);
+}
+
 
 /* ---------- Base Reset ---------- */
 body {
