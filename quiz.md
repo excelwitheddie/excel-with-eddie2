@@ -21,7 +21,7 @@ title: Excel Knowledge Quiz
   <!-- ========================= -->
   <!-- DIFFICULTY SELECTION -->
   <!-- ========================= -->
-  <div id="difficultySelect" style="margin-top:30px;">
+  <div id="difficultySelect" style="margin-top:25px;">
     <p style="font-weight:600; color:#083c5a; margin-bottom:10px;">
       Select your level to begin:
     </p>
