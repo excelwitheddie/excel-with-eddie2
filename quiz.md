@@ -11,12 +11,12 @@ title: Excel Knowledge Quiz
     Your score, level, and chart appear at the end.
   </p>
 
-  <!-- Difficulty Buttons -->
-  <div style="margin-top:25px;">
-    <button class="quiz-btn" onclick="startQuiz('beginner')">Beginner</button>
-    <button class="quiz-btn" onclick="startQuiz('intermediate')">Intermediate</button>
-    <button class="quiz-btn" onclick="startQuiz('advanced')">Advanced</button>
-  </div>
+<div class="quiz-start-buttons">
+  <button class="quiz-btn" data-difficulty="beginner">Beginner</button>
+  <button class="quiz-btn" data-difficulty="intermediate">Intermediate</button>
+  <button class="quiz-btn" data-difficulty="advanced">Advanced</button>
+</div>
+
 
   <!-- Progress -->
   <div id="progressWrapper" style="display:none;margin:25px auto;width:80%;max-width:500px;background:#eee;border-radius:8px;">
