@@ -10,7 +10,12 @@ const GOOGLE_SHEETS_WEB_APP_URL =
    QUESTION BANK
    (KEEP YOUR EXISTING QUESTION BANK EXACTLY AS IS)
 --------------------------------------------------------- */
-const questionBank = { /* unchanged */ };
+const questionBank = {
+  beginner: [ ... ],
+  intermediate: [ ... ],
+  advanced: [ ... ]
+};
+
 
 /* ---------------------------------------------------------
    QUIZ STATE
