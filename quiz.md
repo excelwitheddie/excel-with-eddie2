@@ -11,26 +11,36 @@ title: Excel Knowledge Quiz
     Your score, level, and chart appear at the end.
   </p>
 
-<div class="quiz-start-buttons">
-  <button class="quiz-btn" data-difficulty="beginner">Beginner</button>
-  <button class="quiz-btn" data-difficulty="intermediate">Intermediate</button>
-  <button class="quiz-btn" data-difficulty="advanced">Advanced</button>
-</div>
-
-
-  <!-- Progress -->
-  <div id="progressWrapper" style="display:none;margin:25px auto;width:80%;max-width:500px;background:#eee;border-radius:8px;">
-    <div id="progressBar" style="height:12px;width:0%;background:#009a63;border-radius:8px;"></div>
+  <!-- START BUTTONS -->
+  <div class="quiz-start-buttons">
+    <button class="quiz-btn" onclick="startQuiz('beginner')">Beginner</button>
+    <button class="quiz-btn" onclick="startQuiz('intermediate')">Intermediate</button>
+    <button class="quiz-btn" onclick="startQuiz('advanced')">Advanced</button>
   </div>
 
+  <!-- PROGRESS -->
+  <div
+    id="progressWrapper"
+    style="display:none;margin:25px auto;width:80%;max-width:500px;background:#eee;border-radius:8px;"
+  >
+    <div
+      id="progressBar"
+      style="height:12px;width:0%;background:#009a63;border-radius:8px;"
+    ></div>
+  </div>
+
+  <!-- COUNTER -->
   <p id="questionCounter" style="display:none;color:#083c5a;"></p>
 
-  <!-- Quiz -->
+  <!-- QUIZ CONTENT -->
   <div id="quizContainer"></div>
 
-  <!-- Chart -->
+  <!-- CHART -->
   <div id="quizChart" style="max-width:500px;margin:30px auto;"></div>
 </section>
 
+<!-- GOOGLE CHARTS -->
 <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- QUIZ SCRIPT -->
 <script src="/assets/js/quiz.js" defer></script>
