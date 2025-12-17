@@ -88,4 +88,5 @@ title: Excel Knowledge Quiz
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <!-- Load external script -->
-<script src="/assets/js/quiz.js"></script>
+<script src="/assets/js/quiz.js" defer></script>
+
