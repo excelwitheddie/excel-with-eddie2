@@ -228,7 +228,17 @@ function startQuiz(level) {
 
   showQuestion();
 }
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ Quiz DOM ready");
 
+  document.querySelectorAll(".quiz-btn[data-level]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const level = btn.dataset.level;
+      console.log("▶ Starting quiz:", level);
+      startQuiz(level);
+    });
+  });
+});
 /* -----------------------------
    SHOW QUESTION
 ----------------------------- */
