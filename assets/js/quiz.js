@@ -1,5 +1,11 @@
 console.log("🔥 quiz.js loaded");
 
+window.startQuiz = function(level) {
+  console.log("🟢 startQuiz CLICKED:", level);
+  alert("startQuiz fired: " + level);
+};
+;
+
 /* ============================
    CONFIG
 ============================ */
