@@ -3,44 +3,60 @@ layout: default
 title: Excel Knowledge Quiz
 ---
 
-<section style="max-width:900px;margin:0 auto;text-align:center;padding-top:20px;">
+<section class="quiz-page">
+
   <h1>Excel Knowledge Quiz</h1>
 
-  <p style="font-size:1.15rem;color:#0a3c5a;">
+  <p class="quiz-intro">
     Choose your difficulty and test your Excel skills.
-    Your score, level, and chart appear at the end.
+    Your score, level, and performance chart appear at the end.
   </p>
 
+  <!-- ========================= -->
   <!-- START BUTTONS -->
+  <!-- ========================= -->
   <div class="quiz-start-buttons">
-    <button class="quiz-btn" onclick="startQuiz('beginner')">Beginner</button>
-    <button class="quiz-btn" onclick="startQuiz('intermediate')">Intermediate</button>
-    <button class="quiz-btn" onclick="startQuiz('advanced')">Advanced</button>
+    <button class="quiz-btn" data-difficulty="beginner" type="button">
+      Beginner
+    </button>
+    <button class="quiz-btn" data-difficulty="intermediate" type="button">
+      Intermediate
+    </button>
+    <button class="quiz-btn" data-difficulty="advanced" type="button">
+      Advanced
+    </button>
   </div>
 
-  <!-- PROGRESS -->
-  <div
-    id="progressWrapper"
-    style="display:none;margin:25px auto;width:80%;max-width:500px;background:#eee;border-radius:8px;"
-  >
-    <div
-      id="progressBar"
-      style="height:12px;width:0%;background:#009a63;border-radius:8px;"
-    ></div>
+  <!-- ========================= -->
+  <!-- PROGRESS BAR -->
+  <!-- ========================= -->
+  <div id="progressWrapper" class="quiz-progress" style="display:none;">
+    <div id="progressBar"></div>
   </div>
 
-  <!-- COUNTER -->
-  <p id="questionCounter" style="display:none;color:#083c5a;"></p>
+  <!-- ========================= -->
+  <!-- QUESTION COUNTER -->
+  <!-- ========================= -->
+  <p id="questionCounter" class="quiz-counter" style="display:none;"></p>
 
+  <!-- ========================= -->
   <!-- QUIZ CONTENT -->
-  <div id="quizContainer"></div>
+  <!-- ========================= -->
+  <div id="quizContainer" class="quiz-container"></div>
 
-  <!-- CHART -->
-  <div id="quizChart" style="max-width:500px;margin:30px auto;"></div>
+  <!-- ========================= -->
+  <!-- RESULTS CHART -->
+  <!-- ========================= -->
+  <div id="quizChart" class="quiz-chart"></div>
+
 </section>
 
+<!-- ========================= -->
 <!-- GOOGLE CHARTS -->
+<!-- ========================= -->
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 
+<!-- ========================= -->
 <!-- QUIZ SCRIPT -->
+<!-- ========================= -->
 <script src="/assets/js/quiz.js" defer></script>
