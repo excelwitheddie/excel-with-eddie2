@@ -207,8 +207,12 @@ function drawChart(correct, total) {
       ["Incorrect", total - correct]
     ]);
 
-    new google.visualization.PieChart(
-      document.getElementById("quizChart")
-    ).draw(data, { pieHole: 0.45 });
-  });
+   new google.visualization.PieChart(
+     document.getElementById("quizChart")
+   ).draw(data, {
+     pieHole: 0.45,
+     legend: { position: "bottom", alignment: "center" },
+     chartArea: { width: "90%", height: "80%" }
+   });
+
 }
