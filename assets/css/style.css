@@ -231,11 +231,13 @@ img {
 }
 
 /* =========================================================
-   QUIZ (FIXED)
+   QUIZ — HARD FIX (CLICK SAFE)
    ========================================================= */
 
 .quiz-section {
   text-align: center;
+  position: relative;
+  z-index: 5;
 }
 
 .quiz-start-buttons {
@@ -243,6 +245,14 @@ img {
   display: flex;
   justify-content: center;
   gap: 16px;
+  position: relative;
+  z-index: 10;
+}
+
+/* 🔒 FORCE CLICKABILITY */
+.quiz-start-buttons,
+.quiz-start-buttons * {
+  pointer-events: auto !important;
 }
 
 .quiz-btn {
@@ -255,6 +265,7 @@ img {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  transition: background 0.25s ease, transform 0.15s ease;
 }
 
 .quiz-btn:hover {
@@ -266,12 +277,14 @@ img {
   background: white;
   border-radius: 14px;
   padding: 30px 20px;
-  margin-top: 25px;
+  margin: 25px auto 0;
+  max-width: 700px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
-/* ===============================
-   QUIZ RESULTS CENTERING
-================================ */
+
+/* =========================================================
+   QUIZ RESULTS
+   ========================================================= */
 
 .quiz-results {
   max-width: 700px;
@@ -279,23 +292,9 @@ img {
   text-align: center;
 }
 
-.quiz-results h2 {
-  margin-bottom: 8px;
-}
-
-.quiz-difficulty {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-}
-
 .quiz-chart {
   max-width: 500px;
-  margin: 0 auto 30px auto;
-}
-
-.quiz-cta {
-  display: inline-block;
-  margin-top: 10px;
+  margin: 0 auto 30px;
 }
 
 /* =========================================================
