@@ -3,12 +3,12 @@ layout: default
 title: Excel Knowledge Quiz
 ---
 
-<section style="max-width:900px;margin:0 auto;text-align:center;padding-top:20px;">
+<section class="quiz-wrapper">
   <h1>Excel Knowledge Quiz</h1>
 
-  <p style="font-size:1.15rem;color:#0a3c5a;">
+  <p class="quiz-intro">
     Choose your difficulty and test your Excel skills.
-    Your score, level, and chart appear at the end.
+    Your score, level, and performance chart appear at the end.
   </p>
 
   <!-- START BUTTONS -->
@@ -19,19 +19,22 @@ title: Excel Knowledge Quiz
   </div>
 
   <!-- PROGRESS -->
-  <div id="progressWrapper" style="display:none;margin:25px auto;width:80%;max-width:500px;background:#eee;border-radius:8px;">
-    <div id="progressBar" style="height:12px;width:0%;background:#009a63;border-radius:8px;"></div>
+  <div id="progressWrapper" class="quiz-progress" hidden>
+    <div id="progressBar"></div>
   </div>
 
   <!-- COUNTER -->
-  <p id="questionCounter" style="display:none;color:#083c5a;"></p>
+  <p id="questionCounter" hidden></p>
 
   <!-- QUIZ CONTENT -->
   <div id="quizContainer"></div>
 
   <!-- CHART -->
-  <div id="quizChart" style="max-width:500px;margin:30px auto;"></div>
+  <div id="quizChart" class="quiz-chart"></div>
 </section>
 
+<!-- Google Charts -->
 <script src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="/assets/js/quiz.js"></script>
+
+<!-- Quiz Script -->
+<script src="/assets/js/quiz.js" defer></script>
