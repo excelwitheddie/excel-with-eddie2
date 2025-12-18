@@ -1,12 +1,12 @@
 console.log("🔥 quiz.js loaded");
 
-/* -----------------------------
-   QUESTION BANK (MINIMAL)
------------------------------ */
+/* -------------------------
+   QUESTION BANK
+------------------------- */
 const questionBank = {
   beginner: [
     {
-      q: "What does the SUM function do?",
+      q: "What does SUM do?",
       answers: ["Adds numbers", "Counts cells", "Sorts data"],
       correct: 0
     }
@@ -20,29 +20,35 @@ const questionBank = {
   ],
   advanced: [
     {
-      q: "What does INDEX + MATCH do?",
-      answers: [
-        "Formats cells",
-        "Looks up values flexibly",
-        "Creates charts"
-      ],
+      q: "INDEX + MATCH is used to?",
+      answers: ["Format cells", "Lookup values", "Create charts"],
       correct: 1
     }
   ]
 };
 
-/* -----------------------------
-   STATE
------------------------------ */
 let currentSet = [];
 let currentIndex = 0;
 
-/* -----------------------------
-   START QUIZ
------------------------------ */
-window.startQuiz = function(level) {
-  console.log("🟢 startQuiz fired:", level);
+/* -------------------------
+   DOM READY
+------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ DOM ready");
 
+  document.querySelectorAll(".quiz-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const level = btn.dataset.level;
+      console.log("🟢 Button clicked:", level);
+      startQuiz(level);
+    });
+  });
+});
+
+/* -------------------------
+   START QUIZ
+------------------------- */
+function startQuiz(level) {
   currentSet = questionBank[level];
   currentIndex = 0;
 
@@ -50,11 +56,11 @@ window.startQuiz = function(level) {
   document.getElementById("questionCounter").style.display = "block";
 
   showQuestion();
-};
+}
 
-/* -----------------------------
+/* -------------------------
    SHOW QUESTION
------------------------------ */
+------------------------- */
 function showQuestion() {
   const q = currentSet[currentIndex];
   if (!q) return;
@@ -64,19 +70,25 @@ function showQuestion() {
     ${q.answers
       .map(
         (a, i) =>
-          `<button class="quiz-btn" onclick="submitAnswer(${i})">${a}</button>`
+          `<button class="quiz-btn answer-btn" data-i="${i}">${a}</button>`
       )
       .join("")}
   `;
 
   document.getElementById("questionCounter").textContent =
     `Question ${currentIndex + 1} of ${currentSet.length}`;
+
+  document.querySelectorAll(".answer-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      submitAnswer(Number(btn.dataset.i));
+    });
+  });
 }
 
-/* -----------------------------
+/* -------------------------
    ANSWER
------------------------------ */
-window.submitAnswer = function(choice) {
+------------------------- */
+function submitAnswer(choice) {
   currentIndex++;
   if (currentIndex < currentSet.length) {
     showQuestion();
@@ -84,4 +96,4 @@ window.submitAnswer = function(choice) {
     document.getElementById("quizContainer").innerHTML =
       "<h2>Quiz complete 🎉</h2>";
   }
-};
+}
