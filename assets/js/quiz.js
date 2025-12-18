@@ -1,71 +1,48 @@
 console.log("🔥 quiz.js loaded");
 
 /* ===============================
-   QUESTION BANK (REQUIRED)
+   QUESTION BANK (MINIMAL)
 ================================ */
 const questionBank = {
   beginner: [
     {
-      q: "What symbol starts every Excel formula?",
-      answers: ["+", "=", "#"],
-      correct: 1,
-      explanation: "All Excel formulas begin with ="
-    },
-    {
-      q: "Which function adds numbers?",
-      answers: ["SUM", "COUNT", "AVERAGE"],
+      q: "What does the SUM function do?",
+      answers: ["Adds numbers", "Counts cells", "Sorts data"],
       correct: 0,
-      explanation: "SUM adds numbers in a range."
+      explanation: "SUM adds numbers together."
     }
   ],
   intermediate: [
     {
       q: "Which function replaces VLOOKUP?",
-      answers: ["XLOOKUP", "HLOOKUP", "MATCH"],
-      correct: 0,
+      answers: ["HLOOKUP", "XLOOKUP", "MATCH"],
+      correct: 1,
       explanation: "XLOOKUP is the modern replacement."
-    },
-    {
-      q: "What does a PivotTable do?",
-      answers: ["Summarize data", "Format cells", "Protect sheets"],
-      correct: 0,
-      explanation: "PivotTables summarize large datasets."
     }
   ],
   advanced: [
     {
-      q: "Which function returns unique values?",
-      answers: ["UNIQUE", "FILTER", "SORT"],
-      correct: 0,
+      q: "What does =UNIQUE(A1:A10) return?",
+      answers: ["Sorted values", "Distinct values", "Counts"],
+      correct: 1,
       explanation: "UNIQUE returns distinct values."
-    },
-    {
-      q: "Which function handles errors?",
-      answers: ["IFERROR", "ERROR", "TRY"],
-      correct: 0,
-      explanation: "IFERROR replaces errors with a value."
     }
   ]
 };
 
-/* ===============================
-   QUIZ STATE
-================================ */
-let currentSet = [];
 let currentIndex = 0;
+let currentSet = [];
 let score = 0;
-let difficulty = "";
 
 /* ===============================
    START QUIZ
 ================================ */
-function startQuiz(level) {
-  console.log("▶ Starting quiz:", level);
+function startQuiz(difficulty) {
+  console.log("Starting quiz:", difficulty);
 
-  difficulty = level;
-  score = 0;
   currentIndex = 0;
-  currentSet = [...questionBank[level]];
+  score = 0;
+  currentSet = questionBank[difficulty];
 
   document.getElementById("progressWrapper").style.display = "block";
   document.getElementById("questionCounter").style.display = "block";
@@ -73,69 +50,29 @@ function startQuiz(level) {
   showQuestion();
 }
 
-/* ===============================
-   SHOW QUESTION
-================================ */
 function showQuestion() {
   const q = currentSet[currentIndex];
-  const container = document.getElementById("quizContainer");
-
-  container.innerHTML = `
-    <h2>${q.q}</h2>
-    ${q.answers
-      .map(
-        (a, i) =>
-          `<button class="answer-btn" onclick="submitAnswer(${i})">${a}</button>`
-      )
-      .join("")}
-    <p id="explanation"></p>
-  `;
-
-  document.getElementById("questionCounter").textContent =
-    `Question ${currentIndex + 1} of ${currentSet.length}`;
-}
-
-/* ===============================
-   ANSWER
-================================ */
-function submitAnswer(choice) {
-  const q = currentSet[currentIndex];
-  const exp = document.getElementById("explanation");
-
-  if (choice === q.correct) {
-    score++;
-    exp.textContent = "✅ Correct! " + q.explanation;
-    exp.style.color = "green";
-  } else {
-    exp.textContent = "❌ " + q.explanation;
-    exp.style.color = "red";
-  }
-
-  setTimeout(nextQuestion, 1200);
-}
-
-/* ===============================
-   NEXT / RESULTS
-================================ */
-function nextQuestion() {
-  currentIndex++;
-  if (currentIndex < currentSet.length) {
-    showQuestion();
-  } else {
-    showResults();
-  }
-}
-
-function showResults() {
   document.getElementById("quizContainer").innerHTML = `
-    <h2>Your Score: ${score} / ${currentSet.length}</h2>
-    <p>Difficulty: ${difficulty}</p>
-    <button class="quiz-btn" onclick="location.reload()">Try Again</button>
+    <h2>${q.q}</h2>
+    ${q.answers.map((a,i)=>`
+      <button class="quiz-btn" onclick="answer(${i})">${a}</button>
+    `).join("")}
   `;
 }
 
+function answer(choice) {
+  alert(choice === currentSet[0].correct ? "Correct!" : "Incorrect");
+}
+
 /* ===============================
-   GLOBAL EXPORTS
+   BUTTON BINDING (THE KEY FIX)
 ================================ */
-window.startQuiz = startQuiz;
-window.submitAnswer = submitAnswer;
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".quiz-start-buttons .quiz-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      startQuiz(btn.dataset.difficulty);
+    });
+  });
+
+  console.log("✅ Quiz buttons bound");
+});
