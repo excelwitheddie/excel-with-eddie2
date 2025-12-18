@@ -2,6 +2,7 @@
    Excel with Eddie — WORKING Quiz Script
    Difficulty • Progress • Charts • Google Sheets
    ========================================================= */
+console.log("🔥 quiz.js loaded");
 
 /* -----------------------------
    GOOGLE SHEETS
