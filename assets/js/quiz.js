@@ -11,14 +11,25 @@ const GOOGLE_SHEETS_WEB_APP_URL =
 ============================ */
 const questionBank = {
   beginner: [
-    { q: "What does SUM do?", answers: ["Adds numbers", "Counts text", "Sorts data"], correct: 0 },
-    { q: "Which starts a formula?", answers: ["=", "$", "#"], correct: 0 }
+    {
+      q: "What does the SUM function do?",
+      answers: ["Adds numbers", "Counts text", "Sorts data"],
+      correct: 0
+    }
   ],
   intermediate: [
-    { q: "What does VLOOKUP require?", answers: ["Leftmost column", "Sorted data", "Exact match"], correct: 0 }
+    {
+      q: "What does VLOOKUP require?",
+      answers: ["Leftmost column", "Sorted data", "Exact match"],
+      correct: 0
+    }
   ],
   advanced: [
-    { q: "What does INDEX + MATCH replace?", answers: ["SUMIF", "VLOOKUP", "COUNT"], correct: 1 }
+    {
+      q: "What replaces VLOOKUP?",
+      answers: ["SUMIF", "XLOOKUP", "COUNT"],
+      correct: 1
+    }
   ]
 };
 
