@@ -45,6 +45,13 @@ let difficulty = "";
    START QUIZ
 ============================ */
 function startQuiz(level) {
+  console.log("🟢 startQuiz fired:", level);
+
+  if (!questionBank[level] || questionBank[level].length === 0) {
+    alert("No questions found for " + level);
+    return;
+  }
+
   difficulty = level;
   currentSet = [...questionBank[level]];
   currentIndex = 0;
