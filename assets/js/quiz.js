@@ -1,114 +1,92 @@
-/* =========================================================
-   Excel with Eddie — WORKING Quiz Script
-   Difficulty • Progress • Charts • Google Sheets
-   ========================================================= */
 console.log("🔥 quiz.js loaded");
 
-/* -----------------------------
-   GOOGLE SHEETS
------------------------------ */
+/* =========================================================
+   Excel with Eddie — WORKING Quiz Script
+   ========================================================= */
+
+/* ------------------ GOOGLE SHEETS ------------------ */
 const GOOGLE_SHEETS_WEB_APP_URL =
   "https://script.google.com/macros/s/AKfycbxwtUQPY5ZcpwfRUMEj33kSLEV-Fkq0FBcGIYMhl5UmvcHC6cmBES__FVBrtvs053TC/exec";
 
-/* -----------------------------
-   QUESTION BANK (MINIMAL, SAFE)
-   You can expand this later
------------------------------ */
+/* ------------------ QUESTION BANK ------------------ */
 const questionBank = {
   beginner: [
     {
-      q: "What symbol starts a formula in Excel?",
-      answers: ["#", "$", "="],
-      correct: 2,
-      explanation: "All Excel formulas start with the equals sign (=)."
+      q: "What symbol starts every Excel formula?",
+      answers: ["#", "=", "$"],
+      correct: 1,
+      explanation: "All Excel formulas begin with ="
     },
     {
       q: "Which function adds numbers?",
       answers: ["SUM", "COUNT", "AVERAGE"],
       correct: 0,
-      explanation: "SUM adds numeric values in a range."
+      explanation: "SUM adds numeric values."
     }
   ],
 
   intermediate: [
     {
-      q: "Which function replaces VLOOKUP?",
-      answers: ["XLOOKUP", "MATCH", "OFFSET"],
-      correct: 0,
-      explanation: "XLOOKUP is the modern replacement for VLOOKUP."
+      q: "Which function replaced VLOOKUP?",
+      answers: ["HLOOKUP", "XLOOKUP", "MATCH"],
+      correct: 1,
+      explanation: "XLOOKUP is the modern replacement."
     },
     {
-      q: "What does a PivotTable do?",
-      answers: ["Summarizes data", "Formats text", "Protects sheets"],
-      correct: 0,
-      explanation: "PivotTables summarize and analyze large datasets."
+      q: "What does COUNTIF do?",
+      answers: [
+        "Counts numbers only",
+        "Counts cells that meet a condition",
+        "Adds values"
+      ],
+      correct: 1,
+      explanation: "COUNTIF counts cells that meet criteria."
     }
   ],
 
   advanced: [
     {
-      q: "Which function returns unique values?",
-      answers: ["FILTER", "UNIQUE", "SORT"],
-      correct: 1,
-      explanation: "UNIQUE spills distinct values from a range."
+      q: "Which formula returns a dynamic filtered list?",
+      answers: ["FILTER", "SORT", "UNIQUE"],
+      correct: 0,
+      explanation: "FILTER returns rows matching criteria."
     },
     {
-      q: "What does SUMIFS allow?",
-      answers: [
-        "Multiple criteria summing",
-        "Text concatenation",
-        "Error handling"
-      ],
-      correct: 0,
-      explanation: "SUMIFS sums values using multiple conditions."
+      q: "What does INDEX + MATCH replace?",
+      answers: ["SUMIF", "VLOOKUP", "COUNTIFS"],
+      correct: 1,
+      explanation: "INDEX/MATCH replaces VLOOKUP with flexibility."
     }
   ]
 };
 
-/* -----------------------------
-   STATE
------------------------------ */
+/* ------------------ STATE ------------------ */
 let currentSet = [];
 let currentIndex = 0;
 let score = 0;
-let difficulty = "";
+let currentDifficulty = "";
 
-/* -----------------------------
-   HELPERS
------------------------------ */
+/* ------------------ UTIL ------------------ */
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function shuffle(arr) {
-  return [...arr].sort(() => Math.random() - 0.5);
-}
+/* ------------------ START QUIZ ------------------ */
+function startQuiz(difficulty) {
+  console.log("▶ Starting quiz:", difficulty);
 
-/* -----------------------------
-   START QUIZ
------------------------------ */
-function startQuiz(level) {
-  if (!questionBank[level]) {
-    console.error("Invalid difficulty:", level);
-    return;
-  }
-
-  difficulty = level;
+  currentDifficulty = difficulty;
   currentIndex = 0;
   score = 0;
 
-  currentSet = shuffle(questionBank[level]).slice(0, 10);
-
-  document.querySelector(".quiz-start-buttons").style.display = "none";
+  currentSet = [...questionBank[difficulty]];
   document.getElementById("progressWrapper").style.display = "block";
   document.getElementById("questionCounter").style.display = "block";
 
   showQuestion();
 }
 
-/* -----------------------------
-   SHOW QUESTION
------------------------------ */
+/* ------------------ SHOW QUESTION ------------------ */
 function showQuestion() {
   const q = currentSet[currentIndex];
   const container = document.getElementById("quizContainer");
@@ -121,98 +99,88 @@ function showQuestion() {
           `<button class="answer-btn" onclick="submitAnswer(${i})">${a}</button>`
       )
       .join("")}
-    <p id="explanation" class="explanation"></p>
+    <p id="explanation"></p>
   `;
 
   updateProgress();
 }
 
-/* -----------------------------
-   PROGRESS
------------------------------ */
+/* ------------------ PROGRESS ------------------ */
 function updateProgress() {
-  const pct = (currentIndex / currentSet.length) * 100;
-  document.getElementById("progressBar").style.width = pct + "%";
-  document.getElementById(
-    "questionCounter"
-  ).textContent = `Question ${currentIndex + 1} of ${
-    currentSet.length
-  } (${capitalize(difficulty)})`;
+  document.getElementById("progressBar").style.width =
+    ((currentIndex + 1) / currentSet.length) * 100 + "%";
+
+  document.getElementById("questionCounter").textContent =
+    `Question ${currentIndex + 1} of ${currentSet.length} (${capitalize(
+      currentDifficulty
+    )})`;
 }
 
-/* -----------------------------
-   ANSWER
------------------------------ */
+/* ------------------ ANSWER ------------------ */
 function submitAnswer(choice) {
   const q = currentSet[currentIndex];
   const explanation = document.getElementById("explanation");
 
-  const correct = choice === q.correct;
-  if (correct) score++;
+  if (choice === q.correct) {
+    score++;
+    explanation.textContent = "✅ Correct! " + q.explanation;
+  } else {
+    explanation.textContent = "❌ Incorrect. " + q.explanation;
+  }
 
-  explanation.textContent =
-    (correct ? "Correct! " : "Incorrect. ") + q.explanation;
-  explanation.style.color = correct ? "#16a085" : "#b00020";
+  document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = true);
 
-  document
-    .querySelectorAll(".answer-btn")
-    .forEach(b => (b.disabled = true));
-
-  setTimeout(nextQuestion, 800);
+  setTimeout(nextQuestion, 900);
 }
 
-/* -----------------------------
-   NEXT / RESULTS
------------------------------ */
+/* ------------------ NEXT ------------------ */
 function nextQuestion() {
   currentIndex++;
-  currentIndex < currentSet.length ? showQuestion() : showResults();
+  if (currentIndex < currentSet.length) {
+    showQuestion();
+  } else {
+    showResults();
+  }
 }
 
+/* ------------------ RESULTS ------------------ */
 function showResults() {
-  const total = currentSet.length;
-  const level =
-    score / total < 0.4
-      ? "📘 Beginner"
-      : score / total < 0.75
-      ? "📗 Intermediate"
-      : "📕 Advanced";
-
   document.getElementById("progressWrapper").style.display = "none";
   document.getElementById("questionCounter").style.display = "none";
 
   document.getElementById("quizContainer").innerHTML = `
-    <h2>Your Score: ${score} / ${total}</h2>
-    <h3>${level}</h3>
-    <p>Difficulty: ${capitalize(difficulty)}</p>
-    <a href="/book" class="quiz-btn">Book a Session</a>
-    <br><br>
+    <h2>Your Score: ${score} / ${currentSet.length}</h2>
+    <h3>${calculateLevel()}</h3>
     <button class="quiz-btn" onclick="location.reload()">Try Again</button>
   `;
 
-  logResults(score, total, level);
+  sendResults();
 }
 
-/* -----------------------------
-   GOOGLE SHEETS
------------------------------ */
-function logResults(score, total, level) {
+/* ------------------ LEVEL ------------------ */
+function calculateLevel() {
+  const pct = (score / currentSet.length) * 100;
+  if (pct < 40) return "📘 Beginner";
+  if (pct < 75) return "📗 Intermediate";
+  return "📕 Advanced";
+}
+
+/* ------------------ SHEETS ------------------ */
+function sendResults() {
   fetch(GOOGLE_SHEETS_WEB_APP_URL, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       score,
-      totalQuestions: total,
-      level,
-      difficulty,
+      totalQuestions: currentSet.length,
+      difficulty: currentDifficulty,
+      level: calculateLevel(),
       page: window.location.pathname
     })
   });
 }
 
-/* -----------------------------
-   GLOBAL EXPORTS
------------------------------ */
+/* ------------------ GLOBAL ------------------ */
 window.startQuiz = startQuiz;
 window.submitAnswer = submitAnswer;
