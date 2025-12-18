@@ -137,13 +137,19 @@ function showResults() {
 
   sendResults();
 
-  container.innerHTML = `
+container.innerHTML = `
+  <div class="quiz-results">
     <h2>Your Score: ${score} / ${total}</h2>
-    <h3>${calculateLevel(score, total)}</h3>
-    <div id="quizChart" style="height:300px;"></div>
-    <br>
-    <a href="/book" class="quiz-btn">Book a Session</a>
-  `;
+
+    <p class="quiz-difficulty">
+      <strong>${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</strong>
+    </p>
+
+    <div id="quizChart" class="quiz-chart"></div>
+
+    <a href="/book" class="quiz-btn quiz-cta">Book a Session</a>
+  </div>
+`;
 
   drawChart(score, total);
 }
