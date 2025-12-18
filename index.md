@@ -53,3 +53,16 @@ description: "Get personalized 1-on-1 Excel tutoring for beginners, students, an
 
   <a class="cta-btn" href="/book">Book Now</a>
 </div>
+<!-- ExcelBot DISABLED TEMPORARILY
+<script>
+  window.chatbaseConfig = {
+    chatbotId: "fkoCrz6CxwPiJEIGA1u3B",
+  }
+</script>
+<script
+  src="https://www.chatbase.co/embed.min.js"
+  id="chatbase-script"
+  defer>
+</script>
+-->
+
