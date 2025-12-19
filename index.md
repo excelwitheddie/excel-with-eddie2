@@ -2,6 +2,7 @@
 layout: default
 title: "Excel Tutoring Online | 1-on-1 Microsoft Excel Training"
 description: "Get personalized 1-on-1 Excel tutoring for beginners, students, and professionals. Learn formulas, PivotTables, dashboards, automation, and real-world Excel skills faster with Excel with Eddie."
+body_class: home
 ---
 
 <!-- ========================= -->
@@ -61,7 +62,7 @@ description: "Get personalized 1-on-1 Excel tutoring for beginners, students, an
 <section class="section">
   <h2>Who I Help</h2>
 
-  <ul>
+  <ul class="centered-list">
     <li>Students preparing for business, finance, or analytics courses</li>
     <li>Professionals upgrading Excel skills for work or promotion</li>
     <li>Anyone tired of Googling formulas and guessing</li>
@@ -71,10 +72,10 @@ description: "Get personalized 1-on-1 Excel tutoring for beginners, students, an
 <!-- ========================= -->
 <!-- PRICING -->
 <!-- ========================= -->
-<section class="section" style="text-align:center;">
+<section class="section">
   <h2>Simple, Transparent Pricing</h2>
 
-  <ul style="list-style:none;padding:0;margin:20px 0;font-size:1.15rem;">
+  <ul class="pricing-list">
     <li><strong>$70</strong> — Single 1-hour session</li>
     <li><strong>$175</strong> — 3-session learning pack</li>
     <li><strong>$550</strong> — 10-session mastery program</li>
