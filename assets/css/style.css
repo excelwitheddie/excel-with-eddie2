@@ -431,13 +431,12 @@ img {
 .social-icon {
   height: 28px;
   width: 28px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  filter: invert(1);
+  transition: transform 0.2s ease;
 }
 
 .social-icon:hover {
   transform: scale(1.15);
-  opacity: 0.85;
 }
 
 /* Meta Text */
