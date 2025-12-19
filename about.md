@@ -38,7 +38,8 @@ title: About
           <li>✓ 20+ years of real, day-to-day Excel experience</li>
           <li>✓ MBA + Lean Six Sigma Black Belt foundation</li>
           <li>✓ Calm, patient, beginner-friendly teaching style</li>
-          <li>✓ Clear explanations — no jargon, no overwhelm</li>
+          <li>✓ Clear explanations — no jargon, not overwhelming</li>
+          <li>✓ Tailored approach focusing on your data and needs</li>
           <li>✓ Practical skills you can use immediately at work or school</li>
         </ul>
       </div>
@@ -78,8 +79,7 @@ title: About
     Before tutoring, I spent more than two decades solving business problems
     with Excel — forecasting, automation, analytics, reporting,
     and streamlining processes.
-    I’ve also proudly served in the U.S. Navy and hold an MBA from
-    the Jack Welch Management Institute.
+    I am a proud US Navy Veteran, with an MBA and a Six Sigma Black Belt.
   </p>
 
   <p>
