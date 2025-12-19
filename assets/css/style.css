@@ -381,7 +381,7 @@ img {
 }
 
 /* =========================================================
-   FOOTER — CLEAN & BALANCED
+   FOOTER — CLEAN, CENTERED, PROFESSIONAL
    ========================================================= */
 
 .site-footer {
@@ -400,23 +400,27 @@ img {
 .footer-links {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
 .footer-link {
   color: #00c27a;
-  font-weight: 600;
   text-decoration: none;
-  font-size: 1.05rem;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .footer-link:hover {
-  color: #ffffff;
   text-decoration: underline;
 }
 
-/* Social */
+.footer-sep {
+  opacity: 0.6;
+}
+
+/* Social Icons */
 .footer-social {
   display: flex;
   justify-content: center;
@@ -425,27 +429,38 @@ img {
 }
 
 .social-icon {
-  height: 26px;
-  width: 26px;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  height: 28px;
+  width: 28px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .social-icon:hover {
   transform: scale(1.15);
-  filter: drop-shadow(0 0 6px #00c27a);
+  opacity: 0.85;
 }
 
-/* Meta text */
-.footer-meta p {
-  margin: 6px 0;
-  font-size: 0.95rem;
-  opacity: 0.9;
+/* Meta Text */
+.footer-meta {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-location span {
+  opacity: 0.8;
+}
+
+.footer-copy {
+  margin-top: 6px;
 }
 
 .footer-disclaimer {
-  font-size: 0.8rem;
-  opacity: 0.7;
   margin-top: 12px;
+  font-size: 0.75rem;
+  opacity: 0.75;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
