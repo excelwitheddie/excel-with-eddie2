@@ -16,7 +16,7 @@ title: Book a Session
 
     <div class="pricing-card">
       <h3>Single Session</h3>
-      <p class="price">$70 / 1 hour</p>
+      <p class="price">$60 / 1 hour</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Live 1-on-1 coaching</li>
         <li>Beginner to advanced support</li>
@@ -30,7 +30,7 @@ title: Book a Session
 
     <div class="pricing-card featured">
       <h3>3-Session Package</h3>
-      <p class="price">$175 / 3 hours</p>
+      <p class="price">$155 / 3 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Save money vs single sessions</li>
         <li>Structured progress across sessions</li>
@@ -44,7 +44,7 @@ title: Book a Session
 
     <div class="pricing-card">
       <h3>10-Session Bundle</h3>
-      <p class="price">$550 / 10 hours</p>
+      <p class="price">$475 / 10 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Best value</li>
         <li>Deep Excel mastery</li>
