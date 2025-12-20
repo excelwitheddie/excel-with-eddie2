@@ -76,9 +76,9 @@ body_class: home
   <h2>Simple, Transparent Pricing</h2>
 
   <ul class="pricing-list">
-    <li><strong>$70</strong> — Single 1-hour session</li>
-    <li><strong>$175</strong> — 3-session learning pack</li>
-    <li><strong>$550</strong> — 10-session mastery program</li>
+    <li><strong>$60</strong> — Single 1-hour session</li>
+    <li><strong>$155</strong> — 3-session learning pack</li>
+    <li><strong>$475</strong> — 10-session mastery program</li>
   </ul>
 
   <a href="/book" class="cta-btn">Get Started</a>
