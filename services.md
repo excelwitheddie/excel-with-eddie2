@@ -66,7 +66,7 @@ title: Services
     <!-- Single Session -->
     <div class="pricing-card">
       <h3>Single Session</h3>
-      <p class="price">$70 / 1 hour</p>
+      <p class="price">$60 / 1 hour</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Personalized 1-on-1 training</li>
         <li>Beginner to advanced lessons</li>
@@ -78,9 +78,9 @@ title: Services
     <!-- 3-Session Package -->
     <div class="pricing-card featured">
       <h3>3-Session Package</h3>
-      <p class="price">$175 / 3 hours</p>
+      <p class="price">$155 / 3 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Save $35 total</li>
+        <li>Save $25 total</li>
         <li>Structured skill-building</li>
         <li>Recap notes provided</li>
       </ul>
@@ -90,9 +90,9 @@ title: Services
     <!-- 10-Session Bundle -->
     <div class="pricing-card">
       <h3>10-Session Bundle</h3>
-      <p class="price">$550 / 10 hours</p>
+      <p class="price">$475 / 10 hours</p>
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Save $150 total</li>
+        <li>Save $125 total</li>
         <li>Deep Excel mastery</li>
         <li>Dashboards, automation & advanced workflows</li>
       </ul>
