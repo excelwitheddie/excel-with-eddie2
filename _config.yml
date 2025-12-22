@@ -18,6 +18,7 @@ logo: "/assets/images/logo.png"
 # Plugins
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Ensure GitHub Pages serves these asset folders
 include:
