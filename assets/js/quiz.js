@@ -1,9 +1,11 @@
 console.log("🔥 quiz.js loaded");
 
 /* =========================================================
-   Excel with Eddie – Quiz Engine (STABLE)
-   Full Questions Restored
+   Excel with Eddie – Quiz Engine (PRODUCTION STABLE)
    ========================================================= */
+
+const GOOGLE_SHEETS_WEB_APP_URL =
+  "https://script.google.com/macros/s/AKfycbxmQfZlU0KoANoGpvUt-R5nRUH3D095rf_qnpR_v6rjwYv5rTE3vSSN37X6Aas4Gq5G/exec";
 
 /* =========================
    QUESTION BANK
@@ -38,7 +40,7 @@ const questionBank = {
       q: "Which function returns the largest value?",
       answers: ["MAX", "MIN", "TOP"],
       correct: 0,
-      explanation: "MAX returns the largest number in a range."
+      explanation: "MAX returns the largest number."
     },
     {
       q: "What does Ctrl + Z do?",
@@ -56,13 +58,13 @@ const questionBank = {
       q: "Which function calculates an average?",
       answers: ["AVG", "AVERAGE", "MEAN"],
       correct: 1,
-      explanation: "AVERAGE returns the mean of values."
+      explanation: "AVERAGE returns the mean."
     },
     {
       q: "What does COUNT count?",
       answers: ["Text cells", "Numeric cells", "Blank cells"],
       correct: 1,
-      explanation: "COUNT only counts numeric values."
+      explanation: "COUNT counts numeric values only."
     },
     {
       q: "Excel is primarily used for:",
@@ -77,25 +79,25 @@ const questionBank = {
       q: "Which function adds values based on one condition?",
       answers: ["SUM", "SUMIF", "SUMIFS"],
       correct: 1,
-      explanation: "SUMIF adds values using a single condition."
+      explanation: "SUMIF applies one condition."
     },
     {
       q: "What does a PivotTable do?",
       answers: ["Formats data", "Summarizes data", "Protects sheets"],
       correct: 1,
-      explanation: "PivotTables summarize and analyze data."
+      explanation: "PivotTables summarize data."
     },
     {
       q: "Which function replaced VLOOKUP?",
       answers: ["INDEX", "MATCH", "XLOOKUP"],
       correct: 2,
-      explanation: "XLOOKUP is the modern replacement for VLOOKUP."
+      explanation: "XLOOKUP is the modern replacement."
     },
     {
       q: "What does $A$1 mean?",
       answers: ["Currency", "Absolute reference", "Text"],
       correct: 1,
-      explanation: "$ locks both the row and column."
+      explanation: "$ locks both row and column."
     },
     {
       q: "Which feature highlights values visually?",
@@ -107,13 +109,13 @@ const questionBank = {
       q: "Which function counts cells that meet a condition?",
       answers: ["COUNT", "COUNTIF", "COUNTA"],
       correct: 1,
-      explanation: "COUNTIF counts cells matching criteria."
+      explanation: "COUNTIF counts matching cells."
     },
     {
       q: "What does MATCH return?",
       answers: ["A value", "A position", "A sum"],
       correct: 1,
-      explanation: "MATCH returns the position of a value."
+      explanation: "MATCH returns a position."
     },
     {
       q: "Which function combines text?",
@@ -140,7 +142,7 @@ const questionBank = {
       q: "Which function returns a filtered dynamic array?",
       answers: ["FILTER", "SORT", "UNIQUE"],
       correct: 0,
-      explanation: "FILTER returns rows that meet criteria."
+      explanation: "FILTER returns rows meeting criteria."
     },
     {
       q: "INDEX + MATCH replaces which function?",
@@ -158,7 +160,7 @@ const questionBank = {
       q: "What does SUMPRODUCT do?",
       answers: ["Adds ranges", "Multiplies then sums", "Counts values"],
       correct: 1,
-      explanation: "SUMPRODUCT multiplies arrays then sums them."
+      explanation: "SUMPRODUCT multiplies arrays then sums."
     },
     {
       q: "Which returns the last non-blank value?",
@@ -168,7 +170,7 @@ const questionBank = {
         "=COUNT(A:A)"
       ],
       correct: 0,
-      explanation: "This LOOKUP trick finds the last value."
+      explanation: "Classic LOOKUP trick."
     },
     {
       q: "What makes XLOOKUP better?",
@@ -180,13 +182,13 @@ const questionBank = {
       q: "What builds interactive dashboards?",
       answers: ["PivotTables + Slicers", "Solver", "Goal Seek"],
       correct: 0,
-      explanation: "PivotTables with slicers drive dashboards."
+      explanation: "PivotTables with slicers."
     },
     {
       q: "What does IFERROR do?",
       answers: ["Stops errors", "Replaces errors", "Ignores blanks"],
       correct: 1,
-      explanation: "IFERROR substitutes error results."
+      explanation: "IFERROR replaces error results."
     },
     {
       q: "Which spills sorted unique values?",
@@ -209,11 +211,15 @@ const questionBank = {
 let currentSet = [];
 let currentIndex = 0;
 let score = 0;
+let currentDifficulty = "";
 
 /* =========================
    START QUIZ
 ========================= */
 function startQuiz(level) {
+  if (!questionBank[level]) return;
+
+  currentDifficulty = level;
   currentIndex = 0;
   score = 0;
 
@@ -224,7 +230,18 @@ function startQuiz(level) {
   document.getElementById("progressWrapper").style.display = "block";
   document.getElementById("questionCounter").style.display = "block";
 
+  updateProgress();
   showQuestion();
+}
+
+/* =========================
+   PROGRESS
+========================= */
+function updateProgress() {
+  const percent = (currentIndex / currentSet.length) * 100;
+  document.getElementById("progressBar").style.width = percent + "%";
+  document.getElementById("questionCounter").textContent =
+    `Question ${currentIndex + 1} of ${currentSet.length}`;
 }
 
 /* =========================
@@ -236,16 +253,14 @@ function showQuestion() {
 
   container.innerHTML = `
     <h2>${q.q}</h2>
-    ${q.answers
-      .map((a, i) =>
+    ${q.answers.map(
+      (a, i) =>
         `<button class="quiz-btn answer-btn" onclick="submitAnswer(${i})">${a}</button>`
-      )
-      .join("")}
+    ).join("")}
     <p id="explanation" class="explanation"></p>
   `;
 
-  document.getElementById("questionCounter").textContent =
-    `Question ${currentIndex + 1} of ${currentSet.length}`;
+  updateProgress();
 }
 
 /* =========================
@@ -255,14 +270,12 @@ function submitAnswer(choice) {
   const q = currentSet[currentIndex];
   const explanation = document.getElementById("explanation");
 
-  if (choice === q.correct) {
-    score++;
-    explanation.style.color = "#16a085";
-    explanation.textContent = "Correct! " + q.explanation;
-  } else {
-    explanation.style.color = "#b00020";
-    explanation.textContent = "Incorrect. " + q.explanation;
-  }
+  const correct = choice === q.correct;
+  if (correct) score++;
+
+  explanation.textContent =
+    (correct ? "Correct! " : "Incorrect. ") + q.explanation;
+  explanation.style.color = correct ? "#16a085" : "#b00020";
 
   document.querySelectorAll(".answer-btn").forEach(b => b.disabled = true);
 
@@ -276,15 +289,75 @@ function submitAnswer(choice) {
    RESULTS
 ========================= */
 function showResults() {
+  const total = currentSet.length;
+
+  document.getElementById("progressWrapper").style.display = "none";
+  document.getElementById("questionCounter").style.display = "none";
+
   document.getElementById("quizContainer").innerHTML = `
     <div class="quiz-results">
-      <h2>Your Score: ${score} / ${currentSet.length}</h2>
-      <h3>
-        ${score < 4 ? "Beginner" : score < 8 ? "Intermediate" : "Advanced"}
-      </h3>
+      <h2>Your Score: ${score} / ${total}</h2>
+      <h3>${calculateLevel(score, total)}</h3>
+      <div id="quizChart" class="quiz-chart"></div>
       <button class="quiz-btn" onclick="location.reload()">Try Again</button>
     </div>
   `;
+
+  sendResultsToGoogleSheets({
+    score,
+    totalQuestions: total,
+    level: calculateLevel(score, total),
+    difficulty: currentDifficulty,
+    page: window.location.pathname
+  });
+
+  drawResultsChart(score, total);
+}
+
+/* =========================
+   LEVEL
+========================= */
+function calculateLevel(score, total) {
+  const pct = (score / total) * 100;
+  if (pct < 40) return "📘 Beginner";
+  if (pct < 75) return "📗 Intermediate";
+  return "📕 Advanced";
+}
+
+/* =========================
+   GOOGLE SHEETS
+========================= */
+function sendResultsToGoogleSheets(data) {
+  fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+    mode: "no-cors"
+  });
+}
+
+/* =========================
+   GOOGLE CHARTS
+========================= */
+google.charts.load("current", { packages: ["corechart"] });
+
+function drawResultsChart(correct, total) {
+  google.charts.setOnLoadCallback(() => {
+    const data = google.visualization.arrayToDataTable([
+      ["Result", "Count"],
+      ["Correct", correct],
+      ["Incorrect", total - correct]
+    ]);
+
+    const chart = new google.visualization.PieChart(
+      document.getElementById("quizChart")
+    );
+
+    chart.draw(data, {
+      pieHole: 0.45,
+      legend: { position: "bottom" }
+    });
+  });
 }
 
 /* =========================
