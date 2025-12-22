@@ -420,6 +420,21 @@ img {
   opacity: 0.6;
 }
 
+/* =========================
+   Footer Social Icons FIX
+   ========================= */
+
+.footer-social img {
+  width: 30px;
+  height: 30px;
+  filter: invert(48%) sepia(38%) saturate(456%) hue-rotate(127deg) brightness(92%) contrast(90%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.15);
+  filter: invert(24%) sepia(89%) saturate(475%) hue-rotate(153deg) brightness(94%) contrast(97%);
+}
 /* Social Icons */
 .footer-social {
   display: flex;
