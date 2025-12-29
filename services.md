@@ -82,7 +82,7 @@ title: Services
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Save $25 total</li>
         <li>Structured skill-building</li>
-        <li>Recap notes provided</li>
+        <li>3 one-hour sessions or two 1.5-hour sessions</li>
       </ul>
       <a href="/book" class="price-btn">Most Popular</a>
     </div>
@@ -94,7 +94,7 @@ title: Services
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Save $125 total</li>
         <li>Deep Excel mastery</li>
-        <li>Dashboards, automation & advanced workflows</li>
+        <li>Ten 1-hour sessions or 5 two-hour sessions</li>
       </ul>
       <a href="/book" class="price-btn">Book Now</a>
     </div>
@@ -111,9 +111,9 @@ title: Services
   <div class="testimonial-grid">
 
     <div class="testimonial">
-      <p>“Eddie helped me go from overwhelmed to confident.  
-      I finally understand formulas and PivotTables.”</p>
-      <h4>— Sarah M.</h4>
+      <p>Starting my new job, I quickly realized I needed advanced Excel skills that I simply didn’t have. While I wasn’t a complete beginner, I was close—and feeling overwhelmed. Eddie         saved me countless hours of searching for tutorials and spared me the frustration and anxiety that came with it.
+      His teaching style is clear, practical, and easy to follow. I went from understanding basic cells and pivot tables to confidently recreating formulas. If you’re looking for an Excel       tutor who can change your relationship with the dreaded Excel- Eddie is the one!”</p>
+      <h4>— E. C.</h4>
     </div>
 
     <div class="testimonial">
