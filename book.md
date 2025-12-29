@@ -34,7 +34,7 @@ title: Book a Session
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Save money vs single sessions</li>
         <li>Structured progress across sessions</li>
-        <li>Session recap notes included</li>
+        <li>3 one-hour sessions or two 1.5-hour sessions</li>
       </ul>
       <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE" 
          class="price-btn" target="_blank">
@@ -48,7 +48,7 @@ title: Book a Session
       <ul style="text-align:left; margin:0 auto; max-width:240px;">
         <li>Best value</li>
         <li>Deep Excel mastery</li>
-        <li>Dashboards, automation & advanced workflows</li>
+        <li>10 one-hour sessions or five 2-hour sessions</li>
       </ul>
       <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE" 
          class="price-btn" target="_blank">
