@@ -102,31 +102,3 @@ title: Services
   </div>
 </section>
 
-<!-- ========================= -->
-<!-- TESTIMONIALS -->
-<!-- ========================= -->
-<section class="testimonials" style="text-align:center; margin-top:60px;">
-  <h2>What Students Are Saying</h2>
-
-  <div class="testimonial-grid">
-
-    <div class="testimonial">
-      <p>Starting my new job, I quickly realized I needed advanced Excel skills that I simply didn’t have. While I wasn’t a complete beginner, I was close—and feeling overwhelmed. Eddie         saved me countless hours of searching for tutorials and spared me the frustration and anxiety that came with it.
-      His teaching style is clear, practical, and easy to follow. I went from understanding basic cells and pivot tables to confidently recreating formulas. If you’re looking for an Excel       tutor who can change your relationship with the dreaded Excel- Eddie is the one!”</p>
-      <h4>— E. C.</h4>
-    </div>
-
-    <div class="testimonial">
-      <p>“Clear explanations, patient guidance, and practical examples.  
-      The best Excel help I’ve ever had.”</p>
-      <h4>— Jacob R.</h4>
-    </div>
-
-    <div class="testimonial">
-      <p>“I built a full dashboard for work after just a few sessions.  
-      Highly recommended!”</p>
-      <h4>— Victoria L.</h4>
-    </div>
-
-  </div>
-</section>
