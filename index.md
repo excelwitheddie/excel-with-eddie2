@@ -80,6 +80,8 @@ body_class: home
     <li><strong>$155</strong> — 3-session learning pack</li>
     <li><strong>$475</strong> — 10-session mastery program</li>
   </ul>
-
+<!-- Elfsight Google Reviews | Untitled Google Reviews -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529" data-elfsight-app-lazy></div>
   <a href="/book" class="cta-btn">Get Started</a>
 </section>
