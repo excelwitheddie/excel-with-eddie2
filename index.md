@@ -21,6 +21,10 @@ body_class: home
     Personalized 1-on-1 Excel tutoring to help you master formulas,
     PivotTables, dashboards, automation, and real-world spreadsheet skills.
   </p>
+  <p style="margin-top:10px;">
+  Also available: <strong>Small Group Excel tutoring (2–4 people)</strong>.
+</p>
+
 
   <a href="/book" class="cta-btn">Book a Session</a>
 </section>
