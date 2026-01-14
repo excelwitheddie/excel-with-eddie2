@@ -1,96 +1,53 @@
 ---
 layout: default
-title: Book a Session
+title: Book Excel Tutoring | Excel with Eddie
+description: Book personalized Excel tutoring sessions. One-on-one or small group Excel help for beginners and intermediate users.
 ---
 
-<section class="section" style="text-align:center; max-width:850px; margin:0 auto;">
+<section class="section">
+  <h1 style="text-align:center;">Book a Session</h1>
 
-  <h1>Book a Tutoring Session</h1>
-  <p style="font-size:1.2rem; color:#083c5a;">
-    Choose your preferred day and time using the Google Calendar scheduler below.
-    All sessions are 1-on-1, personalized, and beginner-friendly.
+  <p style="text-align:center; max-width:700px; margin:10px auto 40px;">
+    All sessions are live, personalized, and tailored to your goals.
+    No generic training materials — we work directly on what <em>you</em> need.
   </p>
 
-  <!-- PRICING SUMMARY -->
-  <div class="pricing-grid" style="margin-top:40px;">
+  <div class="book-grid">
 
-    <div class="pricing-card">
-      <h3>Single Session</h3>
-      <p class="price">$60 / 1 hour</p>
-      <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Live 1-on-1 coaching</li>
-        <li>Beginner to advanced support</li>
-        <li>Hands-on practice with real examples</li>
-      </ul>
-      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE" 
-         class="price-btn" target="_blank">
-         Book Single Session
-      </a>
+    <!-- ONE-ON-ONE -->
+    <div class="book-card">
+      <h2>1-on-1 Excel Tutoring</h2>
+
+      <div class="price-lines">
+        <p><strong>$60</strong> — 1-hour session</p>
+        <p><strong>$165</strong> — 3 one-hour sessions</p>
+        <p><strong>$499</strong> — 10 one-hour sessions</p>
+      </div>
+
+      <p class="card-note">
+        Beginner through advanced topics. Sessions are fully customized
+        to your workflow, goals, and skill level.
+      </p>
+
+      <a href="/book" class="service-btn">Book a 1-on-1 Session</a>
     </div>
 
-    <div class="pricing-card featured">
-      <h3>3-Session Package</h3>
-      <p class="price">$155 / 3 hours</p>
-      <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Save money vs single sessions</li>
-        <li>Structured progress across sessions</li>
-        <li>3 one-hour sessions or two 1.5-hour sessions</li>
-      </ul>
-      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE" 
-         class="price-btn" target="_blank">
-         Book 3-Session Package
-      </a>
+    <!-- SMALL GROUP -->
+    <div class="book-card">
+      <h2>Small Group Sessions (2–4 people)</h2>
+
+      <div class="price-lines">
+        <p><strong>$75</strong> — 1-hour session (Basic or Intermediate)</p>
+        <p><strong>$200</strong> — 3× 1-hour sessions or 2× 1.5-hour sessions</p>
+      </div>
+
+      <p class="card-note">
+        Perfect for coworkers, classmates, or teams who want to learn together.
+        Group sessions are customized to shared goals and skill levels.
+      </p>
+
+      <a href="/contact" class="service-btn">Request a Group Session</a>
     </div>
-
-    <div class="pricing-card">
-      <h3>10-Session Bundle</h3>
-      <p class="price">$475 / 10 hours</p>
-      <ul style="text-align:left; margin:0 auto; max-width:240px;">
-        <li>Best value</li>
-        <li>Deep Excel mastery</li>
-        <li>10 one-hour sessions or five 2-hour sessions</li>
-      </ul>
-      <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE" 
-         class="price-btn" target="_blank">
-         Book 10-Session Bundle
-      </a>
-    </div>
-
-    <div class="card">
-  <h2 style="margin-top:0;">Small Group Sessions (2–4 people)</h2>
-  <ul>
-    <li><strong>$75</strong> — 1-hour session (Basic or Intermediate)</li>
-    <li><strong>$200</strong> — 3× 1-hour sessions <em>or</em> 2× 1.5-hour sessions</li>
-  </ul>
-  <p>
-    For group sessions, use the Contact page and tell me your goals, skill level, and preferred times.
-  </p>
-  <a class="cta-btn" href="/contact">Request a Group Session</a>
-</div>
-
 
   </div>
-
-  <!-- HOW BOOKING WORKS -->
-  <div style="margin-top:60px;">
-    <h2>How It Works</h2>
-
-    <div class="card" style="text-align:left;">
-      <ul>
-        <li><strong>Step 1:</strong> Click a booking option above.</li>
-        <li><strong>Step 2:</strong> Choose a day and time from Google Calendar.</li>
-        <li><strong>Step 3:</strong> You will receive an automatic confirmation with a Google Meet link.</li>
-        <li><strong>Step 4:</strong> Join the session and begin learning Excel!</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CONTACT CTA -->
-  <div style="margin-top:40px;">
-    <p style="font-size:1.2rem;">Have questions before booking?</p>
-    <a class="cta-btn" href="mailto:eddie@excelwitheddie.com?subject=Excel%20Tutoring%20Question">
-      Contact Me
-    </a>
-  </div>
-
 </section>
