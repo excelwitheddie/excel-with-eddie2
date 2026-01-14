@@ -81,8 +81,8 @@ body_class: home
 
 <ul style="list-style:none;padding:0;margin:20px 0;font-size:1.15rem;">
   <li><strong>$60</strong> — Single 1-hour 1-on-1 session</li>
-  <li><strong>$165</strong> — 3-session 1-on-1 learning pack</li>
-  <li><strong>$499</strong> — 10-session 1-on-1 mastery program</li>
+  <li><strong>$155</strong> — 3-session 1-on-1 learning pack</li>
+  <li><strong>$475</strong> — 10-session 1-on-1 mastery program</li>
 
   <li style="margin-top:18px;"><strong>Small Group (2–4 people)</strong></li>
   <li><strong>$75</strong> — 1-hour group session (Basic or Intermediate)</li>
