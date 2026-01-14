@@ -56,6 +56,19 @@ title: Book a Session
       </a>
     </div>
 
+    <div class="card">
+  <h2 style="margin-top:0;">Small Group Sessions (2–4 people)</h2>
+  <ul>
+    <li><strong>$75</strong> — 1-hour session (Basic or Intermediate)</li>
+    <li><strong>$200</strong> — 3× 1-hour sessions <em>or</em> 2× 1.5-hour sessions</li>
+  </ul>
+  <p>
+    For group sessions, use the Contact page and tell me your goals, skill level, and preferred times.
+  </p>
+  <a class="cta-btn" href="/contact">Request a Group Session</a>
+</div>
+
+
   </div>
 
   <!-- HOW BOOKING WORKS -->
