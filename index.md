@@ -84,4 +84,7 @@ body_class: home
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529" data-elfsight-app-lazy></div>
   <a href="/book" class="cta-btn">Get Started</a>
+  <p style="margin-top:16px;">
+  Not sure where to start? Visit the <a class="footer-link" href="/faq">FAQ page</a>.
+</p>
 </section>
