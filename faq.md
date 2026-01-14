@@ -206,7 +206,25 @@ permalink: /faq/
         "text": "Excel with Eddie is based in Houma, Louisiana and provides online Excel tutoring across the United States via Google Meet."
       }
     },
-    {
+  <div class="card">
+  <h2 style="margin-top:0;">Do you offer small group Excel tutoring?</h2>
+  <p>
+    Yes. I offer small group sessions for <strong>2–4 people</strong>. These are great for coworkers,
+    students, friends, or teams who want to learn together.
+  </p>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0;">How much do small group sessions cost?</h2>
+  <p>
+    Small group sessions are <strong>$75 for one hour</strong>.
+    There’s also a bundle option: <strong>$200</strong> for either
+    <strong>3× 1-hour sessions</strong> or <strong>2× 1.5-hour sessions</strong>.
+    Group sessions can be <strong>Basic</strong> or <strong>Intermediate</strong>.
+  </p>
+</div>
+ 
+  {
       "@type": "Question",
       "name": "Is Excel with Eddie affiliated with Microsoft?",
       "acceptedAnswer": {
