@@ -75,11 +75,16 @@ body_class: home
 <section class="section">
   <h2>Simple, Transparent Pricing</h2>
 
-  <ul class="pricing-list">
-    <li><strong>$60</strong> — Single 1-hour session</li>
-    <li><strong>$155</strong> — 3-session learning pack</li>
-    <li><strong>$475</strong> — 10-session mastery program</li>
-  </ul>
+<ul style="list-style:none;padding:0;margin:20px 0;font-size:1.15rem;">
+  <li><strong>$60</strong> — Single 1-hour 1-on-1 session</li>
+  <li><strong>$165</strong> — 3-session 1-on-1 learning pack</li>
+  <li><strong>$499</strong> — 10-session 1-on-1 mastery program</li>
+
+  <li style="margin-top:18px;"><strong>Small Group (2–4 people)</strong></li>
+  <li><strong>$75</strong> — 1-hour group session (Basic or Intermediate)</li>
+  <li><strong>$200</strong> — Group bundle: 3× 1-hour sessions <em>or</em> 2× 1.5-hour sessions</li>
+</ul>
+
 <!-- Elfsight Google Reviews | Untitled Google Reviews -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529" data-elfsight-app-lazy></div>
