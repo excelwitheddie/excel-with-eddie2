@@ -12,23 +12,58 @@ title: Contact
   </p>
 
   <!-- FORM: sends to Formspree -->
-  <form
-    class="contact-form"
-    action="https://formspree.io/f/xkorakaq"
-    method="POST"
+ <form
+  class="contact-form"
+  action="https://formspree.io/f/xkorakaq"
+  method="POST"
+>
+  <!-- Name + Email -->
+  <div class="contact-row">
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    >
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      required
+    >
+  </div>
+
+  <!-- Message -->
+  <textarea
+    name="message"
+    placeholder="How can I help you?"
+    required
+  ></textarea>
+
+  <!-- Formspree extras -->
+  <input
+    type="hidden"
+    name="_subject"
+    value="New message from ExcelWithEddie.com"
   >
-    <div class="contact-row">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-    </div>
 
-    <textarea name="message" placeholder="How can I help you?" required></textarea>
+  <input
+    type="hidden"
+    name="_next"
+    value="https://excelwitheddie.com/thanks/"
+  >
 
-    <!-- helpful metadata -->
-    <input type="hidden" name="_subject" value="New message from ExcelWithEddie.com">
-    <input type="hidden" name="page" value="contact">
-    <input type="text" name="_gotcha" style="display:none">
+  <!-- Spam trap -->
+  <input
+    type="text"
+    name="_gotcha"
+    style="display:none"
+  >
 
-    <button type="submit" class="quiz-btn">Send Message</button>
-  </form>
+  <button type="submit" class="quiz-btn">
+    Send Message
+  </button>
+</form>
+
 </section>
