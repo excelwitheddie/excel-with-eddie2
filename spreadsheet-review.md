@@ -123,7 +123,7 @@ Upload your file and briefly describe:
 I’ll review it and respond within 1–2 business days.
 </p>
 
-<a href="/contact/" class="cta-btn" style="margin-top:20px; display:inline-block;">
+<a href="/submit-review/" class="cta-btn" style="margin-top:20px; display:inline-block;">
 Submit Your Spreadsheet
 </a>
 
