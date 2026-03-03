@@ -51,6 +51,17 @@ You’ll receive a structured review within 1–2 business days.
   ></textarea>
 
   <!-- Goal of Review -->
-  <p style="margin-top:25px;"><strong>Primary Goal of This Review</strong></p>
+<p style="margin-top:25px;"><strong>Primary Goal of This Review</strong></p>
 
-  <select name="review_goal" required style="margin-top:10px; width:
+<select 
+  name="review_goal" 
+  required 
+  style="margin-top:10px; width:100%; padding:10px;"
+>
+  <option value="">Select one</option>
+  <option value="Fix errors or broken formulas">Fix errors or broken formulas</option>
+  <option value="Improve structure and organization">Improve structure and organization</option>
+  <option value="Automate repetitive tasks">Automate repetitive tasks</option>
+  <option value="Prepare for presentation or sharing">Prepare for presentation or sharing</option>
+  <option value="General optimization">General optimization</option>
+</select>
