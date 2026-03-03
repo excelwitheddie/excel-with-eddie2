@@ -2,7 +2,7 @@
 layout: default
 title: Submit Spreadsheet for Review
 permalink: /submit-review/
-description: Upload your Excel spreadsheet for a free professional review and structured feedback.
+description: Upload your Excel spreadsheet for a free professional review with optional priority turnaround.
 ---
 
 <section class="section" style="max-width:800px; margin:0 auto;">
@@ -10,7 +10,7 @@ description: Upload your Excel spreadsheet for a free professional review and st
 <h1>Submit Your Spreadsheet for Review</h1>
 
 <p style="font-size:1.15rem; margin-top:15px;">
-Upload your file below and briefly describe what you'd like feedback on.
+Upload your file and tell me what you'd like help improving.
 </p>
 
 <p>
@@ -45,59 +45,12 @@ You’ll receive a structured review within 1–2 business days.
 
   <textarea
     name="description"
-    placeholder="Briefly describe what this spreadsheet is used for and what feels frustrating or inefficient."
+    placeholder="What does this spreadsheet do? What feels inefficient, confusing, or fragile?"
     rows="6"
     required
   ></textarea>
 
-  <p style="margin-top:20px;"><strong>Upload Spreadsheet (Excel file)</strong></p>
+  <!-- Goal of Review -->
+  <p style="margin-top:25px;"><strong>Primary Goal of This Review</strong></p>
 
-  <input
-    type="file"
-    name="attachment"
-    accept=".xlsx,.xls,.xlsm,.csv"
-    style="margin-top:10px;"
-  />
-
-  <p style="margin-top:20px;">
-    Or paste a Google Drive / OneDrive link:
-  </p>
-
-  <input
-    type="url"
-    name="file_link"
-    placeholder="Paste shareable link here (optional)"
-  />
-
-  <p style="margin-top:20px; font-size:0.9rem;">
-    Please remove any sensitive data if necessary before submitting.
-  </p>
-
-  <!-- Subject line -->
-  <input
-    type="hidden"
-    name="_subject"
-    value="New Spreadsheet Review Submission"
-  />
-
-  <!-- Redirect after submission -->
-  <input
-    type="hidden"
-    name="_next"
-    value="https://excelwitheddie.com/thanks-review/"
-  />
-
-  <!-- Honeypot spam trap -->
-  <input
-    type="text"
-    name="_gotcha"
-    style="position:absolute;left:-9999px;opacity:0;height:0;width:0;"
-  />
-
-  <button type="submit" class="quiz-btn" style="margin-top:25px;">
-    Submit for Free Review
-  </button>
-
-</form>
-
-</section>
+  <select name="review_goal" required style="margin-top:10px; width:
