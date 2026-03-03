@@ -10,7 +10,7 @@ description: Upload your Excel spreadsheet for a free professional review with o
 <h1>Submit Your Spreadsheet for Review</h1>
 
 <p style="font-size:1.15rem; margin-top:15px;">
-Upload your file and tell me what you'd like help improving.
+After submitting this form, I will email you with instructions for sharing your file.
 </p>
 
 <p>
