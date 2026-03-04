@@ -20,8 +20,8 @@ description: Book personalized Excel tutoring sessions. One-on-one or small grou
 
       <div class="price-lines">
         <p><strong>$60</strong> — 1-hour session</p>
-        <p><strong>$165</strong> — 3 one-hour sessions</p>
-        <p><strong>$499</strong> — 10 one-hour sessions</p>
+        <p><strong>$155</strong> — 3 one-hour sessions</p>
+        <p><strong>$475</strong> — 10 one-hour sessions</p>
       </div>
 
       <p class="card-note">
