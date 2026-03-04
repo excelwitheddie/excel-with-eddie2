@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Excel Tutoring Online | 1-on-1 Microsoft Excel Training"
-description: "Get personalized 1-on-1 Excel tutoring for beginners, students, and professionals. Learn formulas, PivotTables, dashboards, automation, and real-world Excel skills faster with Excel with Eddie."
+title: "Excel with Eddie | Reliable Spreadsheet Solutions"
+description: "I help growing businesses fix broken spreadsheets, automate reporting, and build Excel systems they can trust."
 body_class: home
 ---
 
@@ -15,47 +15,40 @@ body_class: home
     alt="Excel with Eddie logo"
   />
 
-  <h1>Master Excel Faster</h1>
+  <h1>Make Your Excel Reporting Reliable</h1>
 
   <p>
-    Personalized 1-on-1 Excel tutoring to help you master formulas,
-    PivotTables, dashboards, automation, and real-world spreadsheet skills.
+    I help growing businesses fix broken spreadsheets, automate repetitive reporting, and build Excel systems they can trust.
   </p>
-  <p style="margin-top:10px;">
-  Also available: <strong>Small Group Excel tutoring (2–4 people)</strong>.
-</p>
 
-
-  <a href="/book" class="cta-btn">Book a Session</a>
+  <a href="/services" class="cta-btn">Fix My Spreadsheet</a>
+  <a href="/services" class="cta-btn" style="margin-left:12px;">Automate My Reporting</a>
 </section>
 
 <!-- ========================= -->
 <!-- WHY EDDIE -->
 <!-- ========================= -->
 <section class="section">
-  <h2>Why Learn Excel With Eddie?</h2>
+  <h2>Why Work With Excel with Eddie?</h2>
 
   <div class="card">
-    <h3>Personalized 1-on-1 Coaching</h3>
+    <h3>Practical, Dependable Solutions</h3>
     <p>
-      Every session is tailored to your goals, your pace, and your real work
-      or school needs. No generic lessons.
+      I focus on accuracy, efficiency, and long-term reliability. No hype. Just spreadsheets that work consistently.
     </p>
   </div>
 
   <div class="card">
-    <h3>Beginner-Friendly, Zero Intimidation</h3>
+    <h3>Business-Focused Approach</h3>
     <p>
-      Never opened Excel? No problem. We build confidence step-by-step,
-      without jargon or overwhelm.
+      From formula fixes to automation and dashboards, every solution is tailored to real business needs, not generic exercises.
     </p>
   </div>
 
   <div class="card">
-    <h3>Real-World Excel Skills</h3>
+    <h3>Reduce Risk & Save Time</h3>
     <p>
-      Learn formulas, PivotTables, charts, dashboards, data cleanup,
-      automation, and shortcuts you’ll use immediately.
+      Stop spending hours manually updating spreadsheets or worrying about errors. I streamline processes so Excel supports your business instead of slowing it down.
     </p>
   </div>
 </section>
@@ -67,33 +60,26 @@ body_class: home
   <h2>Who I Help</h2>
 
   <ul class="centered-list">
-    <li>Students preparing for business, finance, or analytics courses</li>
-    <li>Professionals upgrading Excel skills for work or promotion</li>
-    <li>Anyone tired of Googling formulas and guessing</li>
+    <li>Small business owners who rely on Excel for reporting and operations</li>
+    <li>Corporate managers needing accurate, automated reporting systems</li>
+    <li>Teams that want their spreadsheets to be dependable and efficient</li>
   </ul>
 </section>
 
 <!-- ========================= -->
-<!-- PRICING -->
+<!-- SERVICES / PRICING -->
 <!-- ========================= -->
 <section class="section">
-  <h2>Simple, Transparent Pricing</h2>
+  <h2>Services & Simple Pricing</h2>
 
 <ul style="list-style:none;padding:0;margin:20px 0;font-size:1.15rem;">
-  <li><strong>$60</strong> — Single 1-hour 1-on-1 session</li>
-  <li><strong>$155</strong> — 3-session 1-on-1 learning pack</li>
-  <li><strong>$475</strong> — 10-session 1-on-1 mastery program</li>
-
-  <li style="margin-top:18px;"><strong>Small Group (2–4 people)</strong></li>
-  <li><strong>$75</strong> — 1-hour group session (Basic or Intermediate)</li>
-  <li><strong>$200</strong> — Group bundle: 3× 1-hour sessions <em>or</em> 2× 1.5-hour sessions</li>
+  <li><strong>$75</strong> — Quick Spreadsheet Fix (1-hour consultation)</li>
+  <li><strong>$200</strong> — Custom Dashboard or Automation Setup (3-session package)</li>
+  <li><strong>$500</strong> — Full Reporting System Build (5-session program)</li>
 </ul>
 
-<!-- Elfsight Google Reviews | Untitled Google Reviews -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529" data-elfsight-app-lazy></div>
-  <a href="/book" class="cta-btn">Get Started</a>
+  <a href="/services" class="cta-btn">Request a Service</a>
   <p style="margin-top:16px;">
   Not sure where to start? Visit the <a class="footer-link" href="/faq">FAQ page</a>.
-</p>
+  </p>
 </section>
