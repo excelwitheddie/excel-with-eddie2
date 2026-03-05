@@ -83,3 +83,16 @@ body_class: home
   Not sure where to start? Visit the <a class="footer-link" href="/faq">FAQ page</a>.
   </p>
 </section>
+
+<!-- ========================= -->
+<!-- GOOGLE REVIEWS -->
+<!-- ========================= -->
+<section class="section">
+  <h2>What Clients Say</h2>
+
+  <div class="reviews-widget">
+    <script src="https://elfsightcdn.com/platform.js" defer></script>
+    <div class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529" data-elfsight-app-lazy></div>
+  </div>
+
+</section>
