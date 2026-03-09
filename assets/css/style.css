@@ -491,40 +491,93 @@ img {
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   z-index: 9999;
 }
+/* =========================================================
+   EXCELBOT AI ASSISTANT
+   ========================================================= */
+
 #excelbot-launcher {
   position: fixed;
-  bottom: 25px;
+  bottom: 120px; /* sits above Book Now button */
   right: 25px;
   width: 110px;
+  text-align: center;
   cursor: pointer;
   z-index: 9999;
 }
 
+/* Bot Image */
 #excelbot-launcher img {
   width: 100%;
+  animation: floatbot 3.2s ease-in-out infinite;
   transition: transform 0.2s ease;
 }
 
 #excelbot-launcher:hover img {
   transform: scale(1.08);
 }
+
+/* Floating animation */
 @keyframes floatbot {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-7px); }
   100% { transform: translateY(0px); }
 }
 
-#excelbot-launcher img {
-  animation: floatbot 3s ease-in-out infinite;
-}
+/* Label under robot */
 .excelbot-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: var(--blue);
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-top: 6px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 #excelbot-launcher:hover .excelbot-label {
   opacity: 1;
 }
+
+/* Speech Bubble */
+.excelbot-speech {
+  position: absolute;
+  right: 120px;
+  bottom: 60px;
+  background: white;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  max-width: 180px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+/* Bubble pointer */
+.excelbot-speech::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  bottom: 18px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+/* Show bubble occasionally */
+.excelbot-speech.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hide Chatbase default bubble */
 iframe[src*="chatbase"] + div,
 .chatbase-bubble-button,
 [data-testid="chatbase-bubble-button"] {
