@@ -192,8 +192,9 @@ img {
   border-radius: 10px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
+
 /* =========================================================
-   CONTACT PAGE — CLEAN & CENTERED
+   CONTACT PAGE
    ========================================================= */
 
 .contact-section {
@@ -285,7 +286,7 @@ img {
 }
 
 /* =========================================================
-   QUIZ — HARD FIX (CLICK SAFE)
+   QUIZ
    ========================================================= */
 
 .quiz-section {
@@ -303,7 +304,7 @@ img {
   z-index: 10;
 }
 
-/* 🔒 FORCE CLICKABILITY */
+/* Force clickability */
 .quiz-start-buttons,
 .quiz-start-buttons * {
   pointer-events: auto !important;
@@ -337,21 +338,6 @@ img {
 }
 
 /* =========================================================
-   QUIZ RESULTS
-   ========================================================= */
-
-.quiz-results {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.quiz-chart {
-  max-width: 500px;
-  margin: 0 auto 30px;
-}
-
-/* =========================================================
    SERVICES
    ========================================================= */
 
@@ -378,10 +364,16 @@ img {
   padding: 12px 22px;
   border-radius: 8px;
   text-decoration: none;
+  transition: background 0.3s ease, transform 0.15s ease;
+}
+
+.service-btn:hover {
+  background: var(--green-hover);
+  transform: translateY(-2px);
 }
 
 /* =========================================================
-   FOOTER — CLEAN, CENTERED, PROFESSIONAL
+   FOOTER
    ========================================================= */
 
 .site-footer {
@@ -396,7 +388,6 @@ img {
   text-align: center;
 }
 
-/* Links */
 .footer-links {
   display: flex;
   justify-content: center;
@@ -420,22 +411,6 @@ img {
   opacity: 0.6;
 }
 
-/* =========================
-   Footer Social Icons FIX
-   ========================= */
-
-.footer-social img {
-  width: 30px;
-  height: 30px;
-  filter: invert(48%) sepia(38%) saturate(456%) hue-rotate(127deg) brightness(92%) contrast(90%);
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.footer-social img:hover {
-  transform: scale(1.15);
-  filter: invert(24%) sepia(89%) saturate(475%) hue-rotate(153deg) brightness(94%) contrast(97%);
-}
-/* Social Icons */
 .footer-social {
   display: flex;
   justify-content: center;
@@ -443,18 +418,20 @@ img {
   margin-bottom: 20px;
 }
 
+.footer-social img,
 .social-icon {
-  height: 28px;
-  width: 28px;
-  filter: invert(1);
-  transition: transform 0.2s ease;
+  width: 30px;
+  height: 30px;
+  filter: invert(48%) sepia(38%) saturate(456%) hue-rotate(127deg) brightness(92%) contrast(90%);
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
+.footer-social img:hover,
 .social-icon:hover {
   transform: scale(1.15);
+  filter: invert(24%) sepia(89%) saturate(475%) hue-rotate(153deg) brightness(94%) contrast(97%);
 }
 
-/* Meta Text */
 .footer-meta {
   font-size: 0.9rem;
   line-height: 1.5;
@@ -477,8 +454,10 @@ img {
   margin-right: auto;
 }
 
+/* =========================================================
+   Floating CTA Button
+   ========================================================= */
 
-/* Floating CTA */
 .floating-book-btn {
   position: fixed;
   bottom: 22px;
@@ -490,7 +469,14 @@ img {
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   z-index: 9999;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
+
+.floating-book-btn:hover {
+  transform: translateY(-3px);
+  background: var(--green-hover);
+}
+
 /* =========================================================
    EXCELBOT AI ASSISTANT
    ========================================================= */
@@ -505,7 +491,6 @@ img {
   z-index: 9999;
 }
 
-/* Bot Image */
 #excelbot-launcher img {
   width: 100%;
   animation: floatbot 3.2s ease-in-out infinite;
@@ -516,14 +501,12 @@ img {
   transform: scale(1.08);
 }
 
-/* Floating animation */
 @keyframes floatbot {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-7px); }
   100% { transform: translateY(0px); }
 }
 
-/* Label under robot */
 .excelbot-label {
   font-size: 13px;
   font-weight: 600;
@@ -533,14 +516,14 @@ img {
   border-radius: 10px;
   margin-top: 6px;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 #excelbot-launcher:hover .excelbot-label {
   opacity: 1;
+  transform: translateY(-2px);
 }
 
-/* Speech Bubble */
 .excelbot-speech {
   position: absolute;
   right: 120px;
@@ -555,10 +538,10 @@ img {
   max-width: 180px;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity .4s ease, transform .4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none; /* ensures bubble doesn't block clicks */
 }
 
-/* Bubble pointer */
 .excelbot-speech::after {
   content: "";
   position: absolute;
@@ -571,13 +554,12 @@ img {
   border-bottom: 8px solid transparent;
 }
 
-/* Show bubble occasionally */
 .excelbot-speech.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Hide Chatbase default bubble */
+/* Hide default Chatbase bubble */
 iframe[src*="chatbase"] + div,
 .chatbase-bubble-button,
 [data-testid="chatbase-bubble-button"] {
