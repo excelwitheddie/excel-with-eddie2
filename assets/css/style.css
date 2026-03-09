@@ -508,3 +508,12 @@ img {
 #excelbot-launcher:hover img {
   transform: scale(1.08);
 }
+@keyframes floatbot {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+#excelbot-launcher img {
+  animation: floatbot 3s ease-in-out infinite;
+}
