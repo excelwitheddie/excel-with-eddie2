@@ -84,24 +84,19 @@
 
 
 <script src="https://www.chatbase.co/embed.min.js"></script>
-<div id="excelbot-launcher">
-  <img src="/assets/images/excelbot.png" alt="ExcelBot">
+<div id="excelbot-launcher" onclick="openChatbot()">
+
+  <div class="excelbot-speech" id="excelbotSpeech">
+    Need help with an Excel formula?
+  </div>
+
+  <img src="/images/excelbot.png" alt="ExcelBot">
+
+  <div class="excelbot-label">
+    Ask ExcelBot
+  </div>
+
 </div>
-  <script>
-window.chatbaseConfig = {
- chatbotId: "fkoCrz6CxwPiJEIGA1u3B"
-}
-</script>
-
-<script src="https://www.chatbase.co/embed.min.js"></script>
-
-<script>
-document.getElementById("excelbot-launcher").onclick = function() {
-  if (window.chatbase) {
-    window.chatbase.open();
-  }
-};
-</script>
 <body>
 
   {% include header.html %}
