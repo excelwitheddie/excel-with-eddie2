@@ -517,3 +517,11 @@ img {
 #excelbot-launcher img {
   animation: floatbot 3s ease-in-out infinite;
 }
+.excelbot-label {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#excelbot-launcher:hover .excelbot-label {
+  opacity: 1;
+}
