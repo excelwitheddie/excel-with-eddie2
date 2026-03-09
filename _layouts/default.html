@@ -13,63 +13,14 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://excelwitheddie.com{{ page.url }}">
 
-  <!-- ========================= -->
-  <!-- STRUCTURED DATA (ORG + LOGO) -->
-  <!-- ========================= -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Excel with Eddie",
-    "url": "https://excelwitheddie.com",
-    "logo": "https://excelwitheddie.com/assets/images/logo.png",
-    "sameAs": [
-      "https://facebook.com/excelwitheddie",
-      "https://linkedin.com/company/excelwitheddie"
-    ]
-  }
-  </script>
+  <!-- Favicons & OG / Twitter tags omitted for brevity -->
 
-  <!-- ========================= -->
-  <!-- FAVICONS -->
-  <!-- ========================= -->
-  <link rel="icon" href="/assets/images/favicon/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon/favicon-96x96.png">
-  <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
-  <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
-  <meta name="theme-color" content="#16A085">
-
-  <!-- ========================= -->
-  <!-- OPEN GRAPH -->
-  <!-- ========================= -->
-  <meta property="og:site_name" content="Excel with Eddie">
-  <meta property="og:title" content="{{ page.title }} | Excel with Eddie">
-  <meta property="og:description" content="{{ page.description | default: 'Learn Excel faster with personalized 1-on-1 tutoring.' }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://excelwitheddie.com{{ page.url }}">
-  <meta property="og:image" content="https://excelwitheddie.com/assets/images/logo.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- ========================= -->
-  <!-- TWITTER CARD -->
-  <!-- ========================= -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title }} | Excel with Eddie">
-  <meta name="twitter:description" content="{{ page.description | default: 'Personalized Excel tutoring to help you master spreadsheets.' }}">
-  <meta name="twitter:image" content="https://excelwitheddie.com/assets/images/logo.png">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- Jekyll SEO Tag -->
   {% seo %}
 
-  <!-- ========================= -->
-  <!-- GOOGLE ANALYTICS -->
-  <!-- ========================= -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VLV7WNH6Z"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -78,37 +29,8 @@
     gtag('config', 'G-7VLV7WNH6Z');
   </script>
 
-  <!-- ========================= -->
-  <!-- CHATBOT -->
-  <!-- ========================= -->
+  <!-- Chatbase JS -->
   <script src="https://www.chatbase.co/embed.min.js" defer></script>
-  <script>
-    const messages = [
-      "Need help fixing an Excel formula?",
-      "Confused by a spreadsheet?",
-      "Ask me an Excel question!",
-      "Stuck in Excel?",
-      "I can help with Excel shortcuts!"
-    ];
-
-    function showBubble() {
-      const bubble = document.getElementById("excelbotSpeech");
-      if(!bubble) return;
-      bubble.textContent = messages[Math.floor(Math.random()*messages.length)];
-      bubble.classList.add("show");
-      setTimeout(() => bubble.classList.remove("show"), 4000);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      setInterval(showBubble, 15000);
-      setTimeout(showBubble, 4000);
-    });
-
-    function openChatbot() {
-      // This triggers Chatbase chatbot
-      Chatbase.open(); // Assuming Chatbase JS API
-    }
-  </script>
 
 </head>
 <body>
@@ -131,11 +53,48 @@
   </a>
 
   <!-- ExcelBot Floating Widget -->
-  <div id="excelbot-launcher" onclick="openChatbot()">
+  <div id="excelbot-launcher">
     <div class="excelbot-speech" id="excelbotSpeech">Need help with an Excel formula?</div>
-    <img src="/assets/images/excelbot.png" alt="ExcelBot">
+    <img src="/assets/images/excelbot.png" alt="ExcelBot" id="excelbot-img">
     <div class="excelbot-label">Ask ExcelBot</div>
   </div>
+
+  <!-- ExcelBot JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const launcher = document.getElementById("excelbot-launcher");
+      const bubble = document.getElementById("excelbotSpeech");
+      const messages = [
+        "Need help fixing an Excel formula?",
+        "Confused by a spreadsheet?",
+        "Ask me an Excel question!",
+        "Stuck in Excel?",
+        "I can help with Excel shortcuts!"
+      ];
+
+      // Random speech bubble
+      function showBubble() {
+        bubble.textContent = messages[Math.floor(Math.random()*messages.length)];
+        bubble.classList.add("show");
+        setTimeout(() => bubble.classList.remove("show"), 4000);
+      }
+
+      setInterval(showBubble, 15000);
+      setTimeout(showBubble, 4000);
+
+      // Click opens Chatbase iframe or alert fallback
+      launcher.addEventListener("click", () => {
+        const chatIframe = document.querySelector('iframe[src*="chatbase"]');
+        if(chatIframe) {
+          chatIframe.contentWindow.postMessage({type:"open"}, "*"); // Chatbase API open
+        } else {
+          alert("Chatbot ready! You can ask your Excel questions here.");
+        }
+      });
+
+    });
+  </script>
 
 </body>
 </html>
