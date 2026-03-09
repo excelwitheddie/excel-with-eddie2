@@ -29,9 +29,6 @@
     ]
   }
   </script>
-<!--
-<script src="https://www.chatbase.co/embed.min.js" defer></script>
--->
 
   <!-- ========================= -->
   <!-- FAVICONS -->
@@ -80,46 +77,40 @@
     gtag('js', new Date());
     gtag('config', 'G-7VLV7WNH6Z');
   </script>
-</head>
 
-
-<script src="https://www.chatbase.co/embed.min.js"></script>
-<div id="excelbot-launcher" onclick="openChatbot()">
-
-  <div class="excelbot-speech" id="excelbotSpeech">
-    Need help with an Excel formula?
-  </div>
-
-  <img src="/images/excelbot.png" alt="ExcelBot">
-
-  <div class="excelbot-label">
-    Ask ExcelBot
-  </div>
-
-</div>
+  <!-- ========================= -->
+  <!-- CHATBOT -->
+  <!-- ========================= -->
+  <script src="https://www.chatbase.co/embed.min.js" defer></script>
   <script>
-const messages = [
-  "Need help fixing an Excel formula?",
-  "Confused by a spreadsheet?",
-  "Ask me an Excel question!",
-  "Stuck in Excel?",
-  "I can help with Excel shortcuts!"
-];
+    const messages = [
+      "Need help fixing an Excel formula?",
+      "Confused by a spreadsheet?",
+      "Ask me an Excel question!",
+      "Stuck in Excel?",
+      "I can help with Excel shortcuts!"
+    ];
 
-const bubble = document.getElementById("excelbotSpeech");
+    function showBubble() {
+      const bubble = document.getElementById("excelbotSpeech");
+      if(!bubble) return;
+      bubble.textContent = messages[Math.floor(Math.random()*messages.length)];
+      bubble.classList.add("show");
+      setTimeout(() => bubble.classList.remove("show"), 4000);
+    }
 
-function showBubble() {
-  bubble.textContent = messages[Math.floor(Math.random()*messages.length)];
-  bubble.classList.add("show");
+    document.addEventListener("DOMContentLoaded", () => {
+      setInterval(showBubble, 15000);
+      setTimeout(showBubble, 4000);
+    });
 
-  setTimeout(() => {
-    bubble.classList.remove("show");
-  }, 4000);
-}
+    function openChatbot() {
+      // This triggers Chatbase chatbot
+      Chatbase.open(); // Assuming Chatbase JS API
+    }
+  </script>
 
-setInterval(showBubble, 15000);
-setTimeout(showBubble, 4000);
-</script>
+</head>
 <body>
 
   {% include header.html %}
@@ -139,7 +130,12 @@ setTimeout(showBubble, 4000);
     Book Now
   </a>
 
-
+  <!-- ExcelBot Floating Widget -->
+  <div id="excelbot-launcher" onclick="openChatbot()">
+    <div class="excelbot-speech" id="excelbotSpeech">Need help with an Excel formula?</div>
+    <img src="/images/excelbot.png" alt="ExcelBot">
+    <div class="excelbot-label">Ask ExcelBot</div>
+  </div>
 
 </body>
 </html>
