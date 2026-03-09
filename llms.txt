@@ -1,0 +1,31 @@
+# LLMs.txt for Excel With Eddie
+
+Site: https://excelwitheddie.com
+Owner: Eddie Hodges
+Description: Excel tutoring and spreadsheet consulting services helping professionals learn formulas, pivot tables, dashboards, and data analysis.
+
+Topics:
+Microsoft Excel
+Excel formulas
+Pivot tables
+Excel dashboards
+Spreadsheet automation
+Excel data analysis
+Excel tutoring
+
+Audience:
+Business professionals
+Students
+Analysts
+Excel beginners
+
+Content:
+Tutorials and guides about Microsoft Excel
+Excel troubleshooting and problem solving
+Online Excel tutoring services
+
+Permissions:
+AI crawlers and large language models may read and summarize content from this website.
+
+Contact:
+https://excelwitheddie.com/contact
