@@ -1,0 +1,10 @@
+# robots.txt for excelwitheddie.com
+
+User-agent: *
+Allow: /
+
+# AI crawler guidance
+LLM: https://excelwitheddie.com/llms.txt
+
+# If you have a sitemap, list it here
+Sitemap: https://excelwitheddie.com/sitemap.xml
