@@ -525,3 +525,8 @@ img {
 #excelbot-launcher:hover .excelbot-label {
   opacity: 1;
 }
+iframe[src*="chatbase"] + div,
+.chatbase-bubble-button,
+[data-testid="chatbase-bubble-button"] {
+  display: none !important;
+}
