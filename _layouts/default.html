@@ -97,6 +97,29 @@
   </div>
 
 </div>
+  <script>
+const messages = [
+  "Need help fixing an Excel formula?",
+  "Confused by a spreadsheet?",
+  "Ask me an Excel question!",
+  "Stuck in Excel?",
+  "I can help with Excel shortcuts!"
+];
+
+const bubble = document.getElementById("excelbotSpeech");
+
+function showBubble() {
+  bubble.textContent = messages[Math.floor(Math.random()*messages.length)];
+  bubble.classList.add("show");
+
+  setTimeout(() => {
+    bubble.classList.remove("show");
+  }, 4000);
+}
+
+setInterval(showBubble, 15000);
+setTimeout(showBubble, 4000);
+</script>
 <body>
 
   {% include header.html %}
