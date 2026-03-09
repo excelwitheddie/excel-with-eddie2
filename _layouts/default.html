@@ -81,18 +81,27 @@
     gtag('config', 'G-7VLV7WNH6Z');
   </script>
 </head>
-  <script>
-window.chatbaseConfig = {
- chatbotId: "fkoCrz6CxwPiJEIGA1u3B",
- autoOpen: true,
- autoOpenDelay: 8000
-}
-</script>
+
 
 <script src="https://www.chatbase.co/embed.min.js"></script>
 <div id="excelbot-launcher">
   <img src="/assets/images/excelbot.png" alt="ExcelBot">
 </div>
+  <script>
+window.chatbaseConfig = {
+ chatbotId: "fkoCrz6CxwPiJEIGA1u3B"
+}
+</script>
+
+<script src="https://www.chatbase.co/embed.min.js"></script>
+
+<script>
+document.getElementById("excelbot-launcher").onclick = function() {
+  if (window.chatbase) {
+    window.chatbase.open();
+  }
+};
+</script>
 <body>
 
   {% include header.html %}
