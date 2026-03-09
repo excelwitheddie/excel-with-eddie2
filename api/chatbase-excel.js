@@ -1,33 +1,43 @@
-// api/chatbase-excel.js
+// /api/chatbase-excel.js
 import fetch from "node-fetch";
 
-export default async function handler(req, res){
-  if(req.method !== "POST") return res.status(405).json({ answer: "Method not allowed" });
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ answer: "Method not allowed" });
+  }
 
   const { question } = req.body;
-  if(!question) return res.json({ answer: "Please ask a question." });
+  if (!question) return res.status(400).json({ answer: "No question provided." });
 
   try {
-    const CHATBASE_API_KEY = process.env.CHATBASE_API_KEY; // set in Vercel/Netlify env
+    // Replace with your Chatbase GPT API key
+    const CHATBASE_API_KEY = process.env.CHATBASE_API_KEY;
 
-    const response = await fetch("https://api.chatbase.com/v1/query", {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-        "Authorization":`Bearer ${CHATBASE_API_KEY}`
+    const response = await fetch("https://api.chatbase.com/v1/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${fkoCrz6CxwPiJEIGA1u3B}`
       },
       body: JSON.stringify({
-        model:"gpt-4",
-        input:question
+        model: "gpt-4-mini",          // or whichever model you want
+        messages: [
+          { role: "system", content: "You are ExcelGPT, an expert Excel assistant." },
+          { role: "user", content: question }
+        ],
+        temperature: 0.2
       })
     });
 
     const data = await response.json();
-    const answer = data.output_text || "I couldn't find an answer.";
-    res.status(200).json({ answer });
 
-  } catch(err){
-    console.error(err);
-    res.status(500).json({ answer: "Oops! Something went wrong." });
+    // Chatbase returns text here
+    const answer = data?.choices?.[0]?.message?.content || "Sorry, I couldn't find an answer.";
+
+    return res.status(200).json({ answer });
+
+  } catch (err) {
+    console.error("Chatbase API error:", err);
+    return res.status(500).json({ answer: "Oops! Something went wrong." });
   }
 }
