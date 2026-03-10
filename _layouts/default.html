@@ -14,31 +14,57 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7VLV7WNH6Z"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-7VLV7WNH6Z');
 </script>
 
 <style>
-/* Optional: floating Book button styling */
-.floating-book-btn {
+/* Floating ExcelBot Launcher */
+#excelbot-launcher {
   position: fixed;
-  bottom: 25px;
+  bottom: 120px;
   right: 25px;
-  background: #16a085;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  z-index: 99999;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
+  width: 110px;
+  cursor: pointer;
+  z-index: 9999;
+  text-align: center;
 }
-.floating-book-btn:hover { transform: scale(1.05); }
-</style>
-</head>
+#excelbot-launcher img {
+  width: 100%;
+  animation: floatbot 3.2s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+#excelbot-launcher:hover img {
+  transform: scale(1.08);
+}
+#excelbot-launcher .excelbot-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: #083c5a;
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-top: 6px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+#excelbot-launcher:hover .excelbot-label {
+  opacity: 1;
+}
+@keyframes floatbot {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+  100% { transform: translateY(0); }
+}
 
+/* Page Content */
+main.page-content {
+  min-height: 60vh;
+}
+</style>
+
+</head>
 <body>
 
 {% include header.html %}
@@ -49,38 +75,38 @@
 
 {% include footer.html %}
 
+<!-- Floating ExcelBot Launcher -->
+<div id="excelbot-launcher">
+  <img src="/assets/images/excelbot.png" alt="ExcelBot">
+  <div class="excelbot-label">Ask ExcelBot</div>
+</div>
+
 <!-- Floating Book Button -->
 <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Vf9dbUSZeggMTjmT-LvTEKoHceYRjE7B4-OpUQvs6OvDsIcignF-XB6CN_WvoiBAnpME6MbdE"
-   class="floating-book-btn" target="_blank" rel="noopener">
+   class="floating-book-btn"
+   target="_blank" rel="noopener">
   Book Now
 </a>
 
-<!-- Chatbase ExcelBot Embed -->
+<!-- Chatbase Floating Bot Script -->
 <script>
 (function(){
-  if(!window.chatbase || window.chatbase("getState") !== "initialized") {
-    window.chatbase = (...args) => {
-      if(!window.chatbase.q) window.chatbase.q = [];
-      window.chatbase.q.push(args);
-    };
-    window.chatbase = new Proxy(window.chatbase, {
-      get(target, prop) {
-        if(prop === "q") return target.q;
-        return (...args) => target(prop, ...args);
-      }
-    });
-  }
+  const launcher = document.getElementById("excelbot-launcher");
 
-  const onLoad = function(){
+  // Only load Chatbase once
+  const loadChatbase = () => {
+    if(window.chatbaseLoaded) return;
+    window.chatbaseLoaded = true;
+
     const script = document.createElement("script");
     script.src = "https://www.chatbase.co/embed.min.js";
-    script.id = "fkoCrz6CxwPiJEIGA1u3B"; // Your Chatbase bot ID
+    script.id = "fkoCrz6CxwPiJEIGA1u3B"; // Your Chatbase Bot ID
     script.domain = "www.chatbase.co";
     document.body.appendChild(script);
   };
 
-  if(document.readyState === "complete") onLoad();
-  else window.addEventListener("load", onLoad);
+  // Load Chatbase when user clicks the launcher
+  launcher.addEventListener("click", loadChatbase);
 })();
 </script>
 
