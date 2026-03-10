@@ -5,94 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>{{ page.title }} | Excel with Eddie</title>
-
 <link rel="stylesheet" href="/assets/css/style.css">
 
 <style>
+/* ---------- ExcelBot Launcher ---------- */
+#excelbot-launcher {
+  position: fixed;
+  bottom: 120px;
+  right: 25px;
+  width: 110px;
+  cursor: pointer;
+  z-index: 9999;
+  text-align: center;
+}
+#excelbot-launcher img {
+  width: 100%;
+  animation: floatbot 3.2s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+#excelbot-launcher:hover img { transform: scale(1.08); }
+@keyframes floatbot { 0%{transform:translateY(0)}50%{transform:translateY(-7px)}100%{transform:translateY(0)} }
 
-#excelbot-launcher{
-position:fixed;
-bottom:120px;
-right:25px;
-width:110px;
-cursor:pointer;
-z-index:9999;
-text-align:center;
+.excelbot-speech {
+  position: absolute;
+  right: 120px;
+  bottom: 60px;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.excelbot-speech.show { opacity: 1; transform: translateY(0); }
+
+/* ---------- Chat Modal ---------- */
+#excelbot-chat {
+  display: none;
+  position: fixed;
+  bottom: 150px;
+  right: 25px;
+  width: 300px;
+  max-width: 90%;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  flex-direction: column;
+  z-index: 99999;
+  overflow: hidden;
+  font-family: "Inter", Arial, sans-serif;
+}
+#excelbot-header {
+  background: #083c5a;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#excelbot-header span { cursor: pointer; }
+#excelbot-messages {
+  padding: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+#excelbot-input {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 8px;
+  width: 100%;
 }
 
-#excelbot-launcher img{
-width:100%;
+.message-bot {
+  background: #e8f5f2;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
 }
-
-.excelbot-speech{
-position:absolute;
-right:120px;
-bottom:60px;
-background:white;
-padding:10px 14px;
-border-radius:14px;
-box-shadow:0 6px 16px rgba(0,0,0,.18);
-opacity:0;
-transform:translateY(10px);
-transition:.4s;
+.message-user {
+  background: #083c5a;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  text-align: right;
 }
-
-.excelbot-speech.show{
-opacity:1;
-transform:translateY(0);
-}
-
-#excelbot-chat{
-display:none;
-position:fixed;
-bottom:150px;
-right:25px;
-width:300px;
-background:white;
-border-radius:14px;
-box-shadow:0 6px 18px rgba(0,0,0,.25);
-flex-direction:column;
-z-index:99999;
-overflow:hidden;
-}
-
-#excelbot-header{
-background:#083c5a;
-color:white;
-padding:10px;
-display:flex;
-justify-content:space-between;
-}
-
-#excelbot-messages{
-padding:10px;
-max-height:250px;
-overflow-y:auto;
-}
-
-#excelbot-input{
-border:none;
-border-top:1px solid #ccc;
-padding:8px;
-width:100%;
-}
-
-.message-bot{
-background:#e8f5f2;
-padding:6px 10px;
-border-radius:8px;
-margin-bottom:6px;
-}
-
-.message-user{
-background:#083c5a;
-color:white;
-padding:6px 10px;
-border-radius:8px;
-margin-bottom:6px;
-text-align:right;
-}
-
 </style>
 </head>
 
@@ -107,127 +105,106 @@ text-align:right;
 {% include footer.html %}
 
 <!-- ExcelBot Launcher -->
-
 <div id="excelbot-launcher">
-
-<div id="excelbotSpeech" class="excelbot-speech">
-Need help with an Excel formula?
-</div>
-
-<img src="/assets/images/excelbot.png">
-
+  <div id="excelbotSpeech" class="excelbot-speech">Need help with an Excel formula?</div>
+  <img src="/assets/images/excelbot.png" alt="ExcelBot">
 </div>
 
 <!-- Chat Window -->
-
 <div id="excelbot-chat">
-
-<div id="excelbot-header">
-ExcelBot
-<span id="excelbot-close">✖</span>
-</div>
-
-<div id="excelbot-messages"></div>
-
-<input id="excelbot-input" placeholder="Ask me about Excel...">
-
+  <div id="excelbot-header">
+    ExcelBot <span id="excelbot-close">✖</span>
+  </div>
+  <div id="excelbot-messages"></div>
+  <input id="excelbot-input" placeholder="Ask me about Excel...">
 </div>
 
 <script>
-
 (function initExcelBot(){
 
-const launcher=document.getElementById("excelbot-launcher");
-const chat=document.getElementById("excelbot-chat");
-const closeBtn=document.getElementById("excelbot-close");
-const input=document.getElementById("excelbot-input");
-const messages=document.getElementById("excelbot-messages");
-const bubble=document.getElementById("excelbotSpeech");
+const launcher = document.getElementById("excelbot-launcher");
+const chat = document.getElementById("excelbot-chat");
+const closeBtn = document.getElementById("excelbot-close");
+const input = document.getElementById("excelbot-input");
+const messages = document.getElementById("excelbot-messages");
+const bubble = document.getElementById("excelbotSpeech");
 
-if(!launcher){return;}
-
-const bubbleMessages=[
-"Need help fixing an Excel formula?",
-"Confused by a spreadsheet?",
-"Ask me an Excel question!",
-"Stuck in Excel?",
-"I can help with Excel shortcuts!"
-];
-
-function showBubble(){
-bubble.textContent=bubbleMessages[Math.floor(Math.random()*bubbleMessages.length)];
-bubble.classList.add("show");
-setTimeout(()=>bubble.classList.remove("show"),4000);
+if(!launcher || !chat || !closeBtn || !input || !messages || !bubble){
+  setTimeout(initExcelBot,100);
+  return;
 }
 
+// ---------- Floating Speech Bubble ----------
+const bubbleMessages = [
+  "Need help fixing an Excel formula?",
+  "Confused by a spreadsheet?",
+  "Ask me an Excel question!",
+  "Stuck in Excel?",
+  "I can help with Excel shortcuts!"
+];
+function showBubble(){
+  bubble.textContent = bubbleMessages[Math.floor(Math.random()*bubbleMessages.length)];
+  bubble.classList.add("show");
+  setTimeout(()=>bubble.classList.remove("show"),4000);
+}
 setInterval(showBubble,15000);
 setTimeout(showBubble,4000);
 
-launcher.onclick=()=>{chat.style.display="flex";}
-closeBtn.onclick=()=>{chat.style.display="none";}
+// ---------- Open / Close Chat ----------
+launcher.addEventListener("click",()=>{ chat.style.display = chat.style.display==="flex"?"none":"flex"; });
+closeBtn.addEventListener("click",()=>{ chat.style.display="none"; });
 
+// ---------- Fetch Excel Answer ----------
 async function getExcelAnswer(question){
+  try {
+    const response = await fetch("/api/chatbase-excel",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({question})
+    });
 
-try{
+    if(!response.ok) throw new Error("Server returned "+response.status);
 
-const response=await fetch("/api/chatbase-excel",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({question})
-});
+    const text = await response.text();
+    console.log("ExcelBot RAW RESPONSE:", text);
 
-const text=await response.text();
+    if(text.startsWith("<")) throw new Error("HTML returned instead of JSON");
 
-console.log("ExcelBot API RAW RESPONSE:",text);
+    const data = JSON.parse(text);
+    return data.answer || "No answer returned.";
 
-if(text.startsWith("<")){
-throw new Error("HTML returned");
+  } catch(err){
+    console.error("ExcelBot error:", err);
+    return "⚠️ ExcelBot couldn't reach the AI service.";
+  }
 }
 
-const data=JSON.parse(text);
+// ---------- Handle Input ----------
+input.addEventListener("keydown", async (e)=>{
+  if(e.key==="Enter" && input.value.trim()!==""){
+    const question = input.value.trim();
 
-return data.answer || "No answer returned.";
+    // User message
+    const userMsg = document.createElement("div");
+    userMsg.className="message-user";
+    userMsg.textContent=question;
+    messages.appendChild(userMsg);
 
-}catch(err){
+    // Bot thinking
+    const botMsg = document.createElement("div");
+    botMsg.className="message-bot";
+    botMsg.textContent="Thinking... 🤔";
+    messages.appendChild(botMsg);
+    messages.scrollTop = messages.scrollHeight;
 
-console.error(err);
-
-return "⚠️ ExcelBot couldn't reach the AI service.";
-
-}
-
-}
-
-input.addEventListener("keydown",async(e)=>{
-
-if(e.key==="Enter" && input.value.trim()!==""){
-
-const question=input.value.trim();
-
-const user=document.createElement("div");
-user.className="message-user";
-user.textContent=question;
-messages.appendChild(user);
-
-const bot=document.createElement("div");
-bot.className="message-bot";
-bot.textContent="Thinking...";
-messages.appendChild(bot);
-
-messages.scrollTop=messages.scrollHeight;
-
-input.value="";
-
-const answer=await getExcelAnswer(question);
-
-bot.textContent=answer;
-
-}
-
+    input.value="";
+    const answer = await getExcelAnswer(question);
+    botMsg.textContent = answer;
+    messages.scrollTop = messages.scrollHeight;
+  }
 });
 
 })();
-
 </script>
 
 </body>
