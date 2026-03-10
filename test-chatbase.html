@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbase API Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; background: #f5f5f5; }
+    input, button { padding: 0.5rem; font-size: 16px; margin: 0.5rem 0; width: 100%; max-width: 400px; }
+    #response { margin-top: 1rem; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <h1>Chatbase API Test</h1>
+  <input type="text" id="question" placeholder="Ask ExcelGPT a question..." />
+  <button id="askBtn">Send Question</button>
+  <div id="response"></div>
+
+  <script>
+    const btn = document.getElementById("askBtn");
+    const questionInput = document.getElementById("question");
+    const responseDiv = document.getElementById("response");
+
+    btn.addEventListener("click", async () => {
+      const question = questionInput.value.trim();
+      if(!question) return alert("Please enter a question!");
+
+      responseDiv.textContent = "Sending request...";
+
+      try {
+        const res = await fetch("/api/chatbase-excel", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+
+        if(!res.ok) {
+          const text = await res.text();
+          responseDiv.textContent = `Error ${res.status}: ${text}`;
+          return;
+        }
+
+        const data = await res.json();
+        responseDiv.textContent = "Answer: " + (data.answer || "No answer returned");
+      } catch(err) {
+        console.error(err);
+        responseDiv.textContent = "Request failed: " + err;
+      }
+    });
+  </script>
+</body>
+</html>
