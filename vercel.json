@@ -1,9 +1,7 @@
 {
-  "builds": [
-    {
-      "src": "Gemfile",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "_site" }
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
     }
-  ]
+  }
 }
