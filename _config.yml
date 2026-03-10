@@ -39,3 +39,6 @@ author:
 # social:
 #   twitter: "yourhandle"
 #   linkedin: "yourprofile"
+
+plugins:
+  - jekyll-seo-tag
