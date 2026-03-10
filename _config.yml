@@ -40,5 +40,9 @@ author:
 #   twitter: "yourhandle"
 #   linkedin: "yourprofile"
 
+title: Excel with Eddie
+description: Excel tutoring and training
+url: https://excelwitheddie.com
+
 plugins:
   - jekyll-seo-tag
