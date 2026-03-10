@@ -1,4 +1,9 @@
 {
-  "buildCommand": "bundle install && bundle exec jekyll build --safe",
-  "outputDirectory": "_site"
+  "builds": [
+    {
+      "src": "Gemfile",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "_site" }
+    }
+  ]
 }
