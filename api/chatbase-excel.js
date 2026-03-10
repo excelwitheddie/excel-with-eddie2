@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${fkoCrz6CxwPiJEIGA1u3B}`
+        Authorization: `Bearer ${CHATBASE_API_KEY}`
       },
       body: JSON.stringify({
         model: "gpt-4-mini",          // or whichever model you want
