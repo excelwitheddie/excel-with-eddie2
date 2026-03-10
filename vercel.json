@@ -1,13 +1,7 @@
 {
   "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs18.x"
+    "api/chatbase-excel.js": {
+      "runtime": "nodejs@18.x"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    }
-  ]
+  }
 }
