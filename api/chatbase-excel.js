@@ -1,7 +1,10 @@
+// /api/chatbase-excel.js
 import fetch from "node-fetch";
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).json({ answer: "Method not allowed" });
+  if (req.method !== "POST") {
+    return res.status(405).json({ answer: "Method not allowed" });
+  }
 
   const { question } = req.body;
   if (!question) return res.status(400).json({ answer: "No question provided." });
@@ -19,7 +22,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "gpt-4-mini",
         messages: [
-          { role: "system", content: "You are ExcelGPT, an expert Excel assistant." },
+          { role: "system", content: "You are ExcelGPT, an expert Excel assistant. Answer only Excel-related questions clearly." },
           { role: "user", content: question }
         ],
         temperature: 0.2
@@ -27,7 +30,9 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    const answer = data?.choices?.[0]?.message?.content || "Sorry, I couldn't find an answer.";
+
+    // Chatbase response
+    const answer = data?.choices?.[0]?.message?.content?.trim() || "Sorry, I couldn't find an answer.";
 
     return res.status(200).json({ answer });
 
