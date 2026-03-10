@@ -1,8 +1,6 @@
-// chatbase-excel.js
 import fetch from "node-fetch";
 
 export default async function handler(req, res) {
-  // Only accept POST
   if (req.method !== "POST") {
     return res.status(405).json({ answer: "Method not allowed" });
   }
@@ -14,7 +12,6 @@ export default async function handler(req, res) {
     const CHATBASE_API_KEY = process.env.CHATBASE_API_KEY;
     if (!CHATBASE_API_KEY) throw new Error("Chatbase API key not set");
 
-    // Call Chatbase GPT API
     const response = await fetch("https://api.chatbase.com/v1/generate", {
       method: "POST",
       headers: {
@@ -24,7 +21,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: "gpt-4-mini",
         messages: [
-          { role: "system", content: "You are ExcelGPT, an expert Excel assistant. Only answer Excel questions." },
+          { role: "system", content: "You are ExcelGPT, an expert Excel assistant. Answer only Excel-related questions clearly." },
           { role: "user", content: question }
         ],
         temperature: 0.2
