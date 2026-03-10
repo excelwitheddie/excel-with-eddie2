@@ -1,4 +1,4 @@
 {
-  "buildCommand": "gem install bundler && bundle lock --add-platform x86_64-linux && bundle install && bundle exec jekyll build",
+  "buildCommand": "bundle install && bundle exec jekyll build --safe",
   "outputDirectory": "_site"
 }
