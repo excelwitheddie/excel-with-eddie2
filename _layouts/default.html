@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,9 +12,9 @@
 
 <style>
 
-/* Hide Chatbase default bubble */
-iframe[src*="chatbase"]{
-  display:none !important;
+/* Hide ONLY the default Chatbase bubble */
+#chatbase-bubble-button{
+display:none !important;
 }
 
 /* ExcelBot launcher */
@@ -59,6 +60,7 @@ opacity:1;
 
 </head>
 
+
 <body>
 
 {% include header.html %}
@@ -84,51 +86,71 @@ Ask ExcelBot
 
 
 <!-- Chatbase Embed -->
+
 <script>
 (function(){
-  if(!window.chatbase || window.chatbase("getState")!=="initialized"){
-    window.chatbase=(...arguments)=>{
-      if(!window.chatbase.q){window.chatbase.q=[]}
-      window.chatbase.q.push(arguments)
-    };
-    window.chatbase=new Proxy(window.chatbase,{
-      get(target,prop){
-        if(prop==="q"){return target.q}
-        return(...args)=>target(prop,...args)
-      }
-    })
-  }
 
-  const onLoad=function(){
-    const script=document.createElement("script")
-    script.src="https://www.chatbase.co/embed.min.js"
-    script.id="fkoCrz6CxwPiJEIGA1u3B"
-    script.domain="www.chatbase.co"
-    document.body.appendChild(script)
-  }
+if(!window.chatbase || window.chatbase("getState")!=="initialized"){
 
-  if(document.readyState==="complete"){
-    onLoad()
-  }else{
-    window.addEventListener("load",onLoad)
-  }
+window.chatbase=(...arguments)=>{
+if(!window.chatbase.q){window.chatbase.q=[]}
+window.chatbase.q.push(arguments)
+};
+
+window.chatbase=new Proxy(window.chatbase,{
+get(target,prop){
+if(prop==="q"){return target.q}
+return(...args)=>target(prop,...args)
+}
+});
+
+}
+
+const onLoad=function(){
+
+const script=document.createElement("script");
+script.src="https://www.chatbase.co/embed.min.js";
+script.id="fkoCrz6CxwPiJEIGA1u3B";
+script.domain="www.chatbase.co";
+
+document.body.appendChild(script);
+
+};
+
+if(document.readyState==="complete"){
+onLoad();
+}else{
+window.addEventListener("load",onLoad);
+}
+
 })();
 </script>
 
 
-<!-- Make ExcelBot open the chat -->
-<script>
-document.getElementById("excelbot-launcher").addEventListener("click", function () {
+<!-- ExcelBot Click Opens Chat -->
 
-  if (window.chatbase) {
-    window.chatbase("open");
-  }
+<script>
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const bot=document.getElementById("excelbot-launcher");
+
+if(bot){
+
+bot.addEventListener("click",function(){
+
+if(window.chatbase){
+window.chatbase("open");
+}
 
 });
+
+}
+
+});
+
 </script>
 
-</body>
-</html>
 
 </body>
 </html>
