@@ -12,7 +12,7 @@
 
 <style>
 
-/* Hide ONLY the default Chatbase bubble */
+/* Hide Chatbase default bubble */
 #chatbase-bubble-button{
 display:none !important;
 }
@@ -40,6 +40,8 @@ animation:floatbot 3s ease-in-out infinite;
 100%{transform:translateY(0)}
 }
 
+/* Hover label */
+
 .excelbot-label{
 font-size:13px;
 font-weight:600;
@@ -54,6 +56,42 @@ transition:.25s;
 
 #excelbot-launcher:hover .excelbot-label{
 opacity:1;
+}
+
+
+/* Speech Bubble */
+
+.excelbot-bubble{
+position:absolute;
+bottom:130px;
+right:0;
+background:white;
+color:#083c5a;
+padding:10px 14px;
+border-radius:14px;
+box-shadow:0 4px 14px rgba(0,0,0,.15);
+font-size:14px;
+font-weight:500;
+width:180px;
+opacity:0;
+transform:translateY(10px);
+transition:all .3s ease;
+pointer-events:none;
+}
+
+.excelbot-bubble:after{
+content:"";
+position:absolute;
+bottom:-8px;
+right:40px;
+border-width:8px;
+border-style:solid;
+border-color:white transparent transparent transparent;
+}
+
+.excelbot-bubble.show{
+opacity:1;
+transform:translateY(0);
 }
 
 </style>
@@ -75,6 +113,10 @@ opacity:1;
 <!-- ExcelBot Launcher -->
 
 <div id="excelbot-launcher">
+
+<div class="excelbot-bubble" id="excelbot-bubble">
+Need help with Excel?
+</div>
 
 <img src="/assets/images/excelbot.png" alt="ExcelBot">
 
@@ -127,17 +169,49 @@ window.addEventListener("load",onLoad);
 </script>
 
 
-<!-- ExcelBot Click Opens Chat -->
+<!-- Bot Interaction + Speech Bubble -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded",function(){
 
 const bot=document.getElementById("excelbot-launcher");
+const bubble=document.getElementById("excelbot-bubble");
+
+const excelMessages=[
+"Need help fixing an Excel formula?",
+"Ask me about PivotTables.",
+"Stuck in Excel? I can help.",
+"Want to automate a spreadsheet?",
+"Need an Excel shortcut?",
+"Upload a file and I’ll review it."
+];
+
+function showExcelTip(){
+
+const msg=excelMessages[Math.floor(Math.random()*excelMessages.length)];
+
+bubble.textContent=msg;
+bubble.classList.add("show");
+
+setTimeout(()=>{
+bubble.classList.remove("show");
+},4000);
+
+}
+
+/* Show message every 10 seconds */
+
+setInterval(showExcelTip,10000);
+
+
+/* Bot click opens chat */
 
 if(bot){
 
 bot.addEventListener("click",function(){
+
+bubble.classList.remove("show");
 
 if(window.chatbase){
 window.chatbase("open");
