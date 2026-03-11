@@ -559,15 +559,7 @@ img {
   transform: translateY(0);
 }
 
-/* Hide default Chatbase bubble */
-iframe[src*="chatbase"] + div,
-.chatbase-bubble-button,
-[data-testid="chatbase-bubble-button"] {
-  display: none !important;
-}
-/* Hide Chatbase default bubble */
-#chatbase-bubble-button,
-iframe[src*="chatbase"] + div,
-div[class*="chatbase-bubble"]{
+/* Hide only the default Chatbase bubble */
+#chatbase-bubble-button {
 display:none !important;
 }
