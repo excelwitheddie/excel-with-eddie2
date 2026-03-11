@@ -40,3 +40,10 @@ export default async function handler(req, res) {
   }
 
 }
+document.getElementById("excelbot-launcher").addEventListener("click", function () {
+
+  if (window.chatbase) {
+    window.chatbase("open");
+  }
+
+});
