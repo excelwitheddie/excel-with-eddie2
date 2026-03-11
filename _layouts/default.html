@@ -84,67 +84,51 @@ Ask ExcelBot
 
 
 <!-- Chatbase Embed -->
-
 <script>
-
 (function(){
+  if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+    window.chatbase=(...arguments)=>{
+      if(!window.chatbase.q){window.chatbase.q=[]}
+      window.chatbase.q.push(arguments)
+    };
+    window.chatbase=new Proxy(window.chatbase,{
+      get(target,prop){
+        if(prop==="q"){return target.q}
+        return(...args)=>target(prop,...args)
+      }
+    })
+  }
 
-if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+  const onLoad=function(){
+    const script=document.createElement("script")
+    script.src="https://www.chatbase.co/embed.min.js"
+    script.id="fkoCrz6CxwPiJEIGA1u3B"
+    script.domain="www.chatbase.co"
+    document.body.appendChild(script)
+  }
 
-window.chatbase=(...arguments)=>{
-if(!window.chatbase.q){window.chatbase.q=[]}
-window.chatbase.q.push(arguments)
-}
-
-window.chatbase=new Proxy(window.chatbase,{
-get(target,prop){
-if(prop==="q"){return target.q}
-return(...args)=>target(prop,...args)
-}
-})
-
-}
-
-const onLoad=function(){
-
-const script=document.createElement("script")
-
-script.src="https://www.chatbase.co/embed.min.js"
-script.id="fkoCrz6CxwPiJEIGA1u3B"
-script.domain="www.chatbase.co"
-
-document.body.appendChild(script)
-
-}
-
-if(document.readyState==="complete"){
-onLoad()
-}else{
-window.addEventListener("load",onLoad)
-}
-
-})()
-
+  if(document.readyState==="complete"){
+    onLoad()
+  }else{
+    window.addEventListener("load",onLoad)
+  }
+})();
 </script>
 
 
+<!-- Make ExcelBot open the chat -->
 <script>
+document.getElementById("excelbot-launcher").addEventListener("click", function () {
 
-/* Make ExcelBot open the chat */
+  if (window.chatbase) {
+    window.chatbase("open");
+  }
 
-document.getElementById("excelbot-launcher").addEventListener("click",function(){
-
-const chatButton=document.querySelector("iframe[src*='chatbase']")
-
-if(chatButton){
-chatButton.style.display="block"
-chatButton.click()
-}
-
-})
-
+});
 </script>
 
+</body>
+</html>
 
 </body>
 </html>
