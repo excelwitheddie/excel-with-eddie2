@@ -563,3 +563,37 @@ img {
 #chatbase-bubble-button {
 display:none !important;
 }
+/* ExcelBot Speech Bubble */
+
+.excelbot-bubble{
+position:absolute;
+bottom:130px;
+right:0;
+background:white;
+color:#083c5a;
+padding:10px 14px;
+border-radius:14px;
+box-shadow:0 4px 14px rgba(0,0,0,.15);
+font-size:14px;
+font-weight:500;
+width:180px;
+opacity:0;
+transform:translateY(10px);
+transition:all .3s ease;
+pointer-events:none;
+}
+
+.excelbot-bubble:after{
+content:"";
+position:absolute;
+bottom:-8px;
+right:40px;
+border-width:8px;
+border-style:solid;
+border-color:white transparent transparent transparent;
+}
+
+.excelbot-bubble.show{
+opacity:1;
+transform:translateY(0);
+}
