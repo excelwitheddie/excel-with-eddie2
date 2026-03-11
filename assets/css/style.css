@@ -565,3 +565,9 @@ iframe[src*="chatbase"] + div,
 [data-testid="chatbase-bubble-button"] {
   display: none !important;
 }
+/* Hide Chatbase default bubble */
+#chatbase-bubble-button,
+iframe[src*="chatbase"] + div,
+div[class*="chatbase-bubble"]{
+display:none !important;
+}
