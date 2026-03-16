@@ -1,47 +1,59 @@
+# =========================
+# Excel with Eddie Jekyll Config
+# =========================
+
 title: "Excel with Eddie"
-email: "eddie@excelwitheddie.com"
+description: "I help growing businesses fix broken spreadsheets, automate reporting, and build Excel systems they can trust."
+url: "https://excelwitheddie.com"   # Your production URL
+baseurl: ""                         # Leave empty unless hosted in a subfolder
+author:
+  name: "Eddie Hodges"
+  email: "contact@excelwitheddie.com"
 
-description: >
-  One-on-one Microsoft Excel tutoring for beginners to advanced users. 
-  Learn formulas, PivotTables, dashboards, automation, and real-world data skills.
-  Sessions start at $70 — packages available ($175 for 3, $550 for 10).
-
-# Primary site URL
-url: "https://excelwitheddie.com"
-baseurl: ""  # root domain
-
-# No theme because you're using custom layouts
-theme: null
-
-logo: "/assets/images/logo.png"
-
+# =========================
+# Plugins
+# =========================
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Ensure GitHub Pages serves these asset folders
-include:
-  - assets/js
-  - assets/css
-  - assets/images
-  - assets/icons
+# =========================
+# SEO & Sitemap Settings
+# =========================
+seo:
+  title: "Excel with Eddie | Reliable Spreadsheet Solutions"
+  description: "I help businesses fix broken spreadsheets, automate reporting, and build Excel systems they can trust."
+  canonical: "https://excelwitheddie.com"
 
-# Show posts dated in the future
-future: true
+# =========================
+# Exclude from build (optional)
+# =========================
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle
 
-# SEO tag config overrides (optional but helpful)
-author:
-  name: "Excel with Eddie"
-  email: "eddie@excelwitheddie.com"
+# =========================
+# Markdown settings
+# =========================
+markdown: kramdown
+kramdown:
+  input: GFM
 
-# Social profiles (optional — add if desired)
-# social:
-#   twitter: "yourhandle"
-#   linkedin: "yourprofile"
+# =========================
+# Defaults for pages
+# =========================
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      author: "Eddie Hodges"
 
-title: Excel with Eddie
-description: Excel tutoring and training
-url: https://excelwitheddie.com
-
-plugins:
-  - jekyll-seo-tag
+# =========================
+# Build settings
+# =========================
+incremental: false
