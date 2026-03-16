@@ -15,7 +15,6 @@ theme: null
 
 logo: "/assets/images/logo.png"
 
-# Plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
