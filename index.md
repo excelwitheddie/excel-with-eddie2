@@ -26,6 +26,27 @@ body_class: home
 </section>
 
 <!-- ========================= -->
+<!-- HIRE AN EXCEL EXPERT -->
+<!-- ========================= -->
+<section class="section">
+  <h2>Hire an Excel Expert Online</h2>
+
+  <p>
+    If you're struggling with formulas, dashboards, or complicated spreadsheets,
+    you can <a href="/hire-an-excel-expert/">hire an Excel expert online</a> and get
+    one-on-one help fixing problems, improving workbook structure, and learning
+    practical Excel skills that make your work easier.
+  </p>
+
+  <p>
+    Instead of searching through tutorials, work directly with an experienced
+    Excel professional who can help solve your actual spreadsheet challenges.
+  </p>
+
+  <a href="/hire-an-excel-expert/" class="cta-btn">Hire an Excel Expert</a>
+</section>
+
+<!-- ========================= -->
 <!-- WHY EDDIE -->
 <!-- ========================= -->
 <section class="section">
@@ -79,6 +100,7 @@ body_class: home
 </ul>
 
   <a href="/services" class="cta-btn">Request a Service</a>
+
   <p style="margin-top:16px;">
   Not sure where to start? Visit the <a class="footer-link" href="/faq">FAQ page</a>.
   </p>
