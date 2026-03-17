@@ -15,7 +15,7 @@ body_class: home
     alt="Excel with Eddie logo"
   />
 
-  <h1>Make Your Excel Reporting Reliable</h1>
+  <h1>Hire an Excel Expert for Reliable Spreadsheet Solutions</h1>
 
   <p>
     I help growing businesses fix broken spreadsheets, automate repetitive reporting, and build Excel systems they can trust.
