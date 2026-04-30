@@ -597,3 +597,61 @@ border-color:white transparent transparent transparent;
 opacity:1;
 transform:translateY(0);
 }
+/* =========================================
+   GLOBAL BUTTON FIXES (MOBILE SAFE)
+   ========================================= */
+
+/* CTA button group (homepage + anywhere else) */
+.cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Prevent buttons from breaking layout */
+.cta-btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Quiz buttons fix */
+.quiz-start-buttons {
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   MOBILE OPTIMIZATION
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  /* Stack CTA buttons */
+  .cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-btn {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  /* Stack quiz buttons */
+  .quiz-start-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quiz-btn {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* Prevent any horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+}
