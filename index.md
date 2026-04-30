@@ -21,8 +21,10 @@ body_class: home
     I help growing businesses fix broken spreadsheets, automate repetitive reporting, and build Excel systems they can trust.
   </p>
 
+<div class="cta-group">
   <a href="/services" class="cta-btn">Fix My Spreadsheet</a>
-  <a href="/services" class="cta-btn" style="margin-left:12px;">Automate My Reporting</a>
+  <a href="/services" class="cta-btn">Automate My Reporting</a>
+</div>
 </section>
 
 <!-- ========================= -->
