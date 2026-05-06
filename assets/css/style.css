@@ -655,3 +655,28 @@ transform:translateY(0);
     overflow-x: hidden;
   }
 }
+/* =========================================
+   HIRE AN EXCEL EXPERT PAGE
+   ========================================= */
+
+.content-section {
+  text-align: center;
+}
+
+.content-section ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.content-section li {
+  margin-bottom: 10px;
+}
+
+.content-section p,
+.content-section h2,
+.content-section h3,
+.content-section ul {
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
