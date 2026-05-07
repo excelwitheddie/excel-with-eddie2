@@ -123,7 +123,17 @@ body_class: home
     Service is available online for individuals and businesses seeking help with formulas, dashboards, reporting, and Excel workflow optimization.
   </p>
 </section>
+<!-- ========================= -->
+<!-- LINKEDIN FEED -->
+<!-- ========================= -->
+<section class="section">
+  <h2>Latest on LinkedIn</h2>
 
+  <div class="linkedin-widget">
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-b75d75fb-7056-43ee-bb63-f15515ce65bb" data-elfsight-app-lazy></div>
+  </div>
+</section>
 <!-- ========================= -->
 <!-- GOOGLE REVIEWS -->
 <!-- ========================= -->
