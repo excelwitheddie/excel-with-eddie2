@@ -123,6 +123,22 @@ body_class: home
     Service is available online for individuals and businesses seeking help with formulas, dashboards, reporting, and Excel workflow optimization.
   </p>
 </section>
+<section class="section">
+  <h2>Subscribe to Excel with Eddie on LinkedIn</h2>
+
+  <p>
+    Get practical Excel tips, formula fixes, dashboard ideas, and spreadsheet automation advice
+    straight from my LinkedIn newsletter.
+  </p>
+
+  <a 
+    href="https://www.linkedin.com/newsletters/excel-with-eddie-7424848856237940736/"
+    class="cta-btn" 
+    target="_blank" 
+    rel="noopener noreferrer">
+    Subscribe to the Newsletter
+  </a>
+</section>
 <!-- ========================= -->
 <!-- LINKEDIN FEED -->
 <!-- ========================= -->
