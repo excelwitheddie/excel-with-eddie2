@@ -24,6 +24,9 @@ title: Excel Knowledge Quiz
     <button class="quiz-btn" type="button" onclick="startQuiz('advanced')">
       Advanced
     </button>
+    <button class="quiz-btn wizard-btn" type="button" onclick="startQuiz('wizard')">
+  Wizard
+</button>
   </div>
 
   <!-- ========================= -->
