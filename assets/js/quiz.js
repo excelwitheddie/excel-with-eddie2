@@ -1,7 +1,7 @@
 console.log("🔥 quiz.js loaded");
 
 /* =========================================================
-   Excel with Eddie – Quiz Engine (PRODUCTION STABLE)
+   Excel with Eddie – Quiz Engine
    ========================================================= */
 
 const GOOGLE_SHEETS_WEB_APP_URL =
@@ -10,6 +10,7 @@ const GOOGLE_SHEETS_WEB_APP_URL =
 /* =========================
    QUESTION BANK
 ========================= */
+
 const questionBank = {
   beginner: [
     {
@@ -165,162 +166,153 @@ const questionBank = {
     {
       q: "Which returns the last non-blank value?",
       answers: [
-        "=LOOKUP(2,1/(A:A<>\"\"),A:A)",
+        '=LOOKUP(2,1/(A:A<>""),A:A)',
         "=MAX(A:A)",
         "=COUNT(A:A)"
       ],
       correct: 0,
-      explanation: "Classic LOOKUP trick."
+      explanation: "The LOOKUP trick returns the last nonblank value."
     },
     {
       q: "What makes XLOOKUP better?",
       answers: ["Speed only", "Flexibility", "Shorter syntax"],
       correct: 1,
-      explanation: "XLOOKUP works in any direction."
+      explanation: "XLOOKUP can search left, right, vertically, and horizontally."
     },
     {
       q: "What builds interactive dashboards?",
       answers: ["PivotTables + Slicers", "Solver", "Goal Seek"],
       correct: 0,
-      explanation: "PivotTables with slicers."
+      explanation: "PivotTables with slicers are commonly used for interactive dashboards."
     },
     {
       q: "What does IFERROR do?",
       answers: ["Stops errors", "Replaces errors", "Ignores blanks"],
       correct: 1,
-      explanation: "IFERROR replaces error results."
+      explanation: "IFERROR replaces error results with a value you specify."
     },
     {
       q: "Which spills sorted unique values?",
       answers: ["SORT(UNIQUE())", "FILTER()", "COUNTIFS()"],
       correct: 0,
-      explanation: "SORT + UNIQUE spills ordered values."
+      explanation: "SORT + UNIQUE returns distinct values in sorted order."
     },
     {
       q: "What does CHOOSECOLS do?",
       answers: ["Selects columns", "Hides columns", "Renames columns"],
       correct: 0,
-      explanation: "CHOOSECOLS returns selected columns."
+      explanation: "CHOOSECOLS returns selected columns from an array."
     }
   ],
-   const wizardQuestions = [
 
-{
-  question: "You need to return the last matching value for CustomerID in column A, with results in column D. Which formula is the most direct modern approach?",
-  options: [
-    '=LOOKUP(2,1/(A:A=F2),D:D)',
-    '=XLOOKUP(F2,A:A,D:D,,0,-1)',
-    '=INDEX(D:D,MATCH(F2,A:A,0))',
-    '=FILTER(D:D,A:A=F2)'
-  ],
-  answer: 1
-},
-
-{
-  question: "Which formula returns only the unique values that appear exactly once in A2:A100?",
-  options: [
-    '=UNIQUE(A2:A100)',
-    '=UNIQUE(A2:A100,,TRUE)',
-    '=FILTER(A2:A100,COUNTIF(A2:A100,A2:A100)=1)',
-    '=SORT(UNIQUE(A2:A100))'
-  ],
-  answer: 1
-},
-
-{
-  question: "In Power Query, which step is most likely to cause refresh failure when a source column is renamed?",
-  options: [
-    "Filtered Rows",
-    "Changed Type",
-    "Removed Blank Rows",
-    "Sorted Rows"
-  ],
-  answer: 1
-},
-
-{
-  question: "What does this formula return: =TAKE(SORTBY(A2:D20,D2:D20,-1),3)?",
-  options: [
-    "The first 3 columns sorted by column D ascending",
-    "The top 3 rows after sorting A2:D20 by D2:D20 descending",
-    "The last 3 rows after filtering column D",
-    "The top 3 values from D2:D20 only"
-  ],
-  answer: 1
-},
-
-{
-  question: "Which function is most appropriate when you need to apply a LAMBDA to each row of a 2D array and return one result per row?",
-  options: [
-    "MAP",
-    "REDUCE",
-    "BYROW",
-    "SCAN"
-  ],
-  answer: 2
-},
-
-{
-  question: "Which formula best creates a case-sensitive count of how many times F2 appears in A2:A100?",
-  options: [
-    '=COUNTIF(A2:A100,F2)',
-    '=SUM(--EXACT(A2:A100,F2))',
-    '=COUNTIFS(A2:A100,F2)',
-    '=SUMPRODUCT(A2:A100=F2)'
-  ],
-  answer: 1
-},
-
-{
-  question: "Why can INDIRECT() cause serious performance and auditing problems in professional workbooks?",
-  options: [
-    "It cannot reference named ranges",
-    "It is volatile and hides references as text, making dependency tracing harder",
-    "It only works with closed workbooks",
-    "It disables formula calculation"
-  ],
-  answer: 1
-},
-
-{
-  question: "Which formula dynamically returns columns 1, 3, and 5 from A1:F100?",
-  options: [
-    '=CHOOSECOLS(A1:F100,1,3,5)',
-    '=TAKE(A1:F100,,5)',
-    '=INDEX(A1:F100,,{1,3,5})',
-    '=FILTER(A1:F100,{1,0,1,0,1,0})'
-  ],
-  answer: 0
-},
-
-{
-  question: "You have a spilled formula in A2. Which reference correctly points to the entire spilled range?",
-  options: [
-    "A2*",
-    "A2#",
-    "#A2",
-    "SPILL(A2)"
-  ],
-  answer: 1
-},
-
-{
-  question: "What is the main difference between REDUCE and SCAN?",
-  options: [
-    "REDUCE returns one final accumulated result; SCAN returns intermediate accumulated results",
-    "REDUCE works only with numbers; SCAN works only with text",
-    "REDUCE spills vertically; SCAN spills horizontally",
-    "REDUCE requires Power Query; SCAN requires VBA"
-  ],
-  answer: 0
-}
-
-];
+  wizard: [
+    {
+      q: "You need to return the last matching value for CustomerID in column A, with results in column D. Which formula is the most direct modern approach?",
+      answers: [
+        '=LOOKUP(2,1/(A:A=F2),D:D)',
+        '=XLOOKUP(F2,A:A,D:D,,0,-1)',
+        '=INDEX(D:D,MATCH(F2,A:A,0))',
+        '=FILTER(D:D,A:A=F2)'
+      ],
+      correct: 1,
+      explanation: "XLOOKUP with search_mode -1 searches from bottom to top and returns the last match."
+    },
+    {
+      q: "Which formula returns only the unique values that appear exactly once in A2:A100?",
+      answers: [
+        '=UNIQUE(A2:A100)',
+        '=UNIQUE(A2:A100,,TRUE)',
+        '=FILTER(A2:A100,COUNTIF(A2:A100,A2:A100)=1)',
+        '=SORT(UNIQUE(A2:A100))'
+      ],
+      correct: 1,
+      explanation: "The third argument of UNIQUE set to TRUE returns values that occur exactly once."
+    },
+    {
+      q: "In Power Query, which step is most likely to cause refresh failure when a source column is renamed?",
+      answers: [
+        "Filtered Rows",
+        "Changed Type",
+        "Removed Blank Rows",
+        "Sorted Rows"
+      ],
+      correct: 1,
+      explanation: "Changed Type often references column names directly, so renamed columns can break refresh."
+    },
+    {
+      q: "What does this formula return: =TAKE(SORTBY(A2:D20,D2:D20,-1),3)?",
+      answers: [
+        "The first 3 columns sorted by column D ascending",
+        "The top 3 rows after sorting A2:D20 by D2:D20 descending",
+        "The last 3 rows after filtering column D",
+        "The top 3 values from D2:D20 only"
+      ],
+      correct: 1,
+      explanation: "SORTBY sorts the full range by column D descending, then TAKE returns the first 3 rows."
+    },
+    {
+      q: "Which function is most appropriate when you need to apply a LAMBDA to each row of a 2D array and return one result per row?",
+      answers: ["MAP", "REDUCE", "BYROW", "SCAN"],
+      correct: 2,
+      explanation: "BYROW applies a LAMBDA to each row and returns one result per row."
+    },
+    {
+      q: "Which formula best creates a case-sensitive count of how many times F2 appears in A2:A100?",
+      answers: [
+        '=COUNTIF(A2:A100,F2)',
+        '=SUM(--EXACT(A2:A100,F2))',
+        '=COUNTIFS(A2:A100,F2)',
+        '=SUMPRODUCT(A2:A100=F2)'
+      ],
+      correct: 1,
+      explanation: "EXACT is case-sensitive, and SUM counts the TRUE results coerced to 1."
+    },
+    {
+      q: "Why can INDIRECT() cause serious performance and auditing problems in professional workbooks?",
+      answers: [
+        "It cannot reference named ranges",
+        "It is volatile and hides references as text, making dependency tracing harder",
+        "It only works with closed workbooks",
+        "It disables formula calculation"
+      ],
+      correct: 1,
+      explanation: "INDIRECT is volatile and stores references as text, making auditing and calculation slower."
+    },
+    {
+      q: "Which formula dynamically returns columns 1, 3, and 5 from A1:F100?",
+      answers: [
+        '=CHOOSECOLS(A1:F100,1,3,5)',
+        '=TAKE(A1:F100,,5)',
+        '=INDEX(A1:F100,,{1,3,5})',
+        '=FILTER(A1:F100,{1,0,1,0,1,0})'
+      ],
+      correct: 0,
+      explanation: "CHOOSECOLS directly returns selected columns from an array."
+    },
+    {
+      q: "You have a spilled formula in A2. Which reference correctly points to the entire spilled range?",
+      answers: ["A2*", "A2#", "#A2", "SPILL(A2)"],
+      correct: 1,
+      explanation: "The # spill operator references the entire spilled range from A2."
+    },
+    {
+      q: "What is the main difference between REDUCE and SCAN?",
+      answers: [
+        "REDUCE returns one final accumulated result; SCAN returns intermediate accumulated results",
+        "REDUCE works only with numbers; SCAN works only with text",
+        "REDUCE spills vertically; SCAN spills horizontally",
+        "REDUCE requires Power Query; SCAN requires VBA"
+      ],
+      correct: 0,
+      explanation: "REDUCE returns the final accumulator; SCAN returns each intermediate accumulator value."
+    }
+  ]
 };
 
 /* =========================
    QUIZ STATE
 ========================= */
+
 let currentSet = [];
 let currentIndex = 0;
 let score = 0;
@@ -329,8 +321,12 @@ let currentDifficulty = "";
 /* =========================
    START QUIZ
 ========================= */
+
 function startQuiz(level) {
-  if (!questionBank[level]) return;
+  if (!questionBank[level]) {
+    console.error("Invalid quiz level:", level);
+    return;
+  }
 
   currentDifficulty = level;
   currentIndex = 0;
@@ -343,6 +339,9 @@ function startQuiz(level) {
   document.getElementById("progressWrapper").style.display = "block";
   document.getElementById("questionCounter").style.display = "block";
 
+  const chart = document.getElementById("quizChart");
+  if (chart) chart.innerHTML = "";
+
   updateProgress();
   showQuestion();
 }
@@ -350,8 +349,12 @@ function startQuiz(level) {
 /* =========================
    PROGRESS
 ========================= */
+
 function updateProgress() {
+  if (!currentSet.length) return;
+
   const percent = (currentIndex / currentSet.length) * 100;
+
   document.getElementById("progressBar").style.width = percent + "%";
   document.getElementById("questionCounter").textContent =
     `Question ${currentIndex + 1} of ${currentSet.length}`;
@@ -360,16 +363,21 @@ function updateProgress() {
 /* =========================
    SHOW QUESTION
 ========================= */
+
 function showQuestion() {
   const q = currentSet[currentIndex];
   const container = document.getElementById("quizContainer");
 
+  if (!q || !container) return;
+
   container.innerHTML = `
     <h2>${q.q}</h2>
-    ${q.answers.map(
-      (a, i) =>
-        `<button class="quiz-btn answer-btn" onclick="submitAnswer(${i})">${a}</button>`
-    ).join("")}
+    <div class="answer-grid">
+      ${q.answers.map(
+        (a, i) =>
+          `<button class="quiz-btn answer-btn" type="button" onclick="submitAnswer(${i})">${a}</button>`
+      ).join("")}
+    </div>
     <p id="explanation" class="explanation"></p>
   `;
 
@@ -379,30 +387,44 @@ function showQuestion() {
 /* =========================
    SUBMIT ANSWER
 ========================= */
+
 function submitAnswer(choice) {
   const q = currentSet[currentIndex];
   const explanation = document.getElementById("explanation");
 
+  if (!q || !explanation) return;
+
   const correct = choice === q.correct;
+
   if (correct) score++;
 
   explanation.textContent =
     (correct ? "Correct! " : "Incorrect. ") + q.explanation;
+
   explanation.style.color = correct ? "#16a085" : "#b00020";
 
-  document.querySelectorAll(".answer-btn").forEach(b => b.disabled = true);
+  document.querySelectorAll(".answer-btn").forEach(button => {
+    button.disabled = true;
+  });
 
   setTimeout(() => {
     currentIndex++;
-    currentIndex < currentSet.length ? showQuestion() : showResults();
-  }, 900);
+
+    if (currentIndex < currentSet.length) {
+      showQuestion();
+    } else {
+      showResults();
+    }
+  }, 1000);
 }
 
 /* =========================
    RESULTS
 ========================= */
+
 function showResults() {
   const total = currentSet.length;
+  const level = calculateLevel(score, total);
 
   document.getElementById("progressWrapper").style.display = "none";
   document.getElementById("questionCounter").style.display = "none";
@@ -410,16 +432,16 @@ function showResults() {
   document.getElementById("quizContainer").innerHTML = `
     <div class="quiz-results">
       <h2>Your Score: ${score} / ${total}</h2>
-      <h3>${calculateLevel(score, total)}</h3>
+      <h3>${level}</h3>
       <div id="quizChart" class="quiz-chart"></div>
-      <button class="quiz-btn" onclick="location.reload()">Try Again</button>
+      <button class="quiz-btn" type="button" onclick="location.reload()">Try Again</button>
     </div>
   `;
 
   sendResultsToGoogleSheets({
     score,
     totalQuestions: total,
-    level: calculateLevel(score, total),
+    level,
     difficulty: currentDifficulty,
     page: window.location.pathname
   });
@@ -430,31 +452,45 @@ function showResults() {
 /* =========================
    LEVEL
 ========================= */
+
 function calculateLevel(score, total) {
   const pct = (score / total) * 100;
+
   if (pct < 40) return "📘 Beginner";
-  if (pct < 75) return "📗 Intermediate";
-  return "📕 Advanced";
+  if (pct < 70) return "📗 Intermediate";
+  if (pct < 90) return "📕 Advanced";
+  return "🧙 Wizard";
 }
 
 /* =========================
    GOOGLE SHEETS
 ========================= */
+
 function sendResultsToGoogleSheets(data) {
   fetch(GOOGLE_SHEETS_WEB_APP_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
     mode: "no-cors"
+  }).catch(error => {
+    console.warn("Google Sheets logging failed:", error);
   });
 }
 
 /* =========================
    GOOGLE CHARTS
 ========================= */
-google.charts.load("current", { packages: ["corechart"] });
+
+if (window.google && google.charts) {
+  google.charts.load("current", { packages: ["corechart"] });
+}
 
 function drawResultsChart(correct, total) {
+  if (!window.google || !google.visualization) {
+    console.warn("Google Charts not available.");
+    return;
+  }
+
   google.charts.setOnLoadCallback(() => {
     const data = google.visualization.arrayToDataTable([
       ["Result", "Count"],
@@ -462,9 +498,10 @@ function drawResultsChart(correct, total) {
       ["Incorrect", total - correct]
     ]);
 
-    const chart = new google.visualization.PieChart(
-      document.getElementById("quizChart")
-    );
+    const chartElement = document.getElementById("quizChart");
+    if (!chartElement) return;
+
+    const chart = new google.visualization.PieChart(chartElement);
 
     chart.draw(data, {
       pieHole: 0.45,
@@ -476,5 +513,6 @@ function drawResultsChart(correct, total) {
 /* =========================
    GLOBAL EXPORTS
 ========================= */
+
 window.startQuiz = startQuiz;
 window.submitAnswer = submitAnswer;
