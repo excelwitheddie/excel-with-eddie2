@@ -202,7 +202,120 @@ const questionBank = {
       correct: 0,
       explanation: "CHOOSECOLS returns selected columns."
     }
-  ]
+  ],
+   const wizardQuestions = [
+
+{
+  question: "You need to return the last matching value for CustomerID in column A, with results in column D. Which formula is the most direct modern approach?",
+  options: [
+    '=LOOKUP(2,1/(A:A=F2),D:D)',
+    '=XLOOKUP(F2,A:A,D:D,,0,-1)',
+    '=INDEX(D:D,MATCH(F2,A:A,0))',
+    '=FILTER(D:D,A:A=F2)'
+  ],
+  answer: 1
+},
+
+{
+  question: "Which formula returns only the unique values that appear exactly once in A2:A100?",
+  options: [
+    '=UNIQUE(A2:A100)',
+    '=UNIQUE(A2:A100,,TRUE)',
+    '=FILTER(A2:A100,COUNTIF(A2:A100,A2:A100)=1)',
+    '=SORT(UNIQUE(A2:A100))'
+  ],
+  answer: 1
+},
+
+{
+  question: "In Power Query, which step is most likely to cause refresh failure when a source column is renamed?",
+  options: [
+    "Filtered Rows",
+    "Changed Type",
+    "Removed Blank Rows",
+    "Sorted Rows"
+  ],
+  answer: 1
+},
+
+{
+  question: "What does this formula return: =TAKE(SORTBY(A2:D20,D2:D20,-1),3)?",
+  options: [
+    "The first 3 columns sorted by column D ascending",
+    "The top 3 rows after sorting A2:D20 by D2:D20 descending",
+    "The last 3 rows after filtering column D",
+    "The top 3 values from D2:D20 only"
+  ],
+  answer: 1
+},
+
+{
+  question: "Which function is most appropriate when you need to apply a LAMBDA to each row of a 2D array and return one result per row?",
+  options: [
+    "MAP",
+    "REDUCE",
+    "BYROW",
+    "SCAN"
+  ],
+  answer: 2
+},
+
+{
+  question: "Which formula best creates a case-sensitive count of how many times F2 appears in A2:A100?",
+  options: [
+    '=COUNTIF(A2:A100,F2)',
+    '=SUM(--EXACT(A2:A100,F2))',
+    '=COUNTIFS(A2:A100,F2)',
+    '=SUMPRODUCT(A2:A100=F2)'
+  ],
+  answer: 1
+},
+
+{
+  question: "Why can INDIRECT() cause serious performance and auditing problems in professional workbooks?",
+  options: [
+    "It cannot reference named ranges",
+    "It is volatile and hides references as text, making dependency tracing harder",
+    "It only works with closed workbooks",
+    "It disables formula calculation"
+  ],
+  answer: 1
+},
+
+{
+  question: "Which formula dynamically returns columns 1, 3, and 5 from A1:F100?",
+  options: [
+    '=CHOOSECOLS(A1:F100,1,3,5)',
+    '=TAKE(A1:F100,,5)',
+    '=INDEX(A1:F100,,{1,3,5})',
+    '=FILTER(A1:F100,{1,0,1,0,1,0})'
+  ],
+  answer: 0
+},
+
+{
+  question: "You have a spilled formula in A2. Which reference correctly points to the entire spilled range?",
+  options: [
+    "A2*",
+    "A2#",
+    "#A2",
+    "SPILL(A2)"
+  ],
+  answer: 1
+},
+
+{
+  question: "What is the main difference between REDUCE and SCAN?",
+  options: [
+    "REDUCE returns one final accumulated result; SCAN returns intermediate accumulated results",
+    "REDUCE works only with numbers; SCAN works only with text",
+    "REDUCE spills vertically; SCAN spills horizontally",
+    "REDUCE requires Power Query; SCAN requires VBA"
+  ],
+  answer: 0
+}
+
+];
 };
 
 /* =========================
