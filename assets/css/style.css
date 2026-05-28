@@ -327,7 +327,15 @@ img {
   background: var(--green-hover);
   transform: translateY(-2px);
 }
+.wizard-btn {
+  background: linear-gradient(135deg, #6a00ff, #00c3ff);
+  color: white;
+  box-shadow: 0 0 18px rgba(106, 0, 255, 0.45);
+}
 
+.wizard-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
 #quizContainer {
   background: white;
   border-radius: 14px;
