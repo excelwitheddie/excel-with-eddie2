@@ -1,0 +1,113 @@
+---
+layout: default
+title: "How Do I Use XLOOKUP in Excel?"
+description: "Learn how to use XLOOKUP in Excel to find values, return matches, replace VLOOKUP, and troubleshoot common lookup problems."
+permalink: /resources/how-to-use-xlookup/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Use XLOOKUP in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+XLOOKUP searches for a value in one range and returns a matching value from another range.
+It is the modern replacement for VLOOKUP because it can look left, look right, return exact matches, and handle missing values more cleanly.
+</p>
+
+<pre>
+=XLOOKUP(lookup_value, lookup_array, return_array)
+</pre>
+
+<h2>Basic XLOOKUP Example</h2>
+
+<p>
+If employee names are in column A and salaries are in column B, this formula finds Bob's salary:
+</p>
+
+<pre>
+=XLOOKUP("Bob",A:A,B:B)
+</pre>
+
+<h2>XLOOKUP with a Cell Reference</h2>
+
+<p>
+Instead of typing the lookup value directly into the formula, you can reference a cell:
+</p>
+
+<pre>
+=XLOOKUP(E2,A:A,B:B)
+</pre>
+
+<p>
+This searches for the value in E2, looks through column A, and returns the matching result from column B.
+</p>
+
+<h2>Add a Message When Nothing Is Found</h2>
+
+<p>
+One of XLOOKUP's best features is the ability to return a custom message when there is no match:
+</p>
+
+<pre>
+=XLOOKUP(E2,A:A,B:B,"Not found")
+</pre>
+
+<h2>Why XLOOKUP Is Better Than VLOOKUP</h2>
+
+<ul>
+<li>It can return values from the left or right</li>
+<li>It does not require column index numbers</li>
+<li>It defaults to exact match</li>
+<li>It can return custom messages when no result is found</li>
+<li>It is easier to read and maintain</li>
+</ul>
+
+<h2>Common XLOOKUP Problems</h2>
+
+<h3>1. Extra spaces</h3>
+
+<p>
+If two values look the same but do not match, one may contain extra spaces.
+</p>
+
+<pre>
+=TRIM(A2)
+</pre>
+
+<h3>2. Numbers stored as text</h3>
+
+<p>
+A number stored as text may not match a true number. Check formatting if XLOOKUP returns unexpected results.
+</p>
+
+<h3>3. Wrong lookup range</h3>
+
+<p>
+Make sure your lookup array and return array are the same size.
+</p>
+
+<h2>Need Help with XLOOKUP?</h2>
+
+<p>
+If your lookup formulas are not working, I can help troubleshoot the workbook and build formulas that are easier to maintain.
+</p>
+
+<p>
+<a href="/book/" class="cta-btn">Book Excel Help</a>
+</p>
+
+<h2>Related Articles</h2>
+
+<ul>
+<li><a href="/resources/fix-excel-formulas/">How Do I Fix Excel Formulas That Aren't Working?</a></li>
+<li><a href="/resources/fix-na-errors/">How Do I Fix #N/A Errors?</a></li>
+<li><a href="/resources/count-cells-with-specific-text/">How Do I Count Cells With Specific Text?</a></li>
+</ul>
+
+</section>
