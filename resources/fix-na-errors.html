@@ -1,0 +1,124 @@
+---
+layout: default
+title: "How Do I Fix #N/A Errors in Excel?"
+description: "Learn why Excel shows #N/A errors and how to fix them in XLOOKUP, VLOOKUP, MATCH, and other lookup formulas."
+permalink: /resources/fix-na-errors/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Fix #N/A Errors in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+The #N/A error usually means Excel cannot find the value you are searching for.
+It commonly happens in formulas like XLOOKUP, VLOOKUP, MATCH, and INDEX/MATCH.
+</p>
+
+<h2>Common Causes of #N/A Errors</h2>
+
+<ul>
+<li>The lookup value does not exist in the lookup range</li>
+<li>There are extra spaces in one of the values</li>
+<li>Numbers are stored as text</li>
+<li>The lookup range is incorrect</li>
+<li>The formula is searching in the wrong column</li>
+</ul>
+
+<h2>1. Check If the Value Exists</h2>
+
+<p>
+Start simple. Make sure the value you are looking for actually appears in the lookup range.
+</p>
+
+<p>
+For example, if your formula is:
+</p>
+
+<pre>
+=XLOOKUP(E2,A:A,B:B)
+</pre>
+
+<p>
+make sure the value in E2 exists somewhere in column A.
+</p>
+
+<h2>2. Remove Extra Spaces</h2>
+
+<p>
+Extra spaces are one of the sneakiest causes of #N/A errors.
+</p>
+
+<pre>
+=TRIM(A2)
+</pre>
+
+<p>
+Use TRIM to remove leading and trailing spaces.
+</p>
+
+<h2>3. Check for Numbers Stored as Text</h2>
+
+<p>
+Excel may treat 123 and "123" differently. If one value is stored as text and the other is stored as a number, your lookup may fail.
+</p>
+
+<p>
+Try converting the value using:
+</p>
+
+<pre>
+=VALUE(A2)
+</pre>
+
+<h2>4. Use IFNA to Display a Cleaner Message</h2>
+
+<p>
+Instead of showing #N/A, you can return a friendly message:
+</p>
+
+<pre>
+=IFNA(XLOOKUP(E2,A:A,B:B),"Not found")
+</pre>
+
+<h2>5. Use XLOOKUP's Built-In Not Found Argument</h2>
+
+<p>
+XLOOKUP can handle missing values directly:
+</p>
+
+<pre>
+=XLOOKUP(E2,A:A,B:B,"Not found")
+</pre>
+
+<h2>When #N/A Is Not Actually Bad</h2>
+
+<p>
+Sometimes #N/A is useful. It tells you that a value is missing from your data.
+In reporting, that may indicate a real data issue that needs to be fixed.
+</p>
+
+<h2>Need Help Fixing Excel Errors?</h2>
+
+<p>
+If your workbook has multiple lookup formulas and errors, I can help identify the cause and clean up the spreadsheet.
+</p>
+
+<p>
+<a href="/book/" class="cta-btn">Book Excel Help</a>
+</p>
+
+<h2>Related Articles</h2>
+
+<ul>
+<li><a href="/resources/how-to-use-xlookup/">How Do I Use XLOOKUP?</a></li>
+<li><a href="/resources/fix-excel-formulas/">How Do I Fix Excel Formulas That Aren't Working?</a></li>
+<li><a href="/resources/count-cells-with-specific-text/">How Do I Count Cells With Specific Text?</a></li>
+</ul>
+
+</section>
