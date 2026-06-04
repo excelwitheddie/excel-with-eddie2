@@ -1,0 +1,214 @@
+---
+layout: default
+title: "How Do I Fix Excel Formulas That Aren't Working?"
+description: "Learn how to troubleshoot Excel formulas that are not calculating, returning errors, or producing incorrect results."
+permalink: /resources/fix-excel-formulas/
+---
+
+<section class="section">
+
+<p>
+<a href="/resources/">Resources</a>
+</p>
+
+<h1>How Do I Fix Excel Formulas That Aren't Working?</h1>
+
+<p>
+Last Updated: June 2026
+</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+Most Excel formula problems are caused by one of five issues:
+</p>
+
+<ul>
+<li>Cells formatted as text</li>
+<li>Missing or incorrect cell references</li>
+<li>Extra spaces in data</li>
+<li>Calculation mode set to Manual</li>
+<li>Incorrect formula syntax</li>
+</ul>
+
+<p>
+The good news is that most formula errors can be fixed in just a few minutes once you identify the root cause.
+</p>
+
+<h2>1. Check If the Cell Is Formatted as Text</h2>
+
+<p>
+One of the most common issues occurs when Excel stores a formula as text instead of calculating it.
+</p>
+
+<p>
+If your formula appears exactly as typed:
+</p>
+
+<pre>
+=SUM(A1:A10)
+</pre>
+
+<p>
+instead of showing a result, the cell may be formatted as Text.
+</p>
+
+<p>
+To fix it:
+</p>
+
+<ol>
+<li>Select the cell</li>
+<li>Change the format to General</li>
+<li>Press F2</li>
+<li>Press Enter</li>
+</ol>
+
+<h2>2. Verify Cell References</h2>
+
+<p>
+Incorrect references can cause formulas to return unexpected results.
+</p>
+
+<p>
+For example:
+</p>
+
+<pre>
+=SUM(A1:A100)
+</pre>
+
+<p>
+may need to be:
+</p>
+
+<pre>
+=SUM(B1:B100)
+</pre>
+
+<p>
+Always double-check that your formula references the intended range.
+</p>
+
+<h2>3. Look for Hidden Spaces</h2>
+
+<p>
+Text-based formulas such as:
+</p>
+
+<pre>
+=XLOOKUP()
+=VLOOKUP()
+=MATCH()
+</pre>
+
+<p>
+often fail because one value contains extra spaces.
+</p>
+
+<p>
+The TRIM function can help:
+</p>
+
+<pre>
+=TRIM(A1)
+</pre>
+
+<p>
+This removes leading and trailing spaces that may prevent matches.
+</p>
+
+<h2>4. Check Calculation Mode</h2>
+
+<p>
+Sometimes formulas are correct but Excel isn't recalculating.
+</p>
+
+<p>
+Check:
+</p>
+
+<p>
+Formulas → Calculation Options
+</p>
+
+<p>
+Make sure it is set to:
+</p>
+
+<p>
+Automatic
+</p>
+
+<p>
+If it is set to Manual, Excel may not update results when data changes.
+</p>
+
+<h2>5. Identify the Error Type</h2>
+
+<p>
+Different Excel errors point to different problems.
+</p>
+
+<table>
+<tr>
+<th>Error</th>
+<th>Meaning</th>
+</tr>
+
+<tr>
+<td>#N/A</td>
+<td>Value not found</td>
+</tr>
+
+<tr>
+<td>#REF!</td>
+<td>Invalid cell reference</td>
+</tr>
+
+<tr>
+<td>#VALUE!</td>
+<td>Wrong data type</td>
+</tr>
+
+<tr>
+<td>#DIV/0!</td>
+<td>Division by zero</td>
+</tr>
+
+<tr>
+<td>#NAME?</td>
+<td>Function or range name not recognized</td>
+</tr>
+
+</table>
+
+<h2>When to Get Help</h2>
+
+<p>
+If your workbook contains hundreds of formulas, multiple worksheets, Power Query connections, or complex reporting logic, troubleshooting can become time-consuming.
+</p>
+
+<p>
+That's where personalized help can save hours of frustration.
+</p>
+
+<p>
+At Excel with Eddie, I help professionals and business owners troubleshoot formulas, repair spreadsheets, and improve reporting systems.
+</p>
+
+<p>
+<a href="/book/" class="cta-btn">
+Book a Session
+</a>
+</p>
+
+<h2>Related Articles</h2>
+
+<ul>
+<li><a href="/resources/how-to-use-xlookup/">How Do I Use XLOOKUP?</a></li>
+<li><a href="/resources/fix-na-errors/">How Do I Fix #N/A Errors?</a></li>
+<li><a href="/resources/count-cells-with-specific-text/">How Do I Count Cells With Specific Text?</a></li>
+</ul>
+
+</section>
