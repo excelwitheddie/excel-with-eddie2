@@ -1,0 +1,59 @@
+---
+layout: default
+title: "How Do I Use TEXTJOIN in Excel?"
+description: "Learn how to use TEXTJOIN in Excel to combine text from multiple cells with delimiters."
+permalink: /resources/how-to-use-textjoin/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Use TEXTJOIN in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+TEXTJOIN combines text from multiple cells using a delimiter such as a space, comma, or dash.
+</p>
+
+<pre>
+=TEXTJOIN(", ",TRUE,A2:A10)
+</pre>
+
+<h2>TEXTJOIN Syntax</h2>
+
+<pre>
+=TEXTJOIN(delimiter, ignore_empty, text1, [text2])
+</pre>
+
+<ul>
+<li>delimiter: what goes between each value</li>
+<li>ignore_empty: TRUE ignores blank cells</li>
+<li>text1: the range or value to combine</li>
+</ul>
+
+<h2>Example</h2>
+
+<pre>
+=TEXTJOIN(" - ",TRUE,A2:C2)
+</pre>
+
+<p>
+This combines values from A2 through C2 separated by dashes.
+</p>
+
+<h2>When to Use TEXTJOIN</h2>
+
+<ul>
+<li>Combining names</li>
+<li>Creating labels</li>
+<li>Building comma-separated lists</li>
+<li>Joining data from multiple cells</li>
+</ul>
+
+<p><a href="/book/" class="cta-btn">Book Excel Help</a></p>
+
+</section>
