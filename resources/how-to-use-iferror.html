@@ -1,0 +1,55 @@
+---
+layout: default
+title: "How Do I Use IFERROR in Excel?"
+description: "Learn how to use IFERROR in Excel to replace formula errors with cleaner results or custom messages."
+permalink: /resources/how-to-use-iferror/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Use IFERROR in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+IFERROR returns a custom result when a formula produces an error.
+</p>
+
+<pre>
+=IFERROR(A2/B2,0)
+</pre>
+
+<h2>IFERROR Syntax</h2>
+
+<pre>
+=IFERROR(value, value_if_error)
+</pre>
+
+<h2>Example with XLOOKUP</h2>
+
+<pre>
+=IFERROR(XLOOKUP(E2,A:A,B:B),"Not found")
+</pre>
+
+<h2>When to Use IFERROR</h2>
+
+<ul>
+<li>Cleaning up reports</li>
+<li>Replacing ugly error messages</li>
+<li>Handling missing lookup results</li>
+<li>Preventing dashboard visuals from breaking</li>
+</ul>
+
+<h2>Warning</h2>
+
+<p>
+Do not use IFERROR to hide problems you should actually fix. It can make broken formulas look clean while the underlying issue remains.
+</p>
+
+<p><a href="/book/" class="cta-btn">Book Excel Help</a></p>
+
+</section>
