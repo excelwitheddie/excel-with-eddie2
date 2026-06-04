@@ -1,0 +1,123 @@
+---
+layout: default
+title: "How Do I Count Cells With Specific Text in Excel?"
+description: "Learn how to count cells containing specific text in Excel using COUNTIF, COUNTIFS, wildcards, and case-sensitive formulas."
+permalink: /resources/count-cells-with-specific-text/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Count Cells With Specific Text in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+To count cells that contain specific text, use COUNTIF.
+</p>
+
+<pre>
+=COUNTIF(A:A,"Apple")
+</pre>
+
+<p>
+This counts how many cells in column A contain exactly "Apple".
+</p>
+
+<h2>Count Cells That Equal Specific Text</h2>
+
+<p>
+Use this when the cell must match the text exactly:
+</p>
+
+<pre>
+=COUNTIF(A2:A100,"Complete")
+</pre>
+
+<h2>Count Cells That Contain Specific Text Anywhere</h2>
+
+<p>
+Use wildcards when the text can appear anywhere inside the cell:
+</p>
+
+<pre>
+=COUNTIF(A2:A100,"*apple*")
+</pre>
+
+<p>
+The asterisks tell Excel to count cells that contain "apple" anywhere in the text.
+</p>
+
+<h2>Count Cells Using a Cell Reference</h2>
+
+<p>
+If your search text is in cell E2, use:
+</p>
+
+<pre>
+=COUNTIF(A2:A100,E2)
+</pre>
+
+<p>
+To count cells that contain the text in E2 anywhere inside the cell:
+</p>
+
+<pre>
+=COUNTIF(A2:A100,"*"&E2&"*")
+</pre>
+
+<h2>Count With Multiple Conditions</h2>
+
+<p>
+Use COUNTIFS when you need more than one condition.
+</p>
+
+<pre>
+=COUNTIFS(A2:A100,"Complete",B2:B100,"East")
+</pre>
+
+<p>
+This counts rows where column A equals Complete and column B equals East.
+</p>
+
+<h2>Case-Sensitive Count</h2>
+
+<p>
+COUNTIF is not case-sensitive. To count exact case matches, use:
+</p>
+
+<pre>
+=SUM(--EXACT(A2:A100,E2))
+</pre>
+
+<h2>Common Mistakes</h2>
+
+<ul>
+<li>Forgetting wildcards when searching inside longer text</li>
+<li>Using COUNT instead of COUNTIF</li>
+<li>Counting numbers stored as text incorrectly</li>
+<li>Using inconsistent spacing or spelling in the data</li>
+</ul>
+
+<h2>Need Help Building Excel Formulas?</h2>
+
+<p>
+If you are trying to count, summarize, or analyze messy spreadsheet data, I can help you build the right formula.
+</p>
+
+<p>
+<a href="/book/" class="cta-btn">Book Excel Help</a>
+</p>
+
+<h2>Related Articles</h2>
+
+<ul>
+<li><a href="/resources/how-to-use-xlookup/">How Do I Use XLOOKUP?</a></li>
+<li><a href="/resources/fix-na-errors/">How Do I Fix #N/A Errors?</a></li>
+<li><a href="/resources/fix-excel-formulas/">How Do I Fix Excel Formulas That Aren't Working?</a></li>
+</ul>
+
+</section>
