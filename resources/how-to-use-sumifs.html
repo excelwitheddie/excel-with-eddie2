@@ -1,0 +1,271 @@
+---
+layout: default
+title: "How Do I Use SUMIFS in Excel?"
+description: "Learn how to use the SUMIFS function in Excel to sum values based on multiple conditions."
+permalink: /resources/how-to-use-sumifs/
+---
+
+<section class="section">
+
+<p>
+<a href="/resources/">Resources</a> > Formula Help
+</p>
+
+<h1>How Do I Use SUMIFS in Excel?</h1>
+
+<p>
+Last Updated: June 2026
+</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+SUMIFS adds numbers that meet one or more criteria.
+It is one of the most useful functions for reporting, dashboards, KPI tracking, budgeting, and business analysis.
+</p>
+
+<p>
+Basic syntax:
+</p>
+
+<pre>
+=SUMIFS(sum_range, criteria_range1, criteria1)
+</pre>
+
+<h2>Simple SUMIFS Example</h2>
+
+<p>
+Suppose you have the following data:
+</p>
+
+<table>
+<tr>
+<th>Region</th>
+<th>Sales</th>
+</tr>
+
+<tr>
+<td>East</td>
+<td>500</td>
+</tr>
+
+<tr>
+<td>West</td>
+<td>300</td>
+</tr>
+
+<tr>
+<td>East</td>
+<td>700</td>
+</tr>
+</table>
+
+<p>
+To calculate total sales for the East region:
+</p>
+
+<pre>
+=SUMIFS(B:B,A:A,"East")
+</pre>
+
+<p>
+Result:
+</p>
+
+<pre>
+1200
+</pre>
+
+<h2>SUMIFS with Multiple Conditions</h2>
+
+<p>
+Now imagine you have:
+</p>
+
+<table>
+<tr>
+<th>Region</th>
+<th>Status</th>
+<th>Sales</th>
+</tr>
+
+<tr>
+<td>East</td>
+<td>Complete</td>
+<td>500</td>
+</tr>
+
+<tr>
+<td>East</td>
+<td>Pending</td>
+<td>300</td>
+</tr>
+
+<tr>
+<td>East</td>
+<td>Complete</td>
+<td>700</td>
+</tr>
+</table>
+
+<p>
+To total only completed sales in the East region:
+</p>
+
+<pre>
+=SUMIFS(C:C,A:A,"East",B:B,"Complete")
+</pre>
+
+<p>
+Result:
+</p>
+
+<pre>
+1200
+</pre>
+
+<h2>Using Cell References</h2>
+
+<p>
+Instead of hard-coding values, reference cells:
+</p>
+
+<pre>
+=SUMIFS(C:C,A:A,E2,B:B,F2)
+</pre>
+
+<p>
+Where:
+</p>
+
+<ul>
+<li>E2 contains the region</li>
+<li>F2 contains the status</li>
+</ul>
+
+<p>
+This makes dashboards and reports dynamic.
+</p>
+
+<h2>SUMIFS with Dates</h2>
+
+<p>
+You can sum values within a date range.
+</p>
+
+<pre>
+=SUMIFS(
+C:C,
+A:A,">="&DATE(2026,1,1),
+A:A,"<="&DATE(2026,12,31)
+)
+</pre>
+
+<p>
+This returns all sales occurring during 2026.
+</p>
+
+<h2>Common SUMIFS Mistakes</h2>
+
+<h3>1. Sum Range Different Size</h3>
+
+<p>
+All ranges must contain the same number of rows.
+</p>
+
+<p>
+Bad:
+</p>
+
+<pre>
+=SUMIFS(C1:C100,A1:A50,"East")
+</pre>
+
+<p>
+Good:
+</p>
+
+<pre>
+=SUMIFS(C1:C100,A1:A100,"East")
+</pre>
+
+<h3>2. Numbers Stored as Text</h3>
+
+<p>
+If your data looks like numbers but is stored as text, SUMIFS may return incorrect results.
+</p>
+
+<h3>3. Hidden Spaces</h3>
+
+<p>
+Extra spaces can prevent criteria from matching.
+</p>
+
+<pre>
+=TRIM(A2)
+</pre>
+
+<p>
+Use TRIM to clean imported data.
+</p>
+
+<h2>SUMIFS vs SUMIF</h2>
+
+<table>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>SUMIF</td>
+<td>One condition</td>
+</tr>
+
+<tr>
+<td>SUMIFS</td>
+<td>Multiple conditions</td>
+</tr>
+</table>
+
+<p>
+Even if you only have one condition today, many Excel users prefer SUMIFS because it scales more easily as reporting requirements grow.
+</p>
+
+<h2>Real-World Uses</h2>
+
+<ul>
+<li>Sales reporting</li>
+<li>Project tracking</li>
+<li>Department budgets</li>
+<li>KPI dashboards</li>
+<li>Expense analysis</li>
+<li>Customer reporting</li>
+</ul>
+
+<h2>Need Help Building Excel Reports?</h2>
+
+<p>
+SUMIFS is one of the most powerful reporting functions in Excel, but it can become difficult to troubleshoot in large workbooks.
+</p>
+
+<p>
+If you need help building dashboards, reports, or automated spreadsheets, I can help.
+</p>
+
+<p>
+<a href="/book/" class="cta-btn">
+Book a Session
+</a>
+</p>
+
+<h2>Related Articles</h2>
+
+<ul>
+<li><a href="/resources/how-to-use-countifs/">How Do I Use COUNTIFS?</a></li>
+<li><a href="/resources/how-to-use-xlookup/">How Do I Use XLOOKUP?</a></li>
+<li><a href="/resources/how-to-use-index-match/">How Do I Use INDEX MATCH?</a></li>
+<li><a href="/resources/fix-excel-formulas/">How Do I Fix Excel Formulas That Aren't Working?</a></li>
+</ul>
+
+</section>
