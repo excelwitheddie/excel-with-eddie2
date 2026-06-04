@@ -163,13 +163,15 @@ body_class: home
     straight from my LinkedIn newsletter.
   </p>
 
+<p style="margin-top:24px;text-align:center;">
   <a 
     href="https://www.linkedin.com/newsletters/excel-with-eddie-7424848856237940736/"
-    class="cta-btn" 
-    target="_blank" 
+    class="cta-btn"
+    target="_blank"
     rel="noopener noreferrer">
     Subscribe to the Newsletter
   </a>
+</p>
 </section>
 
 <section class="section">
