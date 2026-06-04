@@ -1,0 +1,56 @@
+---
+layout: default
+title: "How Do I Combine Text in Excel?"
+description: "Learn how to combine text in Excel using ampersands, CONCAT, and TEXTJOIN."
+permalink: /resources/combine-text-in-excel/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Combine Text in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+To combine text in Excel, use the ampersand symbol, CONCAT, or TEXTJOIN.
+</p>
+
+<h2>Use the Ampersand</h2>
+
+<pre>
+=A2&" "&B2
+</pre>
+
+<p>
+This combines first and last names with a space between them.
+</p>
+
+<h2>Use CONCAT</h2>
+
+<pre>
+=CONCAT(A2," ",B2)
+</pre>
+
+<h2>Use TEXTJOIN</h2>
+
+<pre>
+=TEXTJOIN(" ",TRUE,A2:B2)
+</pre>
+
+<p>
+TEXTJOIN is best when combining several cells and ignoring blanks.
+</p>
+
+<h2>Common Mistake</h2>
+
+<p>
+Forgetting spaces between values is common. Use quotes to add spaces, commas, or separators.
+</p>
+
+<p><a href="/book/" class="cta-btn">Book Excel Help</a></p>
+
+</section>
