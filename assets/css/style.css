@@ -713,3 +713,107 @@ transform:translateY(0);
   white-space: normal;
   text-align: center;
 }
+/* =========================================
+   RESOURCE CARDS - CLEAN BRANDED DESIGN
+   ========================================= */
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.resource-card {
+  display: block;
+  position: relative;
+  min-height: 170px;
+  padding: 28px 24px;
+  border-radius: 18px;
+  text-decoration: none;
+  background:
+    linear-gradient(135deg, rgba(22, 160, 133, 0.10), rgba(8, 60, 90, 0.04)),
+    #ffffff;
+  border: 1px solid rgba(8, 60, 90, 0.10);
+  border-left: 7px solid var(--green);
+  box-shadow: 0 8px 22px rgba(8, 60, 90, 0.10);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.resource-card::before {
+  content: "fx";
+  position: absolute;
+  right: 18px;
+  bottom: 10px;
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: rgba(22, 160, 133, 0.08);
+  line-height: 1;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(8, 60, 90, 0.18);
+  border-color: rgba(22, 160, 133, 0.45);
+}
+
+.resource-card h3 {
+  margin: 12px 0 12px;
+  color: var(--blue);
+  font-size: 1.28rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.resource-card p {
+  margin: 0;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.resource-category {
+  display: inline-block;
+  background: var(--blue);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 6px 11px;
+  border-radius: 999px;
+}
+
+.resource-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Remove ugly default link styling inside cards */
+.resource-card,
+.resource-card:hover,
+.resource-card:visited {
+  color: inherit;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .resource-card {
+    min-height: 150px;
+    padding: 24px 20px;
+  }
+
+  .resource-card h3 {
+    font-size: 1.12rem;
+  }
+
+  .resource-card::before {
+    font-size: 3.8rem;
+  }
+}
