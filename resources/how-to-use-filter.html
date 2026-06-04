@@ -1,0 +1,62 @@
+---
+layout: default
+title: "How Do I Use FILTER in Excel?"
+description: "Learn how to use the FILTER function in Excel to return rows that match specific conditions."
+permalink: /resources/how-to-use-filter/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Use FILTER in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+FILTER returns rows or columns that meet criteria. It is one of Excel's most useful dynamic array functions.
+</p>
+
+<pre>
+=FILTER(A2:D100,B2:B100="East")
+</pre>
+
+<h2>FILTER Syntax</h2>
+
+<pre>
+=FILTER(array, include, [if_empty])
+</pre>
+
+<ul>
+<li>array: the data to return</li>
+<li>include: the condition to test</li>
+<li>if_empty: optional message if nothing matches</li>
+</ul>
+
+<h2>Multiple Criteria</h2>
+
+<pre>
+=FILTER(A2:D100,(B2:B100="East")*(C2:C100="Complete"))
+</pre>
+
+<p>
+The asterisk works like AND logic.
+</p>
+
+<h2>Custom Message If Nothing Matches</h2>
+
+<pre>
+=FILTER(A2:D100,B2:B100="East","No results")
+</pre>
+
+<h2>Need Help With Dynamic Arrays?</h2>
+
+<p>
+FILTER can make reports much more powerful, but complex criteria can get tricky fast.
+</p>
+
+<p><a href="/book/" class="cta-btn">Book Excel Help</a></p>
+
+</section>
