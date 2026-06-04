@@ -763,7 +763,6 @@ transform:translateY(0);
   color: var(--blue);
   font-size: 1.28rem;
   line-height: 1.25;
-  text-decoration: none;
 }
 
 .resource-card p {
@@ -790,11 +789,21 @@ transform:translateY(0);
   z-index: 2;
 }
 
-/* Remove ugly default link styling inside cards */
 .resource-card,
 .resource-card:hover,
 .resource-card:visited {
   color: inherit;
+}
+
+/* Optional category watermarks */
+.dashboard-card::before {
+  content: "📊";
+  font-size: 4rem;
+}
+
+.automation-card::before {
+  content: "⚙";
+  font-size: 4.5rem;
 }
 
 /* Mobile */
