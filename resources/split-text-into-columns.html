@@ -1,0 +1,60 @@
+---
+layout: default
+title: "How Do I Split Text Into Columns in Excel?"
+description: "Learn how to split text into columns in Excel using Text to Columns, TEXTSPLIT, LEFT, RIGHT, and MID."
+permalink: /resources/split-text-into-columns/
+---
+
+<section class="section">
+
+<p><a href="/resources/">Resources</a> > Formula Help</p>
+
+<h1>How Do I Split Text Into Columns in Excel?</h1>
+
+<p>Last Updated: June 2026</p>
+
+<h2>Quick Answer</h2>
+
+<p>
+Use Text to Columns to split data by commas, spaces, tabs, or other delimiters. In newer Excel versions, you can also use TEXTSPLIT.
+</p>
+
+<h2>Method 1: Text to Columns</h2>
+
+<ol>
+<li>Select the column with text.</li>
+<li>Go to Data > Text to Columns.</li>
+<li>Choose Delimited.</li>
+<li>Select the delimiter, such as comma or space.</li>
+<li>Click Finish.</li>
+</ol>
+
+<h2>Method 2: TEXTSPLIT</h2>
+
+<pre>
+=TEXTSPLIT(A2,",")
+</pre>
+
+<p>
+This splits the text in A2 wherever a comma appears.
+</p>
+
+<h2>Examples</h2>
+
+<pre>
+=TEXTSPLIT(A2," ")
+</pre>
+
+<p>
+This splits first and last names separated by a space.
+</p>
+
+<h2>Need Help Cleaning Text Data?</h2>
+
+<p>
+If your spreadsheet has names, addresses, codes, or imported text that needs cleanup, I can help.
+</p>
+
+<p><a href="/book/" class="cta-btn">Book Excel Help</a></p>
+
+</section>
