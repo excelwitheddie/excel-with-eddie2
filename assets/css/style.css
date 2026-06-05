@@ -875,27 +875,31 @@ transform:translateY(0);
   height: auto;
 }
 /* =========================================
-   COMPACT HELP STRIP
+   COMPACT HELP STRIP - MATCH MOCKUP
    ========================================= */
 
 .help-strip-section {
-  max-width: 900px;
-  margin: 30px auto 45px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 28px auto 42px;
   padding: 0 20px;
 }
 
 .help-strip {
   position: relative;
+  width: 680px;
+  max-width: calc(100vw - 40px);
+  min-height: 92px;
+
   background: #ffffff;
   border-left: 7px solid var(--green);
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(8, 60, 90, 0.12);
-  min-height: 92px;
-  padding: 18px 155px 18px 26px;
+
+  padding: 18px 135px 18px 24px;
 
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 28px;
 }
 
@@ -903,30 +907,38 @@ transform:translateY(0);
   margin: 0;
   padding: 0;
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.85rem;
+  line-height: 1.1;
   white-space: nowrap;
 }
 
 .help-strip-btn {
   white-space: nowrap;
+  padding: 13px 28px;
+  font-size: 1.05rem;
 }
 
 .help-strip-character {
   position: absolute;
-  right: -35px;
-  bottom: -14px;
-  width: 145px;
+  right: -48px;
+  bottom: -18px;
+  width: 160px;
   height: auto;
   pointer-events: none;
 }
 
 /* Mobile */
 @media (max-width: 700px) {
+  .help-strip-section {
+    width: auto;
+  }
+
   .help-strip {
-    padding: 22px 20px 105px;
+    width: auto;
+    padding: 22px 18px 110px;
     flex-direction: column;
-    gap: 14px;
     text-align: center;
+    gap: 14px;
   }
 
   .help-strip h2 {
@@ -938,6 +950,6 @@ transform:translateY(0);
     right: 50%;
     transform: translateX(50%);
     bottom: -8px;
-    width: 105px;
+    width: 115px;
   }
 }
