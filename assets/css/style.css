@@ -874,3 +874,70 @@ transform:translateY(0);
   width: 75px;
   height: auto;
 }
+/* =========================================
+   COMPACT HELP STRIP
+   ========================================= */
+
+.help-strip-section {
+  max-width: 900px;
+  margin: 30px auto 45px;
+  padding: 0 20px;
+}
+
+.help-strip {
+  position: relative;
+  background: #ffffff;
+  border-left: 7px solid var(--green);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(8, 60, 90, 0.12);
+  min-height: 92px;
+  padding: 18px 155px 18px 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.help-strip h2 {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 1.8rem;
+  white-space: nowrap;
+}
+
+.help-strip-btn {
+  white-space: nowrap;
+}
+
+.help-strip-character {
+  position: absolute;
+  right: -35px;
+  bottom: -14px;
+  width: 145px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .help-strip {
+    padding: 22px 20px 105px;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .help-strip h2 {
+    font-size: 1.45rem;
+    white-space: normal;
+  }
+
+  .help-strip-character {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -8px;
+    width: 105px;
+  }
+}
