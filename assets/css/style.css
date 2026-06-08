@@ -978,56 +978,24 @@ transform:translateY(0);
   box-shadow: 0 16px 34px rgba(8, 60, 90, 0.18);
 }
 
+/* Dashboard screenshots need CONTAIN, not COVER.
+   Cover crops the dashboard. Contain shows the full image. */
 .portfolio-preview {
-  min-height: 190px;
+  height: 240px;
+  background: #ffffff;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 1.35rem;
-  text-align: center;
-  background:
-    linear-gradient(135deg, rgba(8, 60, 90, 0.92), rgba(22, 160, 133, 0.82)),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.12) 0,
-      rgba(255,255,255,0.12) 1px,
-      transparent 1px,
-      transparent 24px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.12) 0,
-      rgba(255,255,255,0.12) 1px,
-      transparent 1px,
-      transparent 48px
-    );
+  border-bottom: 1px solid rgba(8, 60, 90, 0.08);
 }
 
-.cashflow-preview {
-  background:
-    linear-gradient(135deg, rgba(8, 60, 90, 0.95), rgba(45, 120, 180, 0.75));
-}
-
-.inventory-preview {
-  background:
-    linear-gradient(135deg, rgba(22, 160, 133, 0.92), rgba(8, 60, 90, 0.78));
-}
-
-.people-preview {
-  background:
-    linear-gradient(135deg, rgba(8, 60, 90, 0.92), rgba(120, 70, 160, 0.76));
-}
-
-.project-preview {
-  background:
-    linear-gradient(135deg, rgba(8, 60, 90, 0.95), rgba(60, 150, 80, 0.78));
-}
-
-.marketing-preview {
-  background:
-    linear-gradient(135deg, rgba(8, 60, 90, 0.95), rgba(220, 90, 70, 0.78));
+.portfolio-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
 }
 
 .portfolio-content {
@@ -1095,17 +1063,7 @@ transform:translateY(0);
   }
 
   .portfolio-preview {
-    min-height: 150px;
+    height: 210px;
+    padding: 10px;
   }
-}
-.portfolio-preview {
-  min-height: 0;
-  background: none;
-}
-
-.portfolio-preview img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
 }
