@@ -4,13 +4,21 @@ title: Contact
 permalink: /contact/
 ---
 
-<section class="contact-section section">
-  <h1>Contact Me</h1>
+<section class="contact-section">
+  <h1>Contact Eddie</h1>
 
-  <p class="contact-intro">
-    Have a question or want to schedule something custom?
-    Send me a message below — I respond quickly.
+  <img
+    src="/assets/images/eddie.logo.main.new.png"
+    alt="Excel with Eddie logo"
+    style="display:block; width:100%; max-width:250px; height:auto; margin:20px auto 25px auto;"
+  >
+
+  <p>
+    Have a question or want to schedule something custom? Send me a message below — I respond quickly.
   </p>
+
+  <!-- your form stays here -->
+</section>
 
   <form
     id="contactForm"
