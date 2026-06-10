@@ -1096,3 +1096,26 @@ transform:translateY(0);
   text-align: center;
   line-height: 1.6;
 }
+.contact-page {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.contact-hero {
+  margin-bottom: 32px;
+}
+
+.contact-eddie-img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 20px auto 25px auto;
+}
+
+.contact-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
