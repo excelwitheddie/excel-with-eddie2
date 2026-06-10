@@ -23,10 +23,11 @@ title: About
 
     <!-- LEFT: Eddie Character -->
     <div class="about-image">
-      <img
-        src="/assets/images/eddie.logo.about.png"
-        alt="Excel with Eddie character"
-      >
+    <img
+      src="/assets/images/eddie.logo.about.png"
+      alt="Excel With Eddie Dashboard"
+      style="display:block; width:100%; max-width:700px; margin:0 auto;"
+    >
     </div>
 
     <!-- RIGHT: Content -->
