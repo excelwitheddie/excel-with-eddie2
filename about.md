@@ -24,7 +24,7 @@ title: About
     <!-- LEFT: Eddie Character -->
     <div class="about-image">
       <img
-        src="/assets/images/eddie_about.png"
+        src="/assets/images/eddie.logo.about.png"
         alt="Excel with Eddie character"
       >
     </div>
