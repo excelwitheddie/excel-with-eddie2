@@ -73,27 +73,28 @@ title: About
 <!-- ========================= -->
 <!-- A BIT ABOUT ME -->
 <!-- ========================= -->
-<section style="display:block; text-align:center;">
+<section class="about-me-section">
   <h2>A Bit About Me</h2>
 
   <img
     src="/assets/images/eddie.logo.desk.png"
     alt="Excel with Eddie at desk"
-    style="display:block; width:100%; max-width:350px; height:auto; margin:25px auto 35px auto;"
+    class="about-me-image"
   >
-</section>
+
   <p>
-    Before tutoring, I spent more than two decades solving business problems
-    with Excel — forecasting, automation, analytics, reporting,
-    and streamlining processes.
-    I am a proud US Navy Veteran, with an MBA and a Six Sigma Black Belt.
+    Before tutoring, I spent more than two decades solving business problems with Excel — forecasting,
+    automation, analytics, reporting, and streamlining processes. I am a proud US Navy Veteran, with an MBA
+    and a Six Sigma Black Belt.
   </p>
 
   <p>
-    Today, teaching Excel is my passion.
-    Nothing makes me happier than seeing someone go from
+    Today, teaching Excel is my passion. Nothing makes me happier than seeing someone go from
     “I hate spreadsheets” to “I can do this!”
   </p>
+
+  <a href="/book" class="btn">Book a Session</a>
+</section>
 
   <a href="/book" class="service-btn">
     Book a Session
