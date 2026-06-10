@@ -75,11 +75,11 @@ title: About
 <!-- ========================= -->
 <section class="section about-section">
   <h2>A Bit About Me</h2>
-    <img
-      src="/assets/images/eddie.logo.desk.png"
-      alt="Excel With Eddie Dashboard"
-      style="display:block; width:100%; max-width:350px; margin:0 auto;"
-    >
+<img
+  src="/assets/images/eddie.logo.desk.png"
+  alt="Excel with Eddie at desk"
+  style="display:block; width:100%; max-width:350px; margin:0 auto 30px auto;"
+>
   <p>
     Before tutoring, I spent more than two decades solving business problems
     with Excel — forecasting, automation, analytics, reporting,
