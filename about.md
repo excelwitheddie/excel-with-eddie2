@@ -73,13 +73,13 @@ title: About
 <!-- ========================= -->
 <!-- A BIT ABOUT ME -->
 <!-- ========================= -->
-<section class="section about-section">
-  <h2>A Bit About Me</h2>
-<div style="text-align:center; width:100%; margin:20px 0 30px 0;">
+<h2>A Bit About Me</h2>
+
+<div style="width:100%; text-align:center; margin:25px auto 35px auto; clear:both;">
   <img
     src="/assets/images/eddie.logo.desk.png"
     alt="Excel with Eddie at desk"
-    style="width:100%; max-width:350px; height:auto;"
+    style="display:inline-block; width:100%; max-width:350px; height:auto;"
   >
 </div>
   <p>
