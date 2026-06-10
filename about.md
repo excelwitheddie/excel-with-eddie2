@@ -26,7 +26,7 @@ title: About
     <img
       src="/assets/images/eddie.logo.about.png"
       alt="Excel With Eddie Dashboard"
-      style="display:block; width:100%; max-width:700px; margin:0 auto;"
+      style="display:block; width:100%; max-width:350px; margin:0 auto;"
     >
     </div>
 
