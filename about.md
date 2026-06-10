@@ -73,15 +73,15 @@ title: About
 <!-- ========================= -->
 <!-- A BIT ABOUT ME -->
 <!-- ========================= -->
-<h2>A Bit About Me</h2>
+<section style="display:block; text-align:center;">
+  <h2>A Bit About Me</h2>
 
-<div style="width:100%; text-align:center; margin:25px auto 35px auto; clear:both;">
   <img
     src="/assets/images/eddie.logo.desk.png"
     alt="Excel with Eddie at desk"
-    style="display:inline-block; width:100%; max-width:350px; height:auto;"
+    style="display:block; width:100%; max-width:350px; height:auto; margin:25px auto 35px auto;"
   >
-</div>
+</section>
   <p>
     Before tutoring, I spent more than two decades solving business problems
     with Excel — forecasting, automation, analytics, reporting,
