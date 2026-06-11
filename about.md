@@ -93,10 +93,8 @@ title: About
     “I hate spreadsheets” to “I can do this!”
   </p>
 
-  <a href="/book" class="btn">Book a Session</a>
-</section>
-
-  <a href="/book" class="service-btn">
+<p style="text-align:center; margin-top:24px;">
+  <a href="/contact/" class="cta-btn">
     Book a Session
   </a>
-</section>
+</p>
