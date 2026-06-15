@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Excel Knowledge Quiz
+description: "Test your Excel skills with beginner, intermediate, advanced, and wizard-level quizzes covering formulas, PivotTables, dashboards, and automation."
+permalink: /quiz/
 ---
 
 <section class="quiz-section section">
