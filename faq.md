@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Excel Tutoring FAQ
-description: "Answers about Excel with Eddie tutoring: how sessions work, what you'll learn, pricing, Google Meet setup, and how 1-on-1 Excel help is personalized for your exact goals."
+description: "Answers about Excel with Eddie tutoring, spreadsheet help, pricing, Google Meet sessions, small group tutoring, and personalized Excel support."
 permalink: /faq/
 ---
 
@@ -14,6 +14,7 @@ permalink: /faq/
 </section>
 
 <section class="section" style="max-width:900px; margin:0 auto;">
+
   <div class="card">
     <h2 style="margin-top:0;">How do Excel tutoring sessions work?</h2>
     <p>
@@ -25,8 +26,7 @@ permalink: /faq/
   <div class="card">
     <h2 style="margin-top:0;">Do you use generic training material?</h2>
     <p>
-      No. I don’t use canned lessons, generic decks, or one-size-fits-all worksheets.
-      Every session is <strong>personalized</strong> based on your skill level, your real needs, and (if you want) <strong>your actual Excel files</strong>.
+      No. Every session is <strong>personalized</strong> based on your skill level, your real needs, and your actual Excel files if you want to use them.
     </p>
   </div>
 
@@ -34,44 +34,46 @@ permalink: /faq/
     <h2 style="margin-top:0;">Where are sessions held?</h2>
     <p>
       All sessions are held via <strong>Google Meet</strong>. You’ll receive a link after booking.
-      No special software is required beyond Excel (desktop or online).
     </p>
   </div>
 
   <div class="card">
     <h2 style="margin-top:0;">What can I learn during a session?</h2>
-    <p>Anything Excel-related, including:</p>
-    <ul>
-      <li>Formulas (XLOOKUP, SUMIFS, IF, dynamic arrays, etc.)</li>
-      <li>PivotTables &amp; charts</li>
-      <li>Dashboards and reporting</li>
-      <li>Data cleanup and automation</li>
-      <li>Shortcuts and best practices</li>
-      <li>School assignments or work projects</li>
-    </ul>
+    <p>Anything Excel-related, including formulas, PivotTables, dashboards, reporting, data cleanup, automation, shortcuts, and work projects.</p>
   </div>
 
   <div class="card">
     <h2 style="margin-top:0;">Can we work on my own spreadsheets?</h2>
     <p>
       Yes. Many students bring real reports, messy spreadsheets, or templates they want to improve.
-      You’ll leave with something <strong>usable</strong>, not just theory.
     </p>
   </div>
 
   <div class="card">
     <h2 style="margin-top:0;">What skill levels do you teach?</h2>
     <p>
-      Beginner, intermediate, and advanced. If you’re not sure where you fall,
-      try the free quiz on the site to get a quick baseline.
+      Beginner, intermediate, and advanced.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0;">Do you offer small group Excel tutoring?</h2>
+    <p>
+      Yes. I offer small group sessions for <strong>2–4 people</strong>. These are great for coworkers, students, friends, or teams who want to learn together.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0;">How much do small group sessions cost?</h2>
+    <p>
+      Small group sessions are <strong>$75 for one hour</strong>. There’s also a bundle option: <strong>$200</strong> for either <strong>3× 1-hour sessions</strong> or <strong>2× 1.5-hour sessions</strong>.
     </p>
   </div>
 
   <div class="card">
     <h2 style="margin-top:0;">How is this different from YouTube or a course?</h2>
     <p>
-      YouTube teaches topics. I teach <strong>your problem</strong>.
-      Instead of hunting for the right video, you get live answers, feedback, and a plan tailored to your goals.
+      YouTube teaches topics. I teach <strong>your problem</strong>. You get live answers, feedback, and a plan tailored to your goals.
     </p>
   </div>
 
@@ -79,23 +81,13 @@ permalink: /faq/
     <h2 style="margin-top:0;">Do I need to prepare anything before a session?</h2>
     <p>
       Not required, but it helps to bring a spreadsheet you’re working on or a short list of what’s slowing you down.
-      If you don’t have anything ready, I’ll guide the session.
     </p>
   </div>
 
   <div class="card">
     <h2 style="margin-top:0;">Do you record sessions?</h2>
     <p>
-      By default, sessions are not recorded. If you’d like a recording for personal reference,
-      tell me before the session and we can discuss options.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2 style="margin-top:0;">How quickly will I see results?</h2>
-    <p>
-      Most people see progress in the first session.
-      Common outcomes: less time on reports, better confidence with formulas, and fewer “Google rabbit holes.”
+      By default, sessions are not recorded. If you’d like a recording for personal reference, tell me before the session.
     </p>
   </div>
 
@@ -116,11 +108,11 @@ permalink: /faq/
   <div class="card" style="text-align:center;">
     <h2 style="margin-top:0;">Ready to get Excel help?</h2>
     <p>Book a 1-on-1 online Excel tutoring session and start making spreadsheets easier.</p>
-    <a class="cta-btn" href="/book">Book a Session</a>
+    <a class="cta-btn" href="/contact/">Book a Session</a>
   </div>
+
 </section>
 
-<!-- FAQ Schema (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -139,7 +131,7 @@ permalink: /faq/
       "name": "Do you use generic training material?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Excel with Eddie does not use canned lessons or one-size-fits-all training. Every session is personalized to your skill level, goals, and (if you want) your actual Excel files."
+        "text": "No. Every session is personalized based on your skill level, your real needs, and your actual Excel files if you want to use them."
       }
     },
     {
@@ -147,7 +139,7 @@ permalink: /faq/
       "name": "Where are sessions held?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "All sessions are held via Google Meet. You will receive a link after booking. No special software is required beyond Excel (desktop or online)."
+        "text": "All sessions are held via Google Meet. You will receive a link after booking."
       }
     },
     {
@@ -155,7 +147,7 @@ permalink: /faq/
       "name": "What can I learn during a session?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Topics include formulas (XLOOKUP, SUMIFS, IF, dynamic arrays), PivotTables, charts, dashboards, reporting, data cleanup, automation, shortcuts, and help with school or work projects."
+        "text": "Topics include formulas, PivotTables, charts, dashboards, reporting, data cleanup, automation, shortcuts, and help with work or school projects."
       }
     },
     {
@@ -163,7 +155,7 @@ permalink: /faq/
       "name": "Can we work on my own spreadsheets?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Many students bring real reports, messy spreadsheets, or templates. The goal is to help you improve something you actually use."
+        "text": "Yes. Many students bring real reports, messy spreadsheets, or templates they want to improve."
       }
     },
     {
@@ -171,7 +163,23 @@ permalink: /faq/
       "name": "What skill levels do you teach?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Beginner, intermediate, and advanced. If you are not sure where you fall, take the free Excel quiz on the site."
+        "text": "Excel with Eddie teaches beginner, intermediate, and advanced Excel users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer small group Excel tutoring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Excel with Eddie offers small group Excel tutoring for 2 to 4 people."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do small group sessions cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Small group sessions are $75 for one hour. A bundle option is $200 for either three 1-hour sessions or two 1.5-hour sessions."
       }
     },
     {
@@ -179,7 +187,7 @@ permalink: /faq/
       "name": "How is this different from YouTube or a course?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "YouTube teaches topics, but tutoring focuses on your exact problem. You get live answers, feedback, and a tailored plan, without spending hours searching for the right video."
+        "text": "YouTube teaches topics. Excel tutoring focuses on your exact problem with live answers, feedback, and a plan tailored to your goals."
       }
     },
     {
@@ -187,7 +195,7 @@ permalink: /faq/
       "name": "Do I need to prepare anything before a session?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not required. If you want to maximize your time, bring a spreadsheet you are working on or a short list of what is slowing you down. Otherwise, you can start from scratch and be guided."
+        "text": "Preparation is not required, but it helps to bring a spreadsheet you are working on or a short list of what is slowing you down."
       }
     },
     {
@@ -195,7 +203,7 @@ permalink: /faq/
       "name": "Do you record sessions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "By default, sessions are not recorded. If you want a recording for personal reference, request it before the session and options can be discussed."
+        "text": "By default, sessions are not recorded. If you want a recording for personal reference, request it before the session."
       }
     },
     {
@@ -206,25 +214,7 @@ permalink: /faq/
         "text": "Excel with Eddie is based in Houma, Louisiana and provides online Excel tutoring across the United States via Google Meet."
       }
     },
-  <div class="card">
-  <h2 style="margin-top:0;">Do you offer small group Excel tutoring?</h2>
-  <p>
-    Yes. I offer small group sessions for <strong>2–4 people</strong>. These are great for coworkers,
-    students, friends, or teams who want to learn together.
-  </p>
-</div>
-
-<div class="card">
-  <h2 style="margin-top:0;">How much do small group sessions cost?</h2>
-  <p>
-    Small group sessions are <strong>$75 for one hour</strong>.
-    There’s also a bundle option: <strong>$200</strong> for either
-    <strong>3× 1-hour sessions</strong> or <strong>2× 1.5-hour sessions</strong>.
-    Group sessions can be <strong>Basic</strong> or <strong>Intermediate</strong>.
-  </p>
-</div>
- 
-  {
+    {
       "@type": "Question",
       "name": "Is Excel with Eddie affiliated with Microsoft?",
       "acceptedAnswer": {
