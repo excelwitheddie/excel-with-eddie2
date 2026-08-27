@@ -1134,3 +1134,61 @@ transform:translateY(0);
   background: #00a870;
   color: #ffffff;
 }
+/* ================================
+   Featured Free Download
+   ================================ */
+
+.featured-resource-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.featured-resource {
+  background: linear-gradient(135deg, #083c5a, #0a2d40);
+  border: 1px solid #16a085;
+  border-radius: 14px;
+  padding: 32px;
+  color: #ffffff;
+}
+
+.featured-resource h2 {
+  color: #ffffff;
+  margin: 8px 0 12px;
+  font-size: 2rem;
+}
+
+.featured-resource p {
+  color: #f4f8f8;
+  max-width: 750px;
+  line-height: 1.6;
+}
+
+.resource-label {
+  display: inline-block;
+  color: #5ee0c5;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.featured-resource .resource-note {
+  font-weight: 600;
+}
+
+.resource-download-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 24px;
+  background: #16a085;
+  color: #ffffff !important;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.resource-download-btn:hover {
+  background: #00a870;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
