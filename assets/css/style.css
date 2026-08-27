@@ -1119,3 +1119,18 @@ transform:translateY(0);
   max-width: 720px;
   margin: 0 auto;
 }
+.btn {
+  display: inline-block;
+  background: #16a085;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 12px 0;
+}
+
+.btn:hover {
+  background: #00a870;
+  color: #ffffff;
+}
