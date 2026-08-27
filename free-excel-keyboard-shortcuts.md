@@ -21,7 +21,7 @@ This free guide includes shortcuts for:
 - Power Query
 - Eddie's shortcuts to memorize first
 
-<a href="/assets/downloads/excel-keyboard-shortcuts-cheat-sheet.pdf"
+<a href="/assets/downloads/Excel_with_Eddie_Keyboard_Shortcuts_Cheat_Sheet_Final.pdf"
    class="btn"
    download>
    Download the Free Cheat Sheet
