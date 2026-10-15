@@ -13,12 +13,13 @@ permalink: /quiz/
     type the actual formula, not just the answer.
   </p>
 
-  <iframe
-    src="https://muse.ai/s/excel-quiz-sxh69kxexqnixkxo"
-    width="100%"
-    height="1200"
-    style="border:none;"
-    title="Excel Knowledge Quiz"
-    loading="lazy">
-  </iframe>
+<iframe
+  src="/quiz-app/excel-quiz.html"
+  width="100%"
+  height="1200"
+  style="border:none;"
+  title="Excel Knowledge Quiz"
+  loading="lazy">
+</iframe>
+
 </section>
