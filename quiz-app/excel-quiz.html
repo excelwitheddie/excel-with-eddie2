@@ -186,7 +186,16 @@
       .nav-title{display:none}
     }
     @media (max-width:640px){
-      .data-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+      .workspace,.main-card{min-width:0}
+      .main-card{overflow:visible}
+      #quiz-view{display:flex;flex-direction:column;min-width:0;max-height:720px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+      .task{order:1}
+      .formula-zone{display:contents}
+      .formula-dock{order:2;position:sticky;top:0;z-index:5;min-width:0;width:100%;background:var(--panel);padding:18px clamp(12px,3vw,30px);border-bottom:1px solid var(--line)}
+      .data-wrap{order:3;min-width:0;width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
+      #feedback{order:4;margin:16px 12px 0}
+      #hint{order:5;margin:14px 12px 0;padding:14px 0 0}
+      .controls{order:6}
       .sheet{min-width:var(--sheet-min-width,564px);font-size:.8rem}
       .sheet-row{grid-template-columns:44px repeat(var(--data-cols, 5),minmax(104px,1fr));min-height:44px}
       .cell{padding:12px 10px;display:flex;align-items:center}
@@ -195,7 +204,7 @@
     }
     @media (max-width:520px){
       .shell{padding:18px 10px 32px}.intro{margin-top:6px;gap:18px}.lede{font-size:.94rem}
-      .task{padding:20px 17px}.data-wrap{padding:14px 8px}.formula-zone{padding:18px 12px}
+      .task{padding:20px 17px}.data-wrap{padding:14px 8px}.formula-zone{padding:18px 12px}.formula-dock{padding:18px 12px}
       .tier-tabs{grid-template-columns:1fr}.tier-btn{padding:11px 12px}
       .formula-bar{grid-template-columns:36px minmax(0,1fr)}
       .run{grid-column:1/-1;padding:12px;border-top:1px solid var(--line)}
@@ -274,14 +283,16 @@
           </section>
 
           <section class="formula-zone">
-            <div class="formula-label"><label for="formula">Your formula</label><span class="support">Press Enter to run</span></div>
-            <div class="formula-bar">
-              <div class="fx" aria-hidden="true">fx</div>
-              <input id="formula" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-describedby="selection-status feedback" />
-              <button class="run" id="run" type="button">Run formula</button>
-            </div>
-            <div class="quick-functions" aria-label="Cell selection help">
-              <div class="selection-status active" id="selection-status" role="status" aria-live="polite">Cell selection is always on. Type your formula, then choose cells on the worksheet to insert their references.</div>
+            <div class="formula-dock">
+              <div class="formula-label"><label for="formula">Your formula</label><span class="support">Press Enter to run</span></div>
+              <div class="formula-bar">
+                <div class="fx" aria-hidden="true">fx</div>
+                <input id="formula" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-describedby="selection-status feedback" />
+                <button class="run" id="run" type="button">Run formula</button>
+              </div>
+              <div class="quick-functions" aria-label="Cell selection help">
+                <div class="selection-status active" id="selection-status" role="status" aria-live="polite">Cell selection is always on. Type your formula, then choose cells on the worksheet to insert their references.</div>
+              </div>
             </div>
             <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
             <div class="hint" id="hint"></div>
@@ -398,16 +409,25 @@
   var selectionStatus=document.getElementById('selection-status');
   var selectionMode=true, selectionAnchor=null, selectionEnd=null, pointerDown=false, dragged=false, completingTap=false, savedCaret=0;
   var quizApp=document.getElementById('quiz-app');
-  var resizeFrame=0;
+  var dataWrap=document.getElementById('data-wrap');
+  var resizeFrame=0,resizePaused=false;
 
   function postQuizHeight(){
+    if(resizePaused)return;
     var height=Math.ceil(quizApp.getBoundingClientRect().height);
     if(height>0)window.parent.postMessage({type:'quiz-resize',height:height},'*');
   }
   function scheduleQuizResize(){
+    if(resizePaused)return;
     if(resizeFrame)cancelAnimationFrame(resizeFrame);
     resizeFrame=requestAnimationFrame(function(){resizeFrame=requestAnimationFrame(function(){resizeFrame=0;postQuizHeight();});});
   }
+  function pauseQuizResize(){
+    if(!window.matchMedia('(max-width: 640px)').matches)return;
+    resizePaused=true;
+    if(resizeFrame){cancelAnimationFrame(resizeFrame);resizeFrame=0;}
+  }
+  function resumeQuizResize(){if(resizePaused){resizePaused=false;scheduleQuizResize();}}
   function state(){return tiers[currentTier];}
   function questions(){return state().questions;}
   function question(){return questions()[current];}
@@ -440,6 +460,34 @@
       else if(ch===','&&depth===0){args.push(text.slice(start,i).trim());start=i+1;}
     }
     args.push(text.slice(start).trim());return args;
+  }
+  function firstReferencedColumn(text){
+    var match=/\$?([A-Z])\$?[1-9][0-9]*/i.exec(text||'');
+    return match?columnIndex(match[1]):-1;
+  }
+  function relevantColumn(q){
+    var answer=q.answers&&q.answers[0]?q.answers[0]:'';
+    var fnMatch=/^=\s*([A-Z]+)\s*\((.*)\)\s*$/i.exec(answer);
+    if(fnMatch){
+      var fn=fnMatch[1].toUpperCase(),args=splitArgs(fnMatch[2]),source=args[0]||answer;
+      if((fn==='SUMIF'||fn==='AVERAGEIF'||fn==='XLOOKUP')&&args[2])source=args[2];
+      return firstReferencedColumn(source);
+    }
+    if(q.targetCell)return firstReferencedColumn(q.targetCell);
+    return firstReferencedColumn(answer);
+  }
+  function scrollToRelevantColumn(){
+    if(!window.matchMedia('(max-width: 640px)').matches)return;
+    var col=relevantColumn(question());
+    if(col<0)return;
+    var cell=sheet.querySelector('[data-ref="'+columnLetter(col)+'1"]');
+    if(!cell)return;
+    var wrapRect=dataWrap.getBoundingClientRect(),cellRect=cell.getBoundingClientRect();
+    var left=dataWrap.scrollLeft+(cellRect.left-wrapRect.left)-Math.max(12,(dataWrap.clientWidth-cellRect.width)/2);
+    dataWrap.scrollLeft=Math.max(0,left);
+  }
+  function scheduleRelevantColumnScroll(){
+    requestAnimationFrame(function(){requestAnimationFrame(scrollToRelevantColumn);});
   }
   function scalar(token){
     token=token.trim();
@@ -583,9 +631,9 @@
     updateScore();
   }
   function go(index){
-    current=Math.max(0,Math.min(questions().length-1,index));state().drafts[current]='';quizView.style.display='block';completion.className='completion';selectionAnchor=null;selectionEnd=null;clearRangeHighlight();var q=question();
+    current=Math.max(0,Math.min(questions().length-1,index));state().drafts[current]='';quizView.style.display='';completion.className='completion';selectionAnchor=null;selectionEnd=null;clearRangeHighlight();var q=question();
     document.getElementById('task-count').textContent=state().name+' · Challenge '+(current+1)+' of '+questions().length;document.getElementById('task-title').textContent=q.title;document.getElementById('task-copy').innerHTML=q.copy;formula.value='';formula.removeAttribute('placeholder');savedCaret=0;
-    feedback.className='feedback';feedback.innerHTML='';hint.className='hint';hint.innerHTML=q.hint;document.getElementById('hint-btn').textContent='Show hint';document.getElementById('prev').disabled=current===0;document.getElementById('next').textContent=current===questions().length-1?'Finish '+state().name:'Next challenge';renderSheet();resetSelection();renderNav();
+    feedback.className='feedback';feedback.innerHTML='';hint.className='hint';hint.innerHTML=q.hint;document.getElementById('hint-btn').textContent='Show hint';document.getElementById('prev').disabled=current===0;document.getElementById('next').textContent=current===questions().length-1?'Finish '+state().name:'Next challenge';renderSheet();resetSelection();renderNav();quizView.scrollTop=0;scheduleRelevantColumnScroll();
     window.scrollTo({top:document.querySelector('.workspace').offsetTop-12,behavior:'smooth'});
     scheduleQuizResize();
   }
@@ -593,7 +641,7 @@
     tier.solved=tier.solved.map(function(){return false;});tier.attempts=tier.attempts.map(function(){return 0;});tier.drafts=tier.drafts.map(function(){return '';});
   }
   function exitToLevels(){
-    resetTierProgress(state());current=0;levelSelectMode=true;quizView.style.display='block';completion.className='completion';workspace.hidden=true;renderTier();
+    resetTierProgress(state());current=0;levelSelectMode=true;quizView.style.display='';completion.className='completion';workspace.hidden=true;renderTier();
     var levelButton=document.querySelector('.tier-btn[data-tier="'+currentTier+'"]');if(levelButton)levelButton.focus();
     window.scrollTo({top:document.querySelector('.tier-tabs').offsetTop-12,behavior:'smooth'});
     scheduleQuizResize();
@@ -618,6 +666,8 @@
     quizView.style.display='none';completion.className='completion show';var completionCopy={basic:'You handled the four core summary functions and calculated unit cost with a direct cell formula.',intermediate:'You used criteria, averages, and multiple conditions—the core moves behind a lot of real reporting work.',advanced:'You built dynamic arrays, nested logic, and a modern lookup—the formula toolkit behind serious Excel models.'};document.getElementById('completion-title').textContent=state().name+' assessment complete.';document.getElementById('completion-copy').textContent=completionCopy[currentTier];scheduleQuizResize();
   }
   document.getElementById('run').addEventListener('click',check);
+  formula.addEventListener('focus',pauseQuizResize);
+  formula.addEventListener('blur',resumeQuizResize);
   formula.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();check();}});
   document.getElementById('hint-btn').addEventListener('click',function(){var visible=hint.classList.toggle('show');this.textContent=visible?'Hide hint':'Show hint';scheduleQuizResize();});
   document.getElementById('prev').addEventListener('click',function(){go(current-1);});document.getElementById('next').addEventListener('click',next);
