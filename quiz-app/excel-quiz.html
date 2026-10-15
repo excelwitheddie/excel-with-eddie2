@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Excel Quiz</title>
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f2f5f2;
+      --panel:#ffffff;
+      --panel-2:#f8faf8;
+      --ink:#152019;
+      --muted:#5e6a63;
+      --line:#d8dfda;
+      --line-strong:#bac5be;
+      --green:#087c4c;
+      --green-strong:#05613a;
+      --green-soft:#e5f4eb;
+      --mint:#bce5ca;
+      --navy:#10271d;
+      --amber:#a15c00;
+      --amber-soft:#fff0d6;
+      --red:#a5362b;
+      --red-soft:#fae8e5;
+      --shadow:0 18px 48px rgba(30,52,39,.10);
+    }
+    @media (prefers-color-scheme:dark){
+      :root{
+        --bg:#101512;
+        --panel:#172019;
+        --panel-2:#1b261e;
+        --ink:#eef7f0;
+        --muted:#aebbb1;
+        --line:#344039;
+        --line-strong:#4b5b50;
+        --green:#47c982;
+        --green-strong:#72dda2;
+        --green-soft:#193d2a;
+        --mint:#2a6843;
+        --navy:#0b120e;
+        --amber:#efb35c;
+        --amber-soft:#4b3519;
+        --red:#ff9389;
+        --red-soft:#4d2926;
+        --shadow:0 18px 48px rgba(0,0,0,.26);
+      }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        linear-gradient(rgba(8,124,76,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(8,124,76,.035) 1px,transparent 1px),
+        var(--bg);
+      background-size:28px 28px;
+      color:var(--ink);
+      font-family:Manrope,system-ui,sans-serif;
+    }
+    button,input{font:inherit}
+    button{cursor:pointer}
+    [hidden]{display:none!important}
+    .shell{width:min(1180px,100%);margin:0 auto;padding:28px clamp(16px,4vw,44px) 52px}
+    .intro{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(240px,.55fr);gap:28px;align-items:end;margin:14px 0 28px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;color:var(--green-strong);font-size:.78rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:28px;height:3px;background:var(--green);border-radius:99px}
+    h1{margin:0;max-width:780px;font-size:clamp(2rem,5vw,4.4rem);line-height:.98;letter-spacing:-.055em;font-weight:800}
+    .lede{margin:18px 0 0;max-width:680px;color:var(--muted);font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.65}
+    .instructions{display:grid;grid-template-columns:minmax(150px,.32fr) minmax(0,1fr);gap:20px;align-items:start;margin:0 0 18px;padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 26px rgba(27,47,34,.06)}
+    .instructions h2{margin:0;font-size:1.05rem;letter-spacing:-.02em}
+    .instructions-copy{display:grid;gap:8px}
+    .instructions p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}
+    .instructions .grading-note{color:var(--ink);font-weight:700}
+    .score-card{background:var(--navy);color:#fff;padding:22px 24px;box-shadow:var(--shadow);border-radius:6px 24px 6px 6px;position:relative;overflow:hidden}
+    .score-card::after{content:"fx";position:absolute;right:14px;bottom:-17px;color:rgba(255,255,255,.09);font:600 5.5rem/1 'IBM Plex Mono',monospace}
+    .score-label{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:#b8d4c4;font-weight:700}
+    .score-value{font:600 2.4rem/1.1 'IBM Plex Mono',monospace;margin-top:9px}
+    .score-note{font-size:.82rem;color:#b8d4c4;margin-top:6px}
+    .progress{height:5px;background:rgba(255,255,255,.15);margin-top:18px;overflow:hidden;border-radius:10px}
+    .progress>span{display:block;height:100%;width:0;background:#57db91;transition:width .25s ease}
+    .tier-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 18px}
+    .tier-btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:14px 16px;text-align:left;border-radius:10px;display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center}
+    .tier-btn:hover{border-color:var(--green)}
+    .tier-btn.active{background:var(--green-soft);border-color:var(--green);color:var(--green-strong)}
+    .tier-level{font:700 .75rem 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
+    .tier-desc{font-size:.78rem;color:var(--muted);margin-top:3px;grid-column:2}
+    .tier-btn.active .tier-desc{color:var(--green-strong)}
+    .tier-dialog{width:min(560px,calc(100% - 32px));padding:0;border:1px solid var(--line-strong);border-radius:14px;background:var(--panel);color:var(--ink);box-shadow:0 24px 70px rgba(12,31,21,.28)}
+    .tier-dialog::backdrop{background:rgba(10,20,14,.66)}
+    .tier-dialog-inner{padding:clamp(22px,5vw,34px)}
+    .tier-dialog-kicker{margin:0 0 8px;color:var(--green-strong);font:700 .75rem 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+    .tier-dialog h2{margin:0 0 12px;font-size:clamp(1.55rem,4vw,2.1rem)}
+    .tier-dialog-copy{margin:0;color:var(--muted);font-size:.98rem;line-height:1.65}
+    .tier-dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+    .tier-dialog-actions .btn{min-height:44px}
+    .tier-dialog-actions .primary{background:var(--green);border-color:var(--green);color:#fff}
+    .tier-dialog-actions .primary:hover,.tier-dialog-actions .primary:focus-visible{background:var(--green-strong);border-color:var(--green-strong);color:#fff}
+    .workspace{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start}
+    .lesson-nav{background:var(--panel);border:1px solid var(--line);padding:12px;border-radius:14px;position:sticky;top:16px;box-shadow:0 8px 26px rgba(27,47,34,.06)}
+    .nav-title{padding:8px 10px 12px;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .lesson-list{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+    .lesson-btn{width:100%;border:0;background:transparent;color:var(--ink);display:grid;grid-template-columns:32px 1fr 16px;gap:9px;align-items:center;text-align:left;padding:10px;border-radius:9px;font-size:.84rem;font-weight:600;transition:background .15s,color .15s}
+    .lesson-btn:hover{background:var(--panel-2)}
+    .lesson-btn.active{background:var(--green-soft);color:var(--green-strong)}
+    .num{width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--line-strong);border-radius:50%;font:600 .76rem 'IBM Plex Mono',monospace}
+    .lesson-btn.active .num{background:var(--green);border-color:var(--green);color:white}
+    .state{font-size:.82rem;color:var(--green);font-weight:800}
+    .main-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+    .task{padding:clamp(20px,4vw,38px);border-bottom:1px solid var(--line)}
+    .task-count{font:600 .74rem 'IBM Plex Mono',monospace;color:var(--green-strong);text-transform:uppercase;letter-spacing:.08em}
+    h2{font-size:clamp(1.35rem,3vw,2.05rem);line-height:1.15;letter-spacing:-.035em;margin:9px 0 12px}
+    .task p{margin:0;color:var(--muted);line-height:1.62;max-width:720px}
+    code,.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+    code{background:var(--green-soft);color:var(--green-strong);padding:.16em .38em;border-radius:4px;font-size:.88em}
+    .data-wrap{padding:clamp(16px,3vw,28px);background:var(--panel-2);border-bottom:1px solid var(--line)}
+    .sheet-label{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;color:var(--muted);font-size:.76rem;font-weight:700}
+    .sheet-label strong{color:var(--ink)}
+    .sheet{border:1px solid var(--line-strong);background:var(--panel);font:500 clamp(.62rem,1.25vw,.78rem) 'IBM Plex Mono',monospace;overflow:hidden;user-select:none}
+    .sheet-row{display:grid;grid-template-columns:36px repeat(var(--data-cols, 5),minmax(0,1fr));min-width:0}
+    .cell{padding:9px 8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .sheet-row:last-child .cell{border-bottom:0}
+    .cell:last-child{border-right:0}
+    .letters .cell,.rownum{background:var(--green-soft);color:var(--green-strong);text-align:center;font-weight:700}
+    .header-cell{font-weight:700;background:var(--panel-2)}
+    .cell[data-ref]{cursor:cell;position:relative;transition:background .1s,color .1s}
+    .sheet.selecting .cell[data-ref]{cursor:crosshair}
+    .sheet.selecting .cell[data-ref]:hover{background:var(--green-soft)}
+    .cell.range-selected{background:var(--mint)!important;color:var(--navy);box-shadow:inset 0 0 0 1px var(--green)}
+    .cell.range-anchor::after{content:"";position:absolute;inset:3px;border:2px solid var(--green);pointer-events:none}
+    .cell.target-cell{background:var(--amber-soft);box-shadow:inset 0 0 0 2px var(--amber);font-weight:700}
+    .cell.target-cell:empty::before{content:"Enter formula";color:var(--amber);font:600 .65rem Manrope,system-ui,sans-serif}
+    .right{text-align:right}
+    .formula-zone{padding:clamp(18px,3vw,30px)}
+    .formula-label{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:10px}
+    .formula-label label{font-weight:800;font-size:.9rem}
+    .support{color:var(--muted);font-size:.72rem}
+    .formula-bar{display:grid;grid-template-columns:44px minmax(0,1fr) auto;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;background:var(--panel)}
+    .fx{display:grid;place-items:center;background:var(--green-soft);color:var(--green-strong);font:italic 700 1rem Georgia,serif;border-right:1px solid var(--line)}
+    #formula{min-width:0;border:0;outline:0;background:transparent;color:var(--ink);padding:14px 12px;font:500 16px 'IBM Plex Mono',monospace}
+    #formula::placeholder{color:var(--muted);opacity:.7}
+    .run{border:0;background:var(--green);color:white;padding:0 20px;font-weight:800}
+    .run:hover{background:var(--green-strong)}
+    .quick-functions{margin:11px 0 0}
+    .selection-status{width:100%;margin:1px 0 0;color:var(--muted);font-size:.72rem;line-height:1.4}
+    .selection-status.active{color:var(--green-strong);font-weight:700}
+    .feedback{display:none;margin-top:16px;padding:15px 16px;border-radius:8px;grid-template-columns:28px 1fr;gap:11px;align-items:start}
+    .feedback.show{display:grid}
+    .feedback.good{background:var(--green-soft);color:var(--green-strong)}
+    .feedback.bad{background:var(--red-soft);color:var(--red)}
+    .feedback.neutral{background:var(--amber-soft);color:var(--amber)}
+    .feedback-icon{width:25px;height:25px;display:grid;place-items:center;border:1px solid currentColor;border-radius:50%;font-weight:800}
+    .feedback strong{display:block;margin-bottom:3px}
+    .feedback p{margin:0;font-size:.86rem;line-height:1.5;color:currentColor}
+    .hint{display:none;margin-top:14px;border-top:1px dashed var(--line-strong);padding-top:14px;color:var(--muted);font-size:.86rem;line-height:1.55}
+    .hint.show{display:block}
+    .controls{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:16px clamp(18px,3vw,30px);background:var(--panel-2);border-top:1px solid var(--line)}
+    .controls-left,.controls-right{display:flex;gap:8px}
+    .controls-left .btn{width:112px}
+    .btn{border:1px solid var(--line-strong);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:7px;font-weight:700;font-size:.8rem;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+    .btn:hover{border-color:var(--green);color:var(--green-strong)}
+    .btn.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+    .btn:disabled{opacity:.4;cursor:not-allowed}
+    .completion{display:none;padding:30px;text-align:center}
+    .completion.show{display:block}
+    .completion-mark{width:66px;height:66px;margin:0 auto 16px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:2rem;font-weight:800}
+    .completion h2{margin:0 0 8px}
+    .completion p{margin:0 auto 20px;color:var(--muted);max-width:520px;line-height:1.55}
+    .completion-actions{width:min(520px,100%);margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .completion-actions .btn{min-height:44px}
+    .completion-actions .primary{background:var(--green);border-color:var(--green);color:#fff}
+    .completion-actions .primary:hover{background:var(--green-strong);border-color:var(--green-strong);color:#fff}
+    @media (max-width:820px){
+      .intro{grid-template-columns:1fr}.score-card{max-width:none}
+      .instructions{grid-template-columns:1fr;gap:8px}
+      .workspace{grid-template-columns:1fr}.lesson-nav{position:static;overflow:hidden}
+      .lesson-list{grid-template-columns:repeat(5,1fr);gap:4px}
+      .lesson-btn{display:grid;grid-template-columns:1fr;place-items:center;padding:7px 4px}
+      .lesson-btn .label,.lesson-btn .state{display:none}
+      .nav-title{display:none}
+    }
+    @media (max-width:520px){
+      .shell{padding:18px 10px 32px}.intro{margin-top:6px;gap:18px}.lede{font-size:.94rem}
+      .task{padding:20px 17px}.data-wrap{padding:14px 8px}.formula-zone{padding:18px 12px}
+      .tier-tabs{grid-template-columns:1fr}.tier-btn{padding:11px 12px}
+      .sheet-row{grid-template-columns:25px repeat(var(--data-cols, 5),minmax(0,1fr))}
+      .cell{padding:8px 3px}.formula-bar{grid-template-columns:36px minmax(0,1fr)}
+      .run{grid-column:1/-1;padding:12px;border-top:1px solid var(--line)}
+      #formula{font-size:14px;padding:12px 8px}.support{display:none}.controls{padding:13px 12px;align-items:stretch;flex-direction:column}
+      .controls-left,.controls-right{display:grid;grid-template-columns:1fr 1fr}.controls-left .btn{width:auto}.btn{padding:10px}.controls .btn.primary{grid-column:1/-1}
+      .instructions{padding:17px}.completion{padding:24px 16px}.completion-actions,.tier-dialog-actions{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="shell" id="quiz-app">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow" id="eyebrow">Formula Lab · Basic assessment</div>
+        <h1 id="page-title">Make the numbers answer you.</h1>
+        <p class="lede" id="lede">Five essential Excel challenges. Type each formula yourself, select cells right on the sample worksheet, and get instant feedback—no workbook required.</p>
+      </div>
+      <aside class="score-card" aria-live="polite">
+        <div class="score-label">Lesson progress</div>
+        <div class="score-value"><span id="score">0</span> / <span id="score-total">5</span></div>
+        <div class="score-note" id="score-note">Start with the first formula.</div>
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+      </aside>
+    </section>
+
+    <section class="instructions" aria-labelledby="instructions-title">
+      <h2 id="instructions-title">How to use the quiz</h2>
+      <div class="instructions-copy">
+        <p>Pick a level: Basic, Intermediate, or Advanced. Each challenge gives you a worksheet and a goal. Type your formula in the formula bar, and click worksheet cells to insert their references—no need to type ranges by hand. Press Enter or <strong>Run formula</strong> to check it.</p>
+        <p class="grading-note">Your formula is what counts. The right formula passes; a hardcoded number does not, even if the answer is correct.</p>
+      </div>
+    </section>
+
+    <div class="tier-tabs" role="tablist" aria-label="Assessment level">
+      <button class="tier-btn active" id="tier-basic" type="button" role="tab" aria-selected="true" data-tier="basic">
+        <span class="tier-level">Basic · 5 questions</span><span class="tier-desc">SUM, AVERAGE, MIN, MAX, and unit cost</span>
+      </button>
+      <button class="tier-btn" id="tier-intermediate" type="button" role="tab" aria-selected="false" data-tier="intermediate">
+        <span class="tier-level">Intermediate · 4 questions</span><span class="tier-desc">COUNTIF, SUMIF, AVERAGEIF, and SUMIFS</span>
+      </button>
+      <button class="tier-btn" id="tier-advanced" type="button" role="tab" aria-selected="false" data-tier="advanced">
+        <span class="tier-level">Advanced · 5 questions</span><span class="tier-desc">UNIQUE, COUNTA(UNIQUE), FILTER, Nested IF, and XLOOKUP</span>
+      </button>
+    </div>
+
+    <dialog class="tier-dialog" id="tier-dialog" aria-labelledby="tier-dialog-title" aria-describedby="tier-dialog-copy">
+      <div class="tier-dialog-inner">
+        <p class="tier-dialog-kicker" id="tier-dialog-kicker">Level overview</p>
+        <h2 id="tier-dialog-title"></h2>
+        <p class="tier-dialog-copy" id="tier-dialog-copy"></p>
+        <div class="tier-dialog-actions">
+          <button class="btn primary" id="tier-dialog-start" type="button">Start Quiz</button>
+          <button class="btn" id="tier-dialog-return" type="button">Return to Menu</button>
+        </div>
+      </div>
+    </dialog>
+
+    <section class="workspace" id="workspace">
+      <nav class="lesson-nav" aria-label="Quiz questions">
+        <div class="nav-title">Challenges</div>
+        <ol class="lesson-list" id="lesson-list"></ol>
+      </nav>
+
+      <article class="main-card">
+        <div id="quiz-view">
+          <header class="task">
+            <div class="task-count" id="task-count"></div>
+            <h2 id="task-title"></h2>
+            <p id="task-copy"></p>
+          </header>
+
+          <section class="data-wrap" id="data-wrap" aria-label="Sample worksheet">
+            <div class="sheet-label"><strong id="sheet-name">Sales_Data</strong><span id="sheet-range">Cells A1:E9</span></div>
+            <div class="sheet" id="sheet" role="table" aria-label="Sample worksheet. Worksheet cells can be selected to insert a reference into the formula."></div>
+          </section>
+
+          <section class="formula-zone">
+            <div class="formula-label"><label for="formula">Your formula</label><span class="support">Press Enter to run</span></div>
+            <div class="formula-bar">
+              <div class="fx" aria-hidden="true">fx</div>
+              <input id="formula" type="text" inputmode="text" autocomplete="off" spellcheck="false" aria-describedby="selection-status feedback" />
+              <button class="run" id="run" type="button">Run formula</button>
+            </div>
+            <div class="quick-functions" aria-label="Cell selection help">
+              <div class="selection-status active" id="selection-status" role="status" aria-live="polite">Cell selection is always on. Type your formula, then choose cells on the worksheet to insert their references.</div>
+            </div>
+            <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+            <div class="hint" id="hint"></div>
+          </section>
+
+          <footer class="controls">
+            <div class="controls-left">
+              <button class="btn" id="hint-btn" type="button">Show hint</button>
+              <button class="btn" id="exit-levels" type="button">Exit to levels</button>
+            </div>
+            <div class="controls-right">
+              <button class="btn" id="prev" type="button">Previous</button>
+              <button class="btn primary" id="next" type="button">Next challenge</button>
+            </div>
+          </footer>
+        </div>
+
+        <section class="completion" id="completion">
+          <div class="completion-mark">✓</div>
+          <h2 id="completion-title">Basic assessment complete.</h2>
+          <p id="completion-copy">You handled the four core summary functions and calculated unit cost with a direct cell formula.</p>
+          <div class="completion-actions">
+            <a class="btn" href="https://excelwitheddie.com/contact/">Contact</a>
+            <a class="btn" href="https://excelwitheddie.com/">Return to home</a>
+            <button class="btn" id="restart" type="button">Retake quiz</button>
+            <a class="btn primary" href="https://excelwitheddie.com/book/">Book a session</a>
+          </div>
+        </section>
+      </article>
+    </section>
+  </main>
+
+<script>
+(function(){
+  'use strict';
+  var salesRows = [
+    ['Rep','Region','Product','Quantity','Total'],
+    ['Maya','East','Keyboard',18,1440],
+    ['Liam','West','Monitor',7,2100],
+    ['Noah','East','Mouse',24,720],
+    ['Ava','South','Keyboard',12,960],
+    ['Maya','East','Monitor',5,1500],
+    ['Liam','West','Mouse',30,900],
+    ['Zoe','South','Monitor',4,1200],
+    ['Noah','East','Keyboard',10,800]
+  ];
+  var unitRows = [
+    ['Product','Quantity','Total','Unit Cost'],
+    ['Keyboard',18,1440,''],
+    ['Monitor',7,2100,''],
+    ['Mouse',24,720,''],
+    ['Keyboard',12,960,'']
+  ];
+  var ratingRows = [
+    ['Rep','Score','Rating'],
+    ['Maya',92,''],
+    ['Liam',81,''],
+    ['Noah',68,''],
+    ['Ava',88,'']
+  ];
+  var lookupRows = [
+    ['Find SKU','Result','','SKU','Product','Unit Price'],
+    ['M-200','','','K-100','Keyboard',80],
+    ['','','','M-200','Monitor',300],
+    ['','','','M-300','Mouse',30],
+    ['','','','W-400','Webcam',120]
+  ];
+  var tiers = {
+    basic:{
+      name:'Basic',
+      questions:[
+        {title:'Add the grand total',label:'SUM',copy:'Write a formula that adds every value in the <code>Total</code> column.',expected:9620,answers:['=SUM(E2:E9)'],hint:'Use <code>SUM</code> with the complete Total range: start at E2 and end at E9.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Find the average quantity',label:'AVERAGE',copy:'Return the average of all values in the <code>Quantity</code> column.',expected:13.75,answers:['=AVERAGE(D2:D9)'],hint:'Use <code>AVERAGE</code> with D2:D9.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Find the smallest total',label:'MIN',copy:'Return the smallest one-row value in the <code>Total</code> column.',expected:720,answers:['=MIN(E2:E9)'],hint:'Use <code>MIN</code> on E2:E9.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Find the biggest total',label:'MAX',copy:'Return the largest one-row value in the <code>Total</code> column.',expected:2100,answers:['=MAX(E2:E9)'],hint:'Use <code>MAX</code> on E2:E9.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Calculate unit cost',label:'Unit cost',copy:'In the highlighted cell in the new <code>Unit Cost</code> column, calculate that row\'s unit cost.',expected:80,answers:['=C2/B2'],hint:'Start with <code>=</code>, select C2, type <code>/</code>, then select B2. Your formula should read <code>=C2/B2</code>.',rows:unitRows,sheetName:'Unit_Cost_Practice',targetCell:'D2',selectionStyle:'single',placeholder:'=C2/B2'}
+      ],
+      solved:[false,false,false,false,false],attempts:[0,0,0,0,0],drafts:['','','','','']
+    },
+    intermediate:{
+      name:'Intermediate',
+      questions:[
+        {title:'Count the East region orders',label:'COUNTIF',copy:'How many rows belong to the <code>East</code> region? Count the matching values in the <code>Region</code> column.',expected:4,answers:['=COUNTIF(B2:B9,"EAST")'],hint:'Use <code>COUNTIF</code>. The first argument is B2:B9; the second is the text criterion “East”.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Total East region sales',label:'SUMIF',copy:'Add the values in the <code>Total</code> column only where the matching <code>Region</code> is <code>East</code>.',expected:4460,answers:['=SUMIF(B2:B9,"EAST",E2:E9)'],hint:'Use <code>SUMIF</code>: criteria range, criterion, then sum range.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Average the keyboard quantity',label:'AVERAGEIF',copy:'Find the average <code>Quantity</code> where the matching <code>Product</code> is <code>Keyboard</code>.',expected:13.333333333333334,answers:['=AVERAGEIF(C2:C9,"KEYBOARD",D2:D9)'],hint:'Use <code>AVERAGEIF</code>: C2:C9, “Keyboard”, then D2:D9.',rows:salesRows,sheetName:'Sales_Data'},
+        {title:'Use two conditions at once',label:'SUMIFS',copy:'Total the sales for rows that are both <code>East</code> and <code>Keyboard</code>.',expected:2240,answers:['=SUMIFS(E2:E9,B2:B9,"EAST",C2:C9,"KEYBOARD")','=SUMIFS(E2:E9,C2:C9,"KEYBOARD",B2:B9,"EAST")'],hint:'Use <code>SUMIFS</code>. Start with E2:E9, then add the Region range/criterion and Product range/criterion.',rows:salesRows,sheetName:'Sales_Data'}
+      ],
+      solved:[false,false,false,false],attempts:[0,0,0,0],drafts:['','','','']
+    },
+    advanced:{
+      name:'Advanced',
+      questions:[
+        {title:'Spill a unique product list',label:'UNIQUE',copy:'Return one of each item in the <code>Product</code> column. Your formula should spill the distinct product names automatically.',expected:['Keyboard','Monitor','Mouse'],answers:['=UNIQUE(C2:C9)'],hint:'Use <code>UNIQUE</code> with the full Product range, C2:C9. Excel will spill the results into neighboring cells.',rows:salesRows,sheetName:'Sales_Data',placeholder:'=UNIQUE(C2:C9)'},
+        {title:'Count distinct sales reps',label:'COUNTA(UNIQUE)',copy:'How many different names appear in the <code>Rep</code> column?',expected:5,answers:['=COUNTA(UNIQUE(A2:A9))'],hint:'First create the distinct list with <code>UNIQUE(A2:A9)</code>, then wrap that formula in <code>COUNTA</code>.',rows:salesRows,sheetName:'Sales_Data',placeholder:'=COUNTA(UNIQUE(A2:A9))'},
+        {title:'Filter to East products',label:'FILTER',copy:'Return the values in the <code>Product</code> column only for rows where <code>Region</code> equals <code>East</code>.',expected:['Keyboard','Mouse','Monitor','Keyboard'],answers:['=FILTER(C2:C9,B2:B9="EAST")'],hint:'Use <code>FILTER(array, include)</code>. The array is C2:C9, and the include test is <code>B2:B9="East"</code>.',rows:salesRows,sheetName:'Sales_Data',placeholder:'=FILTER(C2:C9,B2:B9="East")'},
+        {title:'Classify a score with nested IF',label:'Nested IF',copy:'In the highlighted cell, return <code>Excellent</code> for scores 90 or higher, <code>Good</code> for scores 75 or higher, and <code>Needs work</code> for everything else.',expected:'Excellent',answers:['=IF(B2>=90,"EXCELLENT",IF(B2>=75,"GOOD","NEEDS WORK"))'],hint:'Test the highest threshold first: <code>IF(B2&gt;=90,"Excellent",IF(B2&gt;=75,"Good","Needs work"))</code>.',rows:ratingRows,sheetName:'Score_Ratings',targetCell:'C2',selectionStyle:'single',placeholder:'=IF(B2>=90,"Excellent",IF(B2>=75,"Good","Needs work"))'},
+        {title:'Look up a unit price',label:'XLOOKUP',copy:'In the highlighted result cell, find the value from <code>Find SKU</code> in the <code>SKU</code> column and return its matching <code>Unit Price</code>.',expected:300,answers:['=XLOOKUP(A2,D2:D5,F2:F5)'],hint:'Use <code>XLOOKUP(lookup_value, lookup_array, return_array)</code>: A2, then D2:D5, then F2:F5.',rows:lookupRows,sheetName:'Price_Lookup',targetCell:'B2',placeholder:'=XLOOKUP(A2,D2:D5,F2:F5)'}
+      ],
+      solved:[false,false,false,false,false],attempts:[0,0,0,0,0],drafts:['','','','','']
+    }
+  };
+  var currentTier='basic', current=0, levelSelectMode=true, pendingTier=null, tierDialogTrigger=null;
+  var tierDialog=document.getElementById('tier-dialog');
+  var tierDialogTitle=document.getElementById('tier-dialog-title');
+  var tierDialogCopy=document.getElementById('tier-dialog-copy');
+  var tierDialogKicker=document.getElementById('tier-dialog-kicker');
+  var formula=document.getElementById('formula');
+  var feedback=document.getElementById('feedback');
+  var hint=document.getElementById('hint');
+  var completion=document.getElementById('completion');
+  var quizView=document.getElementById('quiz-view');
+  var workspace=document.getElementById('workspace');
+  var sheet=document.getElementById('sheet');
+  var selectionStatus=document.getElementById('selection-status');
+  var selectionMode=true, selectionAnchor=null, selectionEnd=null, pointerDown=false, dragged=false, completingTap=false, savedCaret=0;
+
+  function state(){return tiers[currentTier];}
+  function questions(){return state().questions;}
+  function question(){return questions()[current];}
+  function rows(){return question().rows;}
+  function columnIndex(letter){return letter.toUpperCase().charCodeAt(0)-65;}
+  function columnLetter(index){return String.fromCharCode(65+index);}
+  function getCell(ref){
+    var m=/^\$?([A-Z])\$?([1-9][0-9]*)$/i.exec(ref.trim());
+    if(!m) throw new Error('Use a worksheet cell reference.');
+    var r=Number(m[2])-1,c=columnIndex(m[1]),data=rows();
+    if(r<0||r>=data.length||c<0||c>=data[0].length) throw new Error('That cell is outside this worksheet.');
+    return data[r][c];
+  }
+  function getRange(ref){
+    var m=/^\$?([A-Z])\$?([1-9][0-9]*):\$?([A-Z])\$?([1-9][0-9]*)$/i.exec(ref.trim());
+    if(!m) return [getCell(ref)];
+    var c1=columnIndex(m[1]),r1=Number(m[2])-1,c2=columnIndex(m[3]),r2=Number(m[4])-1,result=[],data=rows();
+    if(Math.max(c1,c2)>=data[0].length||Math.max(r1,r2)>=data.length) throw new Error('That range is outside this worksheet.');
+    for(var r=Math.min(r1,r2);r<=Math.max(r1,r2);r++) for(var c=Math.min(c1,c2);c<=Math.max(c1,c2);c++) result.push(data[r][c]);
+    return result;
+  }
+  function splitArgs(text){
+    var args=[],start=0,quote=null,depth=0;
+    for(var i=0;i<text.length;i++){
+      var ch=text[i];
+      if(quote){if(ch===quote&&text[i-1]!=='\\') quote=null;}
+      else if(ch==='"'||ch==="'") quote=ch;
+      else if(ch==='(') depth++;
+      else if(ch===')') depth--;
+      else if(ch===','&&depth===0){args.push(text.slice(start,i).trim());start=i+1;}
+    }
+    args.push(text.slice(start).trim());return args;
+  }
+  function scalar(token){
+    token=token.trim();
+    if(/^(\"|').*\1$/.test(token)) return token.slice(1,-1);
+    if(!isNaN(Number(token))&&token!=='') return Number(token);
+    if(/^\$?[A-Z]\$?[1-9][0-9]*$/i.test(token)) return getCell(token);
+    throw new Error('I could not read “'+token+'”. Text criteria need quotation marks.');
+  }
+  function matches(value,criterion){
+    if(typeof criterion==='number') return Number(value)===criterion;
+    var s=String(criterion),opMatch=/^(<=|>=|<>|=|<|>)(.*)$/.exec(s);
+    if(opMatch){
+      var rhs=isNaN(Number(opMatch[2]))?opMatch[2]:Number(opMatch[2]);
+      if(opMatch[1]==='<=') return value<=rhs;
+      if(opMatch[1]==='>=') return value>=rhs;
+      if(opMatch[1]==='<>') return String(value).toLowerCase()!==String(rhs).toLowerCase();
+      if(opMatch[1]==='<') return value<rhs;
+      if(opMatch[1]==='>') return value>rhs;
+      return String(value).toLowerCase()===String(rhs).toLowerCase();
+    }
+    return String(value).toLowerCase()===s.toLowerCase();
+  }
+  function nums(range){return range.filter(function(v){return typeof v==='number'&&isFinite(v);});}
+  function refParts(ref){var m=/^([A-Z])([1-9][0-9]*)$/.exec(ref);return {c:columnIndex(m[1]),r:Number(m[2])};}
+  function normalizedRange(start,end){
+    var a=refParts(start),b=refParts(end),first=columnLetter(Math.min(a.c,b.c))+Math.min(a.r,b.r),last=columnLetter(Math.max(a.c,b.c))+Math.max(a.r,b.r);
+    return first===last?first:first+':'+last;
+  }
+  function clearRangeHighlight(){sheet.querySelectorAll('.range-selected,.range-anchor').forEach(function(cell){cell.classList.remove('range-selected','range-anchor');});}
+  function paintRange(start,end){
+    clearRangeHighlight();if(!start)return;
+    var a=refParts(start),b=refParts(end||start);
+    sheet.querySelectorAll('[data-ref]').forEach(function(cell){var p=refParts(cell.getAttribute('data-ref'));if(p.c>=Math.min(a.c,b.c)&&p.c<=Math.max(a.c,b.c)&&p.r>=Math.min(a.r,b.r)&&p.r<=Math.max(a.r,b.r))cell.classList.add('range-selected');});
+    var anchorCell=sheet.querySelector('[data-ref="'+start+'"]');if(anchorCell)anchorCell.classList.add('range-anchor');
+  }
+  function resetSelection(message){
+    selectionMode=true;sheet.classList.add('selecting');
+    sheet.querySelectorAll('[data-ref]').forEach(function(cell){cell.tabIndex=0;});selectionStatus.classList.add('active');
+    var single=question().selectionStyle==='single';
+    selectionStatus.textContent=message||(single?'Type your formula, then choose a cell to insert its reference.':'Type your formula, then choose the first and last cells of a range. You can also drag across the range.');
+    selectionAnchor=null;selectionEnd=null;clearRangeHighlight();savedCaret=formula.selectionStart==null?formula.value.length:formula.selectionStart;
+  }
+  function insertSelectedRange(){
+    if(!selectionAnchor)return;
+    var ref=normalizedRange(selectionAnchor,selectionEnd||selectionAnchor),start=Math.max(0,Math.min(savedCaret,formula.value.length)),end=start,before=formula.value.slice(0,start),after=formula.value.slice(start);
+    var left=/\$?[A-Z]\$?[1-9][0-9]*(?::\$?[A-Z]\$?[1-9][0-9]*)?$/i.exec(before),right=/^\$?[A-Z]\$?[1-9][0-9]*(?::\$?[A-Z]\$?[1-9][0-9]*)?/i.exec(after);
+    if(left&&right){start-=left[0].length;end+=right[0].length;}else if(left)start-=left[0].length;else if(right)end+=right[0].length;
+    formula.value=formula.value.slice(0,start)+ref+formula.value.slice(end);savedCaret=start+ref.length;paintRange(selectionAnchor,selectionEnd||selectionAnchor);selectionAnchor=null;selectionEnd=null;
+    selectionStatus.textContent='Inserted '+ref+'. Selection stays on—move the cursor or choose another cell.';formula.focus();formula.setSelectionRange(savedCaret,savedCaret);state().drafts[current]=formula.value;
+  }
+  function handleCellStart(cell,e){
+    if(!selectionMode)return;if(e)e.preventDefault();var ref=cell.getAttribute('data-ref'),single=question().selectionStyle==='single',hadAnchor=!!selectionAnchor;
+    pointerDown=true;dragged=false;completingTap=hadAnchor;
+    if(single){selectionAnchor=ref;selectionEnd=ref;completingTap=true;}
+    else{if(!hadAnchor)selectionAnchor=ref;selectionEnd=ref;}
+    paintRange(selectionAnchor,selectionEnd);selectionStatus.textContent=single?'Release to insert '+ref+'.':(hadAnchor?'Release to use '+normalizedRange(selectionAnchor,selectionEnd)+'.':'Now choose the last cell, or drag to it.');
+  }
+  function uniqueValues(values){
+    var seen={};return values.filter(function(value){var key=typeof value+'|'+String(value).toLowerCase();if(seen[key])return false;seen[key]=true;return true;});
+  }
+  function compareValues(left,operator,right){
+    var a=typeof left==='string'?left.toLowerCase():left,b=typeof right==='string'?right.toLowerCase():right;
+    if(operator==='=')return a===b;if(operator==='<>')return a!==b;if(operator==='>=')return a>=b;if(operator==='<=')return a<=b;if(operator==='>')return a>b;return a<b;
+  }
+  function parseComparison(text){
+    var m=/^(.+?)\s*(>=|<=|<>|=|>|<)\s*(.+)$/.exec(text.trim());if(!m)throw new Error('Use a comparison such as B2:B9="East".');return {left:m[1].trim(),operator:m[2],right:m[3].trim()};
+  }
+  function evaluateAdvancedExpression(text){
+    text=text.trim();
+    if(/^("|').*\1$/.test(text)||(!isNaN(Number(text))&&text!=='')||/^\$?[A-Z]\$?[1-9][0-9]*$/i.test(text))return scalar(text);
+    var match=/^([A-Z]+)\s*\((.*)\)$/i.exec(text);if(!match)throw new Error('Check the function name, parentheses, and commas.');
+    var fn=match[1].toUpperCase(),a=splitArgs(match[2]),values,lookupRange,returnRange,index,comparison;
+    if(fn==='UNIQUE'){if(a.length!==1)throw new Error('UNIQUE needs one range.');return uniqueValues(getRange(a[0]));}
+    if(fn==='COUNTA'){if(a.length!==1)throw new Error('COUNTA needs one value or range.');values=evaluateAdvancedExpression(a[0]);if(!Array.isArray(values))values=[values];return values.filter(function(v){return v!==''&&v!=null;}).length;}
+    if(fn==='FILTER'){
+      if(a.length!==2)throw new Error('FILTER needs an array and an include test.');values=getRange(a[0]);comparison=parseComparison(a[1]);lookupRange=getRange(comparison.left);if(values.length!==lookupRange.length)throw new Error('The FILTER array and include range must be the same size.');var right=scalar(comparison.right);return values.filter(function(v,i){return compareValues(lookupRange[i],comparison.operator,right);});
+    }
+    if(fn==='IF'){
+      if(a.length!==3)throw new Error('IF needs a test, value if true, and value if false.');comparison=parseComparison(a[0]);var left=scalar(comparison.left),testRight=scalar(comparison.right);return evaluateAdvancedExpression(compareValues(left,comparison.operator,testRight)?a[1]:a[2]);
+    }
+    if(fn==='XLOOKUP'){
+      if(a.length!==3)throw new Error('XLOOKUP needs a lookup value, lookup array, and return array.');var lookup=scalar(a[0]);lookupRange=getRange(a[1]);returnRange=getRange(a[2]);if(lookupRange.length!==returnRange.length)throw new Error('The lookup and return arrays must be the same size.');index=lookupRange.findIndex(function(v){return String(v).toLowerCase()===String(lookup).toLowerCase();});if(index<0)throw new Error('That lookup value was not found.');return returnRange[index];
+    }
+    throw new Error(fn+' is not supported in this level.');
+  }
+  function evaluate(input){
+    var text=input.trim();if(text.charAt(0)!=='=')throw new Error('Excel formulas start with an equals sign.');text=text.slice(1).trim();
+    var arithmetic=/^(\$?[A-Z]\$?[1-9][0-9]*)\s*([\/\*\+\-])\s*(\$?[A-Z]\$?[1-9][0-9]*)$/i.exec(text);
+    if(arithmetic){
+      var left=Number(getCell(arithmetic[1])),right=Number(getCell(arithmetic[3]));if(!isFinite(left)||!isFinite(right))throw new Error('Both referenced cells need numbers.');
+      if(arithmetic[2]==='/'&&right===0)throw new Error('Excel cannot divide by zero.');
+      if(arithmetic[2]==='/')return left/right;if(arithmetic[2]==='*')return left*right;if(arithmetic[2]==='+')return left+right;return left-right;
+    }
+    var match=/^([A-Z]+)\s*\((.*)\)$/i.exec(text);if(!match)throw new Error('Use a supported function or a cell calculation like =C2/B2.');
+    var fn=match[1].toUpperCase(),a=splitArgs(match[2]),r,i,total,filtered;
+    if(fn==='UNIQUE'||fn==='FILTER'||fn==='IF'||fn==='XLOOKUP'||(fn==='COUNTA'&&/^UNIQUE\s*\(/i.test(a[0])))return evaluateAdvancedExpression(text);
+    if(fn==='SUM'||fn==='AVERAGE'||fn==='MAX'||fn==='MIN'||fn==='COUNT'||fn==='COUNTA'){
+      if(a.length!==1)throw new Error(fn+' needs one range in this lesson.');r=getRange(a[0]);if(fn==='COUNTA')return r.filter(function(v){return v!==''&&v!=null;}).length;
+      r=nums(r);if(!r.length)throw new Error('That range has no numbers.');if(fn==='SUM')return r.reduce(function(x,y){return x+y;},0);if(fn==='AVERAGE')return r.reduce(function(x,y){return x+y;},0)/r.length;if(fn==='MAX')return Math.max.apply(Math,r);if(fn==='MIN')return Math.min.apply(Math,r);return r.length;
+    }
+    if(fn==='COUNTIF'){if(a.length!==2)throw new Error('COUNTIF needs a range and one criterion.');r=getRange(a[0]);var crit=scalar(a[1]);return r.filter(function(v){return matches(v,crit);}).length;}
+    if(fn==='SUMIF'||fn==='AVERAGEIF'){
+      if(a.length!==3)throw new Error(fn+' needs a criteria range, criterion, and value range.');var cr=getRange(a[0]),criterion=scalar(a[1]),vr=getRange(a[2]);if(cr.length!==vr.length)throw new Error('The criteria and value ranges must be the same size.');
+      filtered=nums(vr.filter(function(v,idx){return matches(cr[idx],criterion);}));if(!filtered.length)throw new Error('No rows matched that criterion.');total=filtered.reduce(function(x,y){return x+y;},0);return fn==='SUMIF'?total:total/filtered.length;
+    }
+    if(fn==='SUMIFS'){
+      if(a.length<3||a.length%2===0)throw new Error('SUMIFS starts with a sum range, followed by range/criterion pairs.');var sr=getRange(a[0]),mask=sr.map(function(){return true;});
+      for(i=1;i<a.length;i+=2){var testRange=getRange(a[i]),testCrit=scalar(a[i+1]);if(testRange.length!==sr.length)throw new Error('Every SUMIFS range must be the same size.');mask=mask.map(function(ok,idx){return ok&&matches(testRange[idx],testCrit);});}
+      return sr.reduce(function(sum,v,idx){return sum+(mask[idx]&&typeof v==='number'?v:0);},0);
+    }
+    throw new Error(fn+' is not supported in this level. Check the requested function and your formula.');
+  }
+  function formatResult(value){if(Array.isArray(value))return value.map(formatResult).join(', ');if(typeof value==='string')return value;if(Number.isInteger(value))return value.toLocaleString('en-US');return value.toLocaleString('en-US',{maximumFractionDigits:2});}
+  function resultMatches(actual,expected){if(Array.isArray(actual)||Array.isArray(expected)){if(!Array.isArray(actual)||!Array.isArray(expected)||actual.length!==expected.length)return false;return actual.every(function(value,i){return String(value).toLowerCase()===String(expected[i]).toLowerCase();});}if(typeof actual==='string'||typeof expected==='string')return String(actual).toLowerCase()===String(expected).toLowerCase();return Math.abs(actual-expected)<0.000001;}
+  function normalizeFormula(text){return text.toUpperCase().replace(/\$/g,'').replace(/'/g,'"').replace(/\s+/g,'');}
+  function formulaMatches(q,text){var candidate=normalizeFormula(text);return q.answers.some(function(answer){return normalizeFormula(answer)===candidate;});}
+  function showFeedback(type,title,message){feedback.className='feedback show '+type;feedback.innerHTML='<div class="feedback-icon">'+(type==='good'?'✓':type==='bad'?'×':'!')+'</div><div><strong>'+title+'</strong><p>'+message+'</p></div>';}
+  function renderSheet(){
+    var q=question(),data=q.rows,cols=data[0].length;sheet.innerHTML='';sheet.style.setProperty('--data-cols',cols);document.getElementById('sheet-name').textContent=q.sheetName;document.getElementById('sheet-range').textContent='Cells A1:'+columnLetter(cols-1)+data.length;
+    var letters=document.createElement('div');letters.className='sheet-row letters';letters.setAttribute('role','row');letters.innerHTML='<div class="cell"></div>';for(var c=0;c<cols;c++)letters.innerHTML+='<div class="cell">'+columnLetter(c)+'</div>';sheet.appendChild(letters);
+    data.forEach(function(row,r){var line=document.createElement('div');line.className='sheet-row';line.setAttribute('role','row');line.innerHTML='<div class="cell rownum">'+(r+1)+'</div>';
+      row.forEach(function(value,c){var ref=columnLetter(c)+(r+1),cell=document.createElement('div');cell.className='cell'+(r===0?' header-cell':'')+(typeof value==='number'?' right':'');cell.setAttribute('data-ref',ref);cell.setAttribute('role','cell');cell.tabIndex=selectionMode?0:-1;
+        if(q.targetCell===ref){cell.classList.add('target-cell');if(state().solved[current])value=formatResult(q.expected);}cell.textContent=value;line.appendChild(cell);});sheet.appendChild(line);});
+  }
+  function check(){
+    selectionAnchor=null;selectionEnd=null;clearRangeHighlight();state().attempts[current]++;state().drafts[current]=formula.value;var result;
+    try{result=evaluate(formula.value);}catch(err){showFeedback('neutral','Formula needs a fix',err.message);return;}
+    if(resultMatches(result,question().expected)&&formulaMatches(question(),formula.value)){state().solved[current]=true;showFeedback('good','Correct — '+formatResult(result),'That formula uses the requested function and range. Challenge '+(current+1)+' is complete.');renderSheet();renderNav();updateScore();document.getElementById('next').focus();}
+    else if(resultMatches(result,question().expected))showFeedback('neutral','Right result, different method','That result is correct, but this challenge checks the requested function and range. Use the prompt or hint, then run it again.');
+    else showFeedback('bad','Not quite — your result is '+formatResult(result),'The formula ran, but it does not answer this challenge yet. Check the range and criteria, then try again.');
+  }
+  function renderNav(){
+    var list=document.getElementById('lesson-list');list.innerHTML='';questions().forEach(function(q,i){var li=document.createElement('li'),b=document.createElement('button');b.className='lesson-btn'+(i===current?' active':'');b.type='button';b.setAttribute('aria-current',i===current?'step':'false');b.innerHTML='<span class="num">'+(i+1)+'</span><span class="label">'+q.label+'</span><span class="state">'+(state().solved[i]?'✓':'')+'</span>';b.addEventListener('click',function(){go(i);});li.appendChild(b);list.appendChild(li);});
+  }
+  function updateScore(){
+    var score=state().solved.filter(Boolean).length,total=questions().length;document.getElementById('score').textContent=score;document.getElementById('score-total').textContent=total;document.getElementById('progress-bar').style.width=(score/total*100)+'%';document.getElementById('score-note').textContent=score===0?'Start with the first formula.':score===total?'Every challenge complete.':(total-score)+' challenge'+(total-score===1?'':'s')+' left.';
+  }
+  function renderTier(){
+    document.querySelectorAll('.tier-btn').forEach(function(btn){var active=!levelSelectMode&&btn.getAttribute('data-tier')===currentTier;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',active?'true':'false');});
+    document.getElementById('eyebrow').textContent=levelSelectMode?'Formula Lab · Choose a level':'Formula Lab · '+state().name+' assessment';var descriptions={basic:'Five essential Excel challenges. Type each formula yourself, select cells right on the sample worksheet, and get instant feedback—no workbook required.',intermediate:'Four criteria-based challenges for users ready to move beyond the essentials.',advanced:'Five advanced formula challenges built around dynamic arrays, nested logic, and modern lookups.'};document.getElementById('lede').textContent=levelSelectMode?'Choose Basic, Intermediate, or Advanced to start a fresh assessment.':descriptions[currentTier];
+    updateScore();
+  }
+  function go(index){
+    current=Math.max(0,Math.min(questions().length-1,index));state().drafts[current]='';quizView.style.display='block';completion.className='completion';selectionAnchor=null;selectionEnd=null;clearRangeHighlight();var q=question();
+    document.getElementById('task-count').textContent=state().name+' · Challenge '+(current+1)+' of '+questions().length;document.getElementById('task-title').textContent=q.title;document.getElementById('task-copy').innerHTML=q.copy;formula.value='';formula.removeAttribute('placeholder');savedCaret=0;
+    feedback.className='feedback';feedback.innerHTML='';hint.className='hint';hint.innerHTML=q.hint;document.getElementById('hint-btn').textContent='Show hint';document.getElementById('prev').disabled=current===0;document.getElementById('next').textContent=current===questions().length-1?'Finish '+state().name:'Next challenge';renderSheet();resetSelection();renderNav();
+    window.scrollTo({top:document.querySelector('.workspace').offsetTop-12,behavior:'smooth'});
+  }
+  function resetTierProgress(tier){
+    tier.solved=tier.solved.map(function(){return false;});tier.attempts=tier.attempts.map(function(){return 0;});tier.drafts=tier.drafts.map(function(){return '';});
+  }
+  function exitToLevels(){
+    resetTierProgress(state());current=0;levelSelectMode=true;quizView.style.display='block';completion.className='completion';workspace.hidden=true;renderTier();
+    var levelButton=document.querySelector('.tier-btn[data-tier="'+currentTier+'"]');if(levelButton)levelButton.focus();
+    window.scrollTo({top:document.querySelector('.tier-tabs').offsetTop-12,behavior:'smooth'});
+  }
+  function openTierDialog(name,trigger){
+    var details={
+      basic:{title:'Basic Quiz',kicker:'Basic · 5 challenges',copy:'5 challenges on the essentials: adding values up, averaging, finding minimums and maximums, and calculating new values from your data. Start here if you\'re building your foundation.'},
+      intermediate:{title:'Intermediate Quiz',kicker:'Intermediate · 4 challenges',copy:'4 challenges with conditional formulas: counting and summing only the rows that meet your criteria. For when the basics are easy and you want real-world power.'},
+      advanced:{title:'Advanced Quiz',kicker:'Advanced · 5 challenges',copy:'5 challenges with modern Excel: pulling unique values, filtering data dynamically, multi-condition logic, and lookups. The pro level.'}
+    };
+    pendingTier=name;tierDialogTrigger=trigger;var detail=details[name];tierDialogTitle.textContent=detail.title;tierDialogKicker.textContent=detail.kicker;tierDialogCopy.textContent=detail.copy;tierDialog.showModal();document.getElementById('tier-dialog-start').focus();
+  }
+  function closeTierDialog(){tierDialog.close();pendingTier=null;if(tierDialogTrigger)tierDialogTrigger.focus();tierDialogTrigger=null;}
+  function startPendingTier(){
+    if(!pendingTier)return;var name=pendingTier;tierDialog.close();pendingTier=null;tierDialogTrigger=null;
+    if(!levelSelectMode&&name!==currentTier)state().drafts[current]=formula.value;
+    currentTier=name;current=0;levelSelectMode=false;workspace.hidden=false;renderTier();go(0);
+  }
+  function next(){
+    if(current<questions().length-1){go(current+1);return;}
+    if(!state().solved.every(Boolean)){var done=state().solved.filter(Boolean).length;showFeedback('neutral','Complete all '+questions().length+' challenges','You have solved '+done+' of '+questions().length+'. Use the challenge list to return to anything unfinished.');return;}
+    quizView.style.display='none';completion.className='completion show';var completionCopy={basic:'You handled the four core summary functions and calculated unit cost with a direct cell formula.',intermediate:'You used criteria, averages, and multiple conditions—the core moves behind a lot of real reporting work.',advanced:'You built dynamic arrays, nested logic, and a modern lookup—the formula toolkit behind serious Excel models.'};document.getElementById('completion-title').textContent=state().name+' assessment complete.';document.getElementById('completion-copy').textContent=completionCopy[currentTier];
+  }
+  document.getElementById('run').addEventListener('click',check);
+  formula.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();check();}});
+  document.getElementById('hint-btn').addEventListener('click',function(){var visible=hint.classList.toggle('show');this.textContent=visible?'Hide hint':'Show hint';});
+  document.getElementById('prev').addEventListener('click',function(){go(current-1);});document.getElementById('next').addEventListener('click',next);
+  document.getElementById('exit-levels').addEventListener('click',exitToLevels);
+  document.getElementById('restart').addEventListener('click',function(){resetTierProgress(state());current=0;renderTier();go(0);});
+  document.querySelectorAll('.tier-btn').forEach(function(btn){btn.addEventListener('click',function(){openTierDialog(this.getAttribute('data-tier'),this);});});
+  document.getElementById('tier-dialog-start').addEventListener('click',startPendingTier);
+  document.getElementById('tier-dialog-return').addEventListener('click',closeTierDialog);
+  tierDialog.addEventListener('cancel',function(e){e.preventDefault();});
+  ['click','keyup','input','select'].forEach(function(eventName){formula.addEventListener(eventName,function(){if(formula.selectionStart!=null)savedCaret=formula.selectionStart;});});
+  sheet.addEventListener('pointerdown',function(e){var cell=e.target.closest('[data-ref]');if(cell)handleCellStart(cell,e);});
+  sheet.addEventListener('pointerover',function(e){if(!selectionMode||!pointerDown)return;var cell=e.target.closest('[data-ref]');if(!cell)return;var ref=cell.getAttribute('data-ref');if(ref!==selectionEnd){dragged=true;selectionEnd=ref;paintRange(selectionAnchor,selectionEnd);selectionStatus.textContent='Release to use '+normalizedRange(selectionAnchor,selectionEnd)+'.';}});
+  document.addEventListener('pointerup',function(){if(!selectionMode||!pointerDown)return;pointerDown=false;if(dragged||completingTap||question().selectionStyle==='single')insertSelectedRange();});
+  sheet.addEventListener('keydown',function(e){var cell=e.target.closest('[data-ref]');if(!cell||!selectionMode)return;if(e.key==='Enter'||e.key===' '){e.preventDefault();handleCellStart(cell);pointerDown=false;if(completingTap||question().selectionStyle==='single')insertSelectedRange();}else if(e.key==='Escape'){selectionAnchor=null;selectionEnd=null;clearRangeHighlight();selectionStatus.textContent='Selection cleared. Type your formula, then choose worksheet cells to insert their references.';formula.focus();}});
+  workspace.hidden=true;
+  renderTier();
+})();
+</script>
+</body>
+</html>
