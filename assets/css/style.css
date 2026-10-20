@@ -1192,3 +1192,10 @@ transform:translateY(0);
   color: #ffffff !important;
   transform: translateY(-2px);
 }
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
