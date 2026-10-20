@@ -1199,3 +1199,20 @@ transform:translateY(0);
   flex-wrap: wrap;
   gap: 14px;
 }
+/* Footer social icons */
+.footer-social .social-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%)
+          invert(48%) sepia(19%)
+          saturate(1025%) hue-rotate(147deg)
+          brightness(94%) contrast(89%);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.footer-social a:hover .social-icon {
+  filter: brightness(0) invert(1);
+  transform: translateY(-3px);
+}
