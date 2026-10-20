@@ -180,6 +180,14 @@ body_class: home
   <h2>What Clients Say</h2>
 
   <div class="reviews-widget">
-    <div class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529" data-elfsight-app-lazy></div>
+
+    <!-- Elfsight Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+
+    <div
+      class="elfsight-app-f1aaf65c-4f3d-4936-9233-0eaa36919529"
+      data-elfsight-app-lazy>
+    </div>
+
   </div>
 </section>
